@@ -1,0 +1,182 @@
+@prefix PATO: <http://purl.obolibrary.org/obo/PATO_> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dp_nbl_forecast: <https://w3id.org/Netbeheer-Nederland/dp-nbl-forecast/> .
+@prefix linkml: <https://w3id.org/linkml/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dp_nbl_forecast:IdentifiedObjectCollection a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "IdentifiedObjectCollection" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty dp_nbl_forecast:entries ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom dp_nbl_forecast:IdentifiedObject ;
+            owl:onProperty dp_nbl_forecast:entries ] ;
+    skos:definition "A holder for IdentifiedObject objects" ;
+    skos:inScheme <https://w3id.org/Netbeheer-Nederland/dp-nbl-forecast> .
+
+dp_nbl_forecast:IdentifiedObject a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "IdentifiedObject" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Date ;
+            owl:onProperty dp_nbl_forecast:birth_date ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty dp_nbl_forecast:age_in_years ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a rdfs:Datatype ;
+                    owl:onDatatype xsd:string ;
+                    owl:withRestrictions ( [ xsd:pattern "^\\S+@[\\S+\\.]+\\S+" ] ) ] ;
+            owl:onProperty dp_nbl_forecast:primary_email ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty dp_nbl_forecast:age_in_years ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty dp_nbl_forecast:vital_status ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom dp_nbl_forecast:PersonStatus ;
+            owl:onProperty dp_nbl_forecast:vital_status ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty dp_nbl_forecast:vital_status ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty dp_nbl_forecast:birth_date ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Integer ;
+            owl:onProperty dp_nbl_forecast:age_in_years ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty dp_nbl_forecast:primary_email ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty dp_nbl_forecast:primary_email ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty dp_nbl_forecast:birth_date ],
+        dp_nbl_forecast:NamedThing ;
+    skos:definition "Represents a IdentifiedObject" ;
+    skos:inScheme <https://w3id.org/Netbeheer-Nederland/dp-nbl-forecast> .
+
+dp_nbl_forecast:NamedThing a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "NamedThing" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty dp_nbl_forecast:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty dp_nbl_forecast:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty dp_nbl_forecast:description ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty dp_nbl_forecast:name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty dp_nbl_forecast:id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty dp_nbl_forecast:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty dp_nbl_forecast:description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty dp_nbl_forecast:id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty dp_nbl_forecast:description ] ;
+    skos:definition "A generic grouping for any identifiable entity" ;
+    skos:exactMatch schema1:Thing ;
+    skos:inScheme <https://w3id.org/Netbeheer-Nederland/dp-nbl-forecast> .
+
+PATO:0001421 a owl:Class,
+        dp_nbl_forecast:PersonStatus ;
+    rdfs:label "ALIVE" ;
+    rdfs:subClassOf dp_nbl_forecast:PersonStatus .
+
+PATO:0001422 a owl:Class,
+        dp_nbl_forecast:PersonStatus ;
+    rdfs:label "DEAD" ;
+    rdfs:subClassOf dp_nbl_forecast:PersonStatus .
+
+<https://w3id.org/Netbeheer-Nederland/dp-nbl-forecast/PersonStatus#UNKNOWN> a owl:Class,
+        dp_nbl_forecast:PersonStatus ;
+    rdfs:label "UNKNOWN" ;
+    rdfs:subClassOf dp_nbl_forecast:PersonStatus .
+
+dp_nbl_forecast:entries a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "entries" ;
+    skos:inScheme <https://w3id.org/Netbeheer-Nederland/dp-nbl-forecast> .
+
+dp_nbl_forecast:age_in_years a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "age_in_years" ;
+    rdfs:range linkml:Integer ;
+    skos:definition "Number of years since birth" ;
+    skos:inScheme <https://w3id.org/Netbeheer-Nederland/dp-nbl-forecast> .
+
+dp_nbl_forecast:birth_date a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "birth_date" ;
+    rdfs:range linkml:Date ;
+    skos:definition "Date on which a person is born" ;
+    skos:inScheme <https://w3id.org/Netbeheer-Nederland/dp-nbl-forecast> .
+
+dp_nbl_forecast:description a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "description" ;
+    skos:definition "A human-readable description for a thing" ;
+    skos:inScheme <https://w3id.org/Netbeheer-Nederland/dp-nbl-forecast> .
+
+dp_nbl_forecast:id a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "id" ;
+    rdfs:range linkml:Uriorcurie ;
+    skos:definition "A unique identifier for a thing" ;
+    skos:inScheme <https://w3id.org/Netbeheer-Nederland/dp-nbl-forecast> .
+
+dp_nbl_forecast:name a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "name" ;
+    skos:definition "A human-readable name for a thing" ;
+    skos:inScheme <https://w3id.org/Netbeheer-Nederland/dp-nbl-forecast> .
+
+dp_nbl_forecast:primary_email a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "primary_email" ;
+    skos:definition "The main email address of a person" ;
+    skos:inScheme <https://w3id.org/Netbeheer-Nederland/dp-nbl-forecast> .
+
+dp_nbl_forecast:vital_status a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "vital_status" ;
+    rdfs:range dp_nbl_forecast:PersonStatus ;
+    skos:definition "living or dead status" ;
+    skos:inScheme <https://w3id.org/Netbeheer-Nederland/dp-nbl-forecast> .
+
+dp_nbl_forecast:PersonStatus a owl:Class,
+        linkml:EnumDefinition ;
+    owl:unionOf ( PATO:0001421 PATO:0001422 <https://w3id.org/Netbeheer-Nederland/dp-nbl-forecast/PersonStatus#UNKNOWN> ) ;
+    linkml:permissible_values PATO:0001421,
+        PATO:0001422,
+        <https://w3id.org/Netbeheer-Nederland/dp-nbl-forecast/PersonStatus#UNKNOWN> .
+
+<https://w3id.org/Netbeheer-Nederland/dp-nbl-forecast> a owl:Ontology ;
+    rdfs:label "dp-nbl-forecast" ;
+    dcterms:license "Apache Software License 2.0" ;
+    dcterms:title "dp-nbl-forecast" ;
+    rdfs:seeAlso <https://Netbeheer-Nederland.github.io/dp-nbl-forecast> ;
+    skos:definition "Information model for data product forecast for Netbewust Laden." .
+
