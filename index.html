@@ -24,6 +24,10 @@
         
         <link rel="stylesheet" href="assets/stylesheets/palette.2505c338.min.css">
         
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
       
       
 
@@ -38,6 +42,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="assets/style.css">
     
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -54,7 +60,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue">
   
     
     
@@ -64,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dp-nbl-forecast" class="md-skip">
+        <a href="#information-model-for-dataproduct-forecast-for-netbewust-laden" class="md-skip">
           Skip to content
         </a>
       
@@ -80,8 +86,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="." title="dp-nbl-forecast" class="md-header__button md-logo" aria-label="dp-nbl-forecast" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="assets/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -178,8 +183,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="." title="dp-nbl-forecast" class="md-nav__button md-logo" aria-label="dp-nbl-forecast" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="assets/logo.svg" alt="logo">
 
     </a>
     dp-nbl-forecast
@@ -292,7 +296,7 @@
   
     <li class="md-nav__item">
       <a href="about/" class="md-nav__link">
-        About
+        Conceptual Model
       </a>
     </li>
   
@@ -379,9 +383,8 @@
   </a>
 
 
-<h1 id="dp-nbl-forecast">dp-nbl-forecast</h1>
-<p>Information model for data product forecast for Netbewust Laden.</p>
-<p>URI: https://w3id.org/Netbeheer-Nederland/dp-nbl-forecast</p>
+<h1 id="information-model-for-dataproduct-forecast-for-netbewust-laden">Information model for dataproduct forecast for Netbewust laden.</h1>
+<p>URI: http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0</p>
 <p>Name: dp-nbl-forecast</p>
 <h2 id="classes">Classes</h2>
 <table>
@@ -393,16 +396,20 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="IdentifiedObjectCollection/">IdentifiedObjectCollection</a></td>
-<td>A holder for IdentifiedObject objects</td>
+<td><a href="IdentifiedObject/">IdentifiedObject</a></td>
+<td>This is a root class to provide common identification for all classes needing...</td>
 </tr>
 <tr>
-<td><a href="NamedThing/">NamedThing</a></td>
-<td>A generic grouping for any identifiable entity</td>
+<td><a href="Name/">Name</a></td>
+<td>The Name class provides the means to define any number of human readable  nam...</td>
 </tr>
 <tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="IdentifiedObject/">IdentifiedObject</a></td>
-<td>Represents a IdentifiedObject</td>
+<td><a href="NameType/">NameType</a></td>
+<td>Type of name</td>
+</tr>
+<tr>
+<td><a href="NameTypeAuthority/">NameTypeAuthority</a></td>
+<td>Authority responsible for creation and management of names of a given type; t...</td>
 </tr>
 </tbody>
 </table>
@@ -416,36 +423,44 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="age_in_years/">age_in_years</a></td>
-<td>Number of years since birth</td>
-</tr>
-<tr>
-<td><a href="birth_date/">birth_date</a></td>
-<td>Date on which a person is born</td>
+<td><a href="alias_name/">alias_name</a></td>
+<td>The aliasName is free text human readable name of the object alternative to I...</td>
 </tr>
 <tr>
 <td><a href="description/">description</a></td>
-<td>A human-readable description for a thing</td>
+<td>The description is a free human readable text describing or naming the object</td>
 </tr>
 <tr>
-<td><a href="entries/">entries</a></td>
-<td></td>
+<td><a href="energy_ident_code_eic/">energy_ident_code_eic</a></td>
+<td>The attribute is used for an exchange of the EIC code (Energy identification ...</td>
 </tr>
 <tr>
-<td><a href="id/">id</a></td>
-<td>A unique identifier for a thing</td>
+<td><a href="european_article_number_ean/">european_article_number_ean</a></td>
+<td>The attribute is used for an exchange of the EAN code (European Article Numbe...</td>
 </tr>
 <tr>
-<td><a href="name/">name</a></td>
-<td>A human-readable name for a thing</td>
+<td><a href="identified_object/">identified_object</a></td>
+<td>Identified object that this name designates</td>
 </tr>
 <tr>
-<td><a href="primary_email/">primary_email</a></td>
-<td>The main email address of a person</td>
+<td><a href="m_rid/">m_rid</a></td>
+<td>Master resource identifier issued by a model authority</td>
 </tr>
 <tr>
-<td><a href="vital_status/">vital_status</a></td>
-<td>living or dead status</td>
+<td><a href="name_type/">name_type</a></td>
+<td>Type of this name</td>
+</tr>
+<tr>
+<td><a href="name_type_authority/">name_type_authority</a></td>
+<td>Authority responsible for managing names of this type</td>
+</tr>
+<tr>
+<td><a href="name_types/">name_types</a></td>
+<td>All name types managed by this authority</td>
+</tr>
+<tr>
+<td><a href="names/">names</a></td>
+<td>All names of this identified object</td>
 </tr>
 </tbody>
 </table>
@@ -459,7 +474,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="PersonStatus/">PersonStatus</a></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -589,13 +604,13 @@
       
       
         
-        <a href="about/" class="md-footer__link md-footer__link--next" aria-label="Next: About" rel="next">
+        <a href="about/" class="md-footer__link md-footer__link--next" aria-label="Next: Conceptual Model" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              About
+              Conceptual Model
             </div>
           </div>
           <div class="md-footer__button md-icon">
