@@ -1,5 +1,5 @@
 name: dp-nbl-forecast
-title: Information model for dataproduct forecast for Netbewust laden.
+title: Information model for data product forecast for Netbewust laden.
 id: http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0
 imports:
 - linkml:types
