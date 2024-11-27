@@ -1,5 +1,5 @@
-name: dp-nbl-forecast
-title: Information model for data product forecast for Netbewust laden.
+name: TC57CIM
+title: TC57CIM
 id: http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0
 imports:
 - linkml:types
@@ -7,61 +7,395 @@ prefixes:
   linkml: https://w3id.org/linkml/
   github: https://github.com/
   cim: https://cim.ucaiug.io/ns#
-  eu: http://iec.ch/TC57/CIM100-European#
-  nl: http://iec.ch/TC57/CIM100-Netherlands#
-  this: http://data.netbeheernederland.nl/dp-nbl-forecast/def#
-  cims: http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#
-  dc: http://purl.org/dc/elements/1.1/
   dcat: http://www.w3.org/ns/dcat#
   dct: http://purl.org/dc/terms/
-  owl: http://www.w3.org/2002/07/owl#
-  profcim: http://iec.ch/TC57/ns/CIM/prof-cim#
-  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
-  rdfs: http://www.w3.org/2000/01/rdf-schema#
-  sh: http://www.w3.org/ns/shacl#
-  skos: http://www.w3.org/2004/02/skos/core#
-  xsd: http://www.w3.org/2001/XMLSchema#
-  eq: http://iec.ch/TC57/ns/CIM/CoreEquipment-EU#
-  op: http://iec.ch/TC57/ns/CIM/Operation-EU#
-  gl: http://iec.ch/TC57/ns/CIM/GeographicalLocation-EU#
+  nbnl: https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/
+  this: http://data.netbeheernederland.nl/dp-nbl-forecast/def#
 default_curi_maps:
 - semweb_context
-default_prefix: this
+default_prefix: cim
 default_range: string
 enums:
-  AmiBillingReadyKind:
-    description: "Lifecycle states of the metering installation at a usage point with\
-      \ respect to readiness for billing via advanced metering infrastructure reads.\r\
-      \n"
+  UnitMultiplier:
+    description: "The unit multipliers defined for the CIM.  When applied to unit\
+      \ symbols, the unit symbol is treated as a derived unit. Regardless of the contents\
+      \ of the unit symbol text, the unit symbol shall be treated as if it were a\
+      \ single-character unit symbol. Unit symbols should not contain multipliers,\
+      \ and it should be left to the multiplier to define the multiple for an entire\
+      \ data type. \r\n\r\nFor example, if a unit symbol is \"m2Pers\" and the multiplier\
+      \ is \"k\", then the value is k(m**2/s), and the multiplier applies to the entire\
+      \ final value, not to any individual part of the value. This can be conceptualized\
+      \ by substituting a derived unit symbol for the unit type. If one imagines that\
+      \ the symbol \"\xDE\" represents the derived unit \"m2Pers\", then applying\
+      \ the multiplier \"k\" can be conceptualized simply as \"k\xDE\".\r\n\r\nFor\
+      \ example, the SI unit for mass is \"kg\" and not \"g\".  If the unit symbol\
+      \ is defined as \"kg\", then the multiplier is applied to \"kg\" as a whole\
+      \ and does not replace the \"k\" in front of the \"g\". In this case, the multiplier\
+      \ of \"m\" would be used with the unit symbol of \"kg\" to represent one gram.\
+      \  As a text string, this violates the instructions in IEC 80000-1. However,\
+      \ because the unit symbol in CIM is treated as a derived unit instead of as\
+      \ an SI unit, it makes more sense to conceptualize the \"kg\" as if it were\
+      \ replaced by one of the proposed replacements for the SI mass symbol. If one\
+      \ imagines that the \"kg\" were replaced by a symbol \"\xDE\", then it is easier\
+      \ to conceptualize the multiplier \"m\" as creating the proper unit \"m\xDE\"\
+      , and not the forbidden unit \"mkg\"."
     from_schema: https://cim.ucaiug.io/ns#TC57CIM
-    enum_uri: cim:AmiBillingReadyKind
+    enum_uri: cim:UnitMultiplier
     permissible_values:
-      amiCapable:
-        meaning: cim:AmiBillingReadyKind.amiCapable
-      amiDisabled:
-        meaning: cim:AmiBillingReadyKind.amiDisabled
-      billingApproved:
-        meaning: cim:AmiBillingReadyKind.billingApproved
-      enabled:
-        meaning: cim:AmiBillingReadyKind.enabled
-      nonAmi:
-        meaning: cim:AmiBillingReadyKind.nonAmi
-      nonMetered:
-        meaning: cim:AmiBillingReadyKind.nonMetered
-      operable:
-        meaning: cim:AmiBillingReadyKind.operable
-  UsagePointConnectedKind:
-    description: "State of the usage point with respect to connection to the network.\r\
-      \n"
+      a:
+        meaning: cim:UnitMultiplier.a
+      c:
+        meaning: cim:UnitMultiplier.c
+      d:
+        meaning: cim:UnitMultiplier.d
+      da:
+        meaning: cim:UnitMultiplier.da
+      E:
+        meaning: cim:UnitMultiplier.E
+      f:
+        meaning: cim:UnitMultiplier.f
+      G:
+        meaning: cim:UnitMultiplier.G
+      h:
+        meaning: cim:UnitMultiplier.h
+      k:
+        meaning: cim:UnitMultiplier.k
+      m:
+        meaning: cim:UnitMultiplier.m
+      M:
+        meaning: cim:UnitMultiplier.M
+      micro:
+        meaning: cim:UnitMultiplier.micro
+      n:
+        meaning: cim:UnitMultiplier.n
+      none:
+        meaning: cim:UnitMultiplier.none
+      p:
+        meaning: cim:UnitMultiplier.p
+      P:
+        meaning: cim:UnitMultiplier.P
+      T:
+        meaning: cim:UnitMultiplier.T
+      y:
+        meaning: cim:UnitMultiplier.y
+      Y:
+        meaning: cim:UnitMultiplier.Y
+      z:
+        meaning: cim:UnitMultiplier.z
+      Z:
+        meaning: cim:UnitMultiplier.Z
+  UnitSymbol:
+    description: "The derived units defined for usage in the CIM. In some cases, the\
+      \ derived unit is equal to an SI unit. Whenever possible, the standard derived\
+      \ symbol is used instead of the formula for the derived unit. For example, the\
+      \ unit symbol Farad is defined as \"F\" instead of \"CPerV\". In cases where\
+      \ a standard symbol does not exist for a derived unit, the formula for the unit\
+      \ is used as the unit symbol. For example, density does not have a standard\
+      \ symbol and so it is represented as \"kgPerm3\". With the exception of the\
+      \ \"kg\", which is an SI unit, the unit symbols do not contain multipliers and\
+      \ therefore represent the base derived unit to which a multiplier can be applied\
+      \ as a whole. \r\nEvery unit symbol is treated as an unparseable text as if\
+      \ it were a single-letter symbol. The meaning of each unit symbol is defined\
+      \ by the accompanying descriptive text and not by the text contents of the unit\
+      \ symbol.\r\nTo allow the widest possible range of serializations without requiring\
+      \ special character handling, several substitutions are made which deviate from\
+      \ the format described in IEC 80000-1. The division symbol \"/\" is replaced\
+      \ by the letters \"Per\". Exponents are written in plain text after the unit\
+      \ as \"m3\" instead of being formatted as \"m\" with a superscript of 3  or\
+      \ introducing a symbol as in \"m^3\". The degree symbol \"\xB0\" is replaced\
+      \ with the letters \"deg\". Any clarification of the meaning for a substitution\
+      \ is included in the description for the unit symbol.\r\nNon-SI units are included\
+      \ in list of unit symbols to allow sources of data to be correctly labelled\
+      \ with their non-SI units (for example, a GPS sensor that is reporting numbers\
+      \ that represent feet instead of meters). This allows software to use the unit\
+      \ symbol information correctly convert and scale the raw data of those sources\
+      \ into SI-based units. \r\nThe integer values are used for harmonization with\
+      \ IEC 61850."
     from_schema: https://cim.ucaiug.io/ns#TC57CIM
-    enum_uri: cim:UsagePointConnectedKind
+    enum_uri: cim:UnitSymbol
     permissible_values:
-      connected:
-        meaning: cim:UsagePointConnectedKind.connected
-      logicallyDisconnected:
-        meaning: cim:UsagePointConnectedKind.logicallyDisconnected
-      physicallyDisconnected:
-        meaning: cim:UsagePointConnectedKind.physicallyDisconnected
+      A:
+        meaning: cim:UnitSymbol.A
+      A2:
+        meaning: cim:UnitSymbol.A2
+      A2h:
+        meaning: cim:UnitSymbol.A2h
+      A2s:
+        meaning: cim:UnitSymbol.A2s
+      Ah:
+        meaning: cim:UnitSymbol.Ah
+      anglemin:
+        meaning: cim:UnitSymbol.anglemin
+      anglesec:
+        meaning: cim:UnitSymbol.anglesec
+      APerA:
+        meaning: cim:UnitSymbol.APerA
+      APerm:
+        meaning: cim:UnitSymbol.APerm
+      As:
+        meaning: cim:UnitSymbol.As
+      bar:
+        meaning: cim:UnitSymbol.bar
+      Bq:
+        meaning: cim:UnitSymbol.Bq
+      Btu:
+        meaning: cim:UnitSymbol.Btu
+      C:
+        meaning: cim:UnitSymbol.C
+      cd:
+        meaning: cim:UnitSymbol.cd
+      character:
+        meaning: cim:UnitSymbol.character
+      charPers:
+        meaning: cim:UnitSymbol.charPers
+      cosPhi:
+        meaning: cim:UnitSymbol.cosPhi
+      count:
+        meaning: cim:UnitSymbol.count
+      CPerkg:
+        meaning: cim:UnitSymbol.CPerkg
+      CPerm2:
+        meaning: cim:UnitSymbol.CPerm2
+      CPerm3:
+        meaning: cim:UnitSymbol.CPerm3
+      d:
+        meaning: cim:UnitSymbol.d
+      dB:
+        meaning: cim:UnitSymbol.dB
+      dBm:
+        meaning: cim:UnitSymbol.dBm
+      deg:
+        meaning: cim:UnitSymbol.deg
+      degC:
+        meaning: cim:UnitSymbol.degC
+      F:
+        meaning: cim:UnitSymbol.F
+      FPerm:
+        meaning: cim:UnitSymbol.FPerm
+      ft3:
+        meaning: cim:UnitSymbol.ft3
+      G:
+        meaning: cim:UnitSymbol.G
+      gal:
+        meaning: cim:UnitSymbol.gal
+      gPerg:
+        meaning: cim:UnitSymbol.gPerg
+      Gy:
+        meaning: cim:UnitSymbol.Gy
+      GyPers:
+        meaning: cim:UnitSymbol.GyPers
+      H:
+        meaning: cim:UnitSymbol.H
+      h:
+        meaning: cim:UnitSymbol.h
+      ha:
+        meaning: cim:UnitSymbol.ha
+      HPerm:
+        meaning: cim:UnitSymbol.HPerm
+      Hz:
+        meaning: cim:UnitSymbol.Hz
+      HzPerHz:
+        meaning: cim:UnitSymbol.HzPerHz
+      HzPers:
+        meaning: cim:UnitSymbol.HzPers
+      J:
+        meaning: cim:UnitSymbol.J
+      JPerK:
+        meaning: cim:UnitSymbol.JPerK
+      JPerkg:
+        meaning: cim:UnitSymbol.JPerkg
+      JPerkgK:
+        meaning: cim:UnitSymbol.JPerkgK
+      JPerm2:
+        meaning: cim:UnitSymbol.JPerm2
+      JPerm3:
+        meaning: cim:UnitSymbol.JPerm3
+      JPermol:
+        meaning: cim:UnitSymbol.JPermol
+      JPermolK:
+        meaning: cim:UnitSymbol.JPermolK
+      JPers:
+        meaning: cim:UnitSymbol.JPers
+      K:
+        meaning: cim:UnitSymbol.K
+      kat:
+        meaning: cim:UnitSymbol.kat
+      katPerm3:
+        meaning: cim:UnitSymbol.katPerm3
+      kg:
+        meaning: cim:UnitSymbol.kg
+      kgm:
+        meaning: cim:UnitSymbol.kgm
+      kgm2:
+        meaning: cim:UnitSymbol.kgm2
+      kgPerJ:
+        meaning: cim:UnitSymbol.kgPerJ
+      kgPerm3:
+        meaning: cim:UnitSymbol.kgPerm3
+      kn:
+        meaning: cim:UnitSymbol.kn
+      KPers:
+        meaning: cim:UnitSymbol.KPers
+      l:
+        meaning: cim:UnitSymbol.l
+      lm:
+        meaning: cim:UnitSymbol.lm
+      lPerh:
+        meaning: cim:UnitSymbol.lPerh
+      lPerl:
+        meaning: cim:UnitSymbol.lPerl
+      lPers:
+        meaning: cim:UnitSymbol.lPers
+      lx:
+        meaning: cim:UnitSymbol.lx
+      m:
+        meaning: cim:UnitSymbol.m
+      M:
+        meaning: cim:UnitSymbol.M
+      m2:
+        meaning: cim:UnitSymbol.m2
+      m2Pers:
+        meaning: cim:UnitSymbol.m2Pers
+      m3:
+        meaning: cim:UnitSymbol.m3
+      m3Compensated:
+        meaning: cim:UnitSymbol.m3Compensated
+      m3Perh:
+        meaning: cim:UnitSymbol.m3Perh
+      m3Perkg:
+        meaning: cim:UnitSymbol.m3Perkg
+      m3Pers:
+        meaning: cim:UnitSymbol.m3Pers
+      m3Uncompensated:
+        meaning: cim:UnitSymbol.m3Uncompensated
+      min:
+        meaning: cim:UnitSymbol.min
+      mmHg:
+        meaning: cim:UnitSymbol.mmHg
+      mol:
+        meaning: cim:UnitSymbol.mol
+      molPerkg:
+        meaning: cim:UnitSymbol.molPerkg
+      molPerm3:
+        meaning: cim:UnitSymbol.molPerm3
+      molPermol:
+        meaning: cim:UnitSymbol.molPermol
+      mPerm3:
+        meaning: cim:UnitSymbol.mPerm3
+      mPers:
+        meaning: cim:UnitSymbol.mPers
+      mPers2:
+        meaning: cim:UnitSymbol.mPers2
+      Mx:
+        meaning: cim:UnitSymbol.Mx
+      N:
+        meaning: cim:UnitSymbol.N
+      Nm:
+        meaning: cim:UnitSymbol.Nm
+      none:
+        meaning: cim:UnitSymbol.none
+      NPerm:
+        meaning: cim:UnitSymbol.NPerm
+      Oe:
+        meaning: cim:UnitSymbol.Oe
+      ohm:
+        meaning: cim:UnitSymbol.ohm
+      ohmm:
+        meaning: cim:UnitSymbol.ohmm
+      ohmPerm:
+        meaning: cim:UnitSymbol.ohmPerm
+      onePerHz:
+        meaning: cim:UnitSymbol.onePerHz
+      onePerm:
+        meaning: cim:UnitSymbol.onePerm
+      Pa:
+        meaning: cim:UnitSymbol.Pa
+      PaPers:
+        meaning: cim:UnitSymbol.PaPers
+      Pas:
+        meaning: cim:UnitSymbol.Pas
+      ppm:
+        meaning: cim:UnitSymbol.ppm
+      Q:
+        meaning: cim:UnitSymbol.Q
+      Qh:
+        meaning: cim:UnitSymbol.Qh
+      rad:
+        meaning: cim:UnitSymbol.rad
+      radPers:
+        meaning: cim:UnitSymbol.radPers
+      radPers2:
+        meaning: cim:UnitSymbol.radPers2
+      rev:
+        meaning: cim:UnitSymbol.rev
+      rotPers:
+        meaning: cim:UnitSymbol.rotPers
+      s:
+        meaning: cim:UnitSymbol.s
+      S:
+        meaning: cim:UnitSymbol.S
+      SPerm:
+        meaning: cim:UnitSymbol.SPerm
+      sPers:
+        meaning: cim:UnitSymbol.sPers
+      sr:
+        meaning: cim:UnitSymbol.sr
+      Sv:
+        meaning: cim:UnitSymbol.Sv
+      T:
+        meaning: cim:UnitSymbol.T
+      therm:
+        meaning: cim:UnitSymbol.therm
+      tonne:
+        meaning: cim:UnitSymbol.tonne
+      V:
+        meaning: cim:UnitSymbol.V
+      V2:
+        meaning: cim:UnitSymbol.V2
+      V2h:
+        meaning: cim:UnitSymbol.V2h
+      VA:
+        meaning: cim:UnitSymbol.VA
+      VAh:
+        meaning: cim:UnitSymbol.VAh
+      VAr:
+        meaning: cim:UnitSymbol.VAr
+      VArh:
+        meaning: cim:UnitSymbol.VArh
+      Vh:
+        meaning: cim:UnitSymbol.Vh
+      VPerHz:
+        meaning: cim:UnitSymbol.VPerHz
+      VPerm:
+        meaning: cim:UnitSymbol.VPerm
+      VPerV:
+        meaning: cim:UnitSymbol.VPerV
+      VPerVA:
+        meaning: cim:UnitSymbol.VPerVA
+      VPerVAr:
+        meaning: cim:UnitSymbol.VPerVAr
+      Vs:
+        meaning: cim:UnitSymbol.Vs
+      W:
+        meaning: cim:UnitSymbol.W
+      Wb:
+        meaning: cim:UnitSymbol.Wb
+      Wh:
+        meaning: cim:UnitSymbol.Wh
+      WPerA:
+        meaning: cim:UnitSymbol.WPerA
+      WPerm2:
+        meaning: cim:UnitSymbol.WPerm2
+      WPerm2sr:
+        meaning: cim:UnitSymbol.WPerm2sr
+      WPermK:
+        meaning: cim:UnitSymbol.WPermK
+      WPers:
+        meaning: cim:UnitSymbol.WPers
+      WPersr:
+        meaning: cim:UnitSymbol.WPersr
+      WPerW:
+        meaning: cim:UnitSymbol.WPerW
   PhaseCode:
     description: "An unordered enumeration of phase identifiers.  Allows designation\
       \ of phases for both transmission and distribution equipment, circuits and loads.\
@@ -129,434 +463,110 @@ enums:
         meaning: cim:PhaseCode.XY
       XYN:
         meaning: cim:PhaseCode.XYN
-  UnitMultiplier:
-    from_schema: http://iec.ch/TC57/ns/CIM/Operation-EU#Package_OperationProfile
-    enum_uri: http://iec.ch/TC57/CIM100#UnitMultiplier
+  OperationalLimitDirectionKind:
+    description: The direction attribute describes the side of  a limit that is a
+      violation.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM
+    enum_uri: cim:OperationalLimitDirectionKind
     permissible_values:
-      y:
-        meaning: cim:UnitMultiplier.y
-      z:
-        meaning: cim:UnitMultiplier.z
-      a:
-        meaning: cim:UnitMultiplier.a
-      f:
-        meaning: cim:UnitMultiplier.f
-      p:
-        meaning: cim:UnitMultiplier.p
-      n:
-        meaning: cim:UnitMultiplier.n
-      micro:
-        meaning: cim:UnitMultiplier.micro
-      m:
-        meaning: cim:UnitMultiplier.m
-      c:
-        meaning: cim:UnitMultiplier.c
-      d:
-        meaning: cim:UnitMultiplier.d
-      none:
-        meaning: cim:UnitMultiplier.none
-      da:
-        meaning: cim:UnitMultiplier.da
-      h:
-        meaning: cim:UnitMultiplier.h
-      k:
-        meaning: cim:UnitMultiplier.k
-      M:
-        meaning: cim:UnitMultiplier.M
-      G:
-        meaning: cim:UnitMultiplier.G
-      T:
-        meaning: cim:UnitMultiplier.T
-      P:
-        meaning: cim:UnitMultiplier.P
-      E:
-        meaning: cim:UnitMultiplier.E
-      Z:
-        meaning: cim:UnitMultiplier.Z
-      Y:
-        meaning: cim:UnitMultiplier.Y
-  UnitSymbol:
-    from_schema: http://iec.ch/TC57/ns/CIM/Operation-EU#Package_OperationProfile
-    enum_uri: http://iec.ch/TC57/CIM100#UnitSymbol
+      absoluteValue:
+        meaning: cim:OperationalLimitDirectionKind.absoluteValue
+      high:
+        meaning: cim:OperationalLimitDirectionKind.high
+      low:
+        meaning: cim:OperationalLimitDirectionKind.low
+  AmiBillingReadyKind:
+    description: "Lifecycle states of the metering installation at a usage point with\
+      \ respect to readiness for billing via advanced metering infrastructure reads.\r\
+      \n"
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM
+    enum_uri: cim:AmiBillingReadyKind
     permissible_values:
-      none:
-        meaning: cim:UnitSymbol.none
-      m:
-        meaning: cim:UnitSymbol.m
-      kg:
-        meaning: cim:UnitSymbol.kg
-      s:
-        meaning: cim:UnitSymbol.s
+      amiCapable:
+        meaning: cim:AmiBillingReadyKind.amiCapable
+      amiDisabled:
+        meaning: cim:AmiBillingReadyKind.amiDisabled
+      billingApproved:
+        meaning: cim:AmiBillingReadyKind.billingApproved
+      enabled:
+        meaning: cim:AmiBillingReadyKind.enabled
+      nonAmi:
+        meaning: cim:AmiBillingReadyKind.nonAmi
+      nonMetered:
+        meaning: cim:AmiBillingReadyKind.nonMetered
+      operable:
+        meaning: cim:AmiBillingReadyKind.operable
+  UsagePointConnectedKind:
+    description: "State of the usage point with respect to connection to the network.\r\
+      \n"
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM
+    enum_uri: cim:UsagePointConnectedKind
+    permissible_values:
+      connected:
+        meaning: cim:UsagePointConnectedKind.connected
+      logicallyDisconnected:
+        meaning: cim:UsagePointConnectedKind.logicallyDisconnected
+      physicallyDisconnected:
+        meaning: cim:UsagePointConnectedKind.physicallyDisconnected
+  WindingConnection:
+    description: "Winding connection type.\r\n"
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM
+    enum_uri: cim:WindingConnection
+    permissible_values:
       A:
-        meaning: cim:UnitSymbol.A
-      K:
-        meaning: cim:UnitSymbol.K
-      mol:
-        meaning: cim:UnitSymbol.mol
-      cd:
-        meaning: cim:UnitSymbol.cd
-      deg:
-        meaning: cim:UnitSymbol.deg
-      rad:
-        meaning: cim:UnitSymbol.rad
-      sr:
-        meaning: cim:UnitSymbol.sr
-      Gy:
-        meaning: cim:UnitSymbol.Gy
-      Bq:
-        meaning: cim:UnitSymbol.Bq
-      degC:
-        meaning: cim:UnitSymbol.degC
-      Sv:
-        meaning: cim:UnitSymbol.Sv
-      F:
-        meaning: cim:UnitSymbol.F
-      C:
-        meaning: cim:UnitSymbol.C
-      S:
-        meaning: cim:UnitSymbol.S
-      H:
-        meaning: cim:UnitSymbol.H
-      V:
-        meaning: cim:UnitSymbol.V
-      ohm:
-        meaning: cim:UnitSymbol.ohm
-      J:
-        meaning: cim:UnitSymbol.J
-      N:
-        meaning: cim:UnitSymbol.N
-      Hz:
-        meaning: cim:UnitSymbol.Hz
-      lx:
-        meaning: cim:UnitSymbol.lx
-      lm:
-        meaning: cim:UnitSymbol.lm
-      Wb:
-        meaning: cim:UnitSymbol.Wb
-      T:
-        meaning: cim:UnitSymbol.T
-      W:
-        meaning: cim:UnitSymbol.W
-      Pa:
-        meaning: cim:UnitSymbol.Pa
-      m2:
-        meaning: cim:UnitSymbol.m2
-      m3:
-        meaning: cim:UnitSymbol.m3
-      mPers:
-        meaning: cim:UnitSymbol.mPers
-      mPers2:
-        meaning: cim:UnitSymbol.mPers2
-      m3Pers:
-        meaning: cim:UnitSymbol.m3Pers
-      mPerm3:
-        meaning: cim:UnitSymbol.mPerm3
-      kgm:
-        meaning: cim:UnitSymbol.kgm
-      kgPerm3:
-        meaning: cim:UnitSymbol.kgPerm3
-      m2Pers:
-        meaning: cim:UnitSymbol.m2Pers
-      WPermK:
-        meaning: cim:UnitSymbol.WPermK
-      JPerK:
-        meaning: cim:UnitSymbol.JPerK
-      ppm:
-        meaning: cim:UnitSymbol.ppm
-      rotPers:
-        meaning: cim:UnitSymbol.rotPers
-      radPers:
-        meaning: cim:UnitSymbol.radPers
-      WPerm2:
-        meaning: cim:UnitSymbol.WPerm2
-      JPerm2:
-        meaning: cim:UnitSymbol.JPerm2
-      SPerm:
-        meaning: cim:UnitSymbol.SPerm
-      KPers:
-        meaning: cim:UnitSymbol.KPers
-      PaPers:
-        meaning: cim:UnitSymbol.PaPers
-      JPerkgK:
-        meaning: cim:UnitSymbol.JPerkgK
-      VA:
-        meaning: cim:UnitSymbol.VA
-      VAr:
-        meaning: cim:UnitSymbol.VAr
-      cosPhi:
-        meaning: cim:UnitSymbol.cosPhi
-      Vs:
-        meaning: cim:UnitSymbol.Vs
-      V2:
-        meaning: cim:UnitSymbol.V2
-      As:
-        meaning: cim:UnitSymbol.As
-      A2:
-        meaning: cim:UnitSymbol.A2
-      A2s:
-        meaning: cim:UnitSymbol.A2s
-      VAh:
-        meaning: cim:UnitSymbol.VAh
-      Wh:
-        meaning: cim:UnitSymbol.Wh
-      VArh:
-        meaning: cim:UnitSymbol.VArh
-      VPerHz:
-        meaning: cim:UnitSymbol.VPerHz
-      HzPers:
-        meaning: cim:UnitSymbol.HzPers
-      character:
-        meaning: cim:UnitSymbol.character
-      charPers:
-        meaning: cim:UnitSymbol.charPers
-      kgm2:
-        meaning: cim:UnitSymbol.kgm2
-      dB:
-        meaning: cim:UnitSymbol.dB
-      WPers:
-        meaning: cim:UnitSymbol.WPers
-      lPers:
-        meaning: cim:UnitSymbol.lPers
-      dBm:
-        meaning: cim:UnitSymbol.dBm
-      h:
-        meaning: cim:UnitSymbol.h
-      min:
-        meaning: cim:UnitSymbol.min
-      Q:
-        meaning: cim:UnitSymbol.Q
-      Qh:
-        meaning: cim:UnitSymbol.Qh
-      ohmm:
-        meaning: cim:UnitSymbol.ohmm
-      APerm:
-        meaning: cim:UnitSymbol.APerm
-      V2h:
-        meaning: cim:UnitSymbol.V2h
-      A2h:
-        meaning: cim:UnitSymbol.A2h
-      Ah:
-        meaning: cim:UnitSymbol.Ah
-      count:
-        meaning: cim:UnitSymbol.count
-      ft3:
-        meaning: cim:UnitSymbol.ft3
-      m3Perh:
-        meaning: cim:UnitSymbol.m3Perh
-      gal:
-        meaning: cim:UnitSymbol.gal
-      Btu:
-        meaning: cim:UnitSymbol.Btu
-      l:
-        meaning: cim:UnitSymbol.l
-      lPerh:
-        meaning: cim:UnitSymbol.lPerh
-      lPerl:
-        meaning: cim:UnitSymbol.lPerl
-      gPerg:
-        meaning: cim:UnitSymbol.gPerg
-      molPerm3:
-        meaning: cim:UnitSymbol.molPerm3
-      molPermol:
-        meaning: cim:UnitSymbol.molPermol
-      molPerkg:
-        meaning: cim:UnitSymbol.molPerkg
-      sPers:
-        meaning: cim:UnitSymbol.sPers
-      HzPerHz:
-        meaning: cim:UnitSymbol.HzPerHz
-      VPerV:
-        meaning: cim:UnitSymbol.VPerV
-      APerA:
-        meaning: cim:UnitSymbol.APerA
-      VPerVA:
-        meaning: cim:UnitSymbol.VPerVA
-      rev:
-        meaning: cim:UnitSymbol.rev
-      kat:
-        meaning: cim:UnitSymbol.kat
-      JPerkg:
-        meaning: cim:UnitSymbol.JPerkg
-      m3Uncompensated:
-        meaning: cim:UnitSymbol.m3Uncompensated
-      m3Compensated:
-        meaning: cim:UnitSymbol.m3Compensated
-      WPerW:
-        meaning: cim:UnitSymbol.WPerW
-      therm:
-        meaning: cim:UnitSymbol.therm
-      onePerm:
-        meaning: cim:UnitSymbol.onePerm
-      m3Perkg:
-        meaning: cim:UnitSymbol.m3Perkg
-      Pas:
-        meaning: cim:UnitSymbol.Pas
-      Nm:
-        meaning: cim:UnitSymbol.Nm
-      NPerm:
-        meaning: cim:UnitSymbol.NPerm
-      radPers2:
-        meaning: cim:UnitSymbol.radPers2
-      JPerm3:
-        meaning: cim:UnitSymbol.JPerm3
-      VPerm:
-        meaning: cim:UnitSymbol.VPerm
-      CPerm3:
-        meaning: cim:UnitSymbol.CPerm3
-      CPerm2:
-        meaning: cim:UnitSymbol.CPerm2
-      FPerm:
-        meaning: cim:UnitSymbol.FPerm
-      HPerm:
-        meaning: cim:UnitSymbol.HPerm
-      JPermol:
-        meaning: cim:UnitSymbol.JPermol
-      JPermolK:
-        meaning: cim:UnitSymbol.JPermolK
-      CPerkg:
-        meaning: cim:UnitSymbol.CPerkg
-      GyPers:
-        meaning: cim:UnitSymbol.GyPers
-      WPersr:
-        meaning: cim:UnitSymbol.WPersr
-      WPerm2sr:
-        meaning: cim:UnitSymbol.WPerm2sr
-      katPerm3:
-        meaning: cim:UnitSymbol.katPerm3
-      d:
-        meaning: cim:UnitSymbol.d
-      anglemin:
-        meaning: cim:UnitSymbol.anglemin
-      anglesec:
-        meaning: cim:UnitSymbol.anglesec
-      ha:
-        meaning: cim:UnitSymbol.ha
-      tonne:
-        meaning: cim:UnitSymbol.tonne
-      bar:
-        meaning: cim:UnitSymbol.bar
-      mmHg:
-        meaning: cim:UnitSymbol.mmHg
-      M:
-        meaning: cim:UnitSymbol.M
-      kn:
-        meaning: cim:UnitSymbol.kn
-      Mx:
-        meaning: cim:UnitSymbol.Mx
+        meaning: cim:WindingConnection.A
+      D:
+        meaning: cim:WindingConnection.D
+      I:
+        meaning: cim:WindingConnection.I
+      Y:
+        meaning: cim:WindingConnection.Y
+      Yn:
+        meaning: cim:WindingConnection.Yn
+      Z:
+        meaning: cim:WindingConnection.Z
+      Zn:
+        meaning: cim:WindingConnection.Zn
+  YesNo:
+    description: Used as a flag set to Yes or No.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM
+    enum_uri: cim:YesNo
+    permissible_values:
+      'NO':
+        meaning: cim:YesNo.NO
+      'YES':
+        meaning: cim:YesNo.YES
+  ResourceRegistrationStatus:
+    description: "Types of resource registration status, for example:\r\n\r\nActive\r\
+      \nMothballed\r\nPlanned\r\nDecommissioned\r\n"
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM
+    enum_uri: cim:ResourceRegistrationStatus
+    permissible_values:
+      Active:
+        meaning: cim:ResourceRegistrationStatus.Active
+      Decommissioned:
+        meaning: cim:ResourceRegistrationStatus.Decommissioned
+      Mothballed:
+        meaning: cim:ResourceRegistrationStatus.Mothballed
+      Planned:
+        meaning: cim:ResourceRegistrationStatus.Planned
+  PhaseShuntConnectionKind:
+    description: The configuration of phase connections for a single terminal device
+      such as a load or capacitor.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM
+    enum_uri: cim:PhaseShuntConnectionKind
+    permissible_values:
+      D:
+        meaning: cim:PhaseShuntConnectionKind.D
       G:
-        meaning: cim:UnitSymbol.G
-      Oe:
-        meaning: cim:UnitSymbol.Oe
-      Vh:
-        meaning: cim:UnitSymbol.Vh
-      WPerA:
-        meaning: cim:UnitSymbol.WPerA
-      onePerHz:
-        meaning: cim:UnitSymbol.onePerHz
-      VPerVAr:
-        meaning: cim:UnitSymbol.VPerVAr
-      ohmPerm:
-        meaning: cim:UnitSymbol.ohmPerm
-      kgPerJ:
-        meaning: cim:UnitSymbol.kgPerJ
-      JPers:
-        meaning: cim:UnitSymbol.JPers
+        meaning: cim:PhaseShuntConnectionKind.G
+      I:
+        meaning: cim:PhaseShuntConnectionKind.I
+      Y:
+        meaning: cim:PhaseShuntConnectionKind.Y
+      Yn:
+        meaning: cim:PhaseShuntConnectionKind.Yn
 classes:
-  IdentifiedObject:
-    description: This is a root class to provide common identification for all classes
-      needing identification and naming attributes.
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
-    attributes:
-      alias_name:
-        description: "The aliasName is free text human readable name of the object\
-          \ alternative to IdentifiedObject.name. It may be non unique and may not\
-          \ correlate to a naming hierarchy.\r\nThe attribute aliasName is retained\
-          \ because of backwards compatibility between CIM relases. It is however\
-          \ recommended to replace aliasName with the Name class as aliasName is planned\
-          \ for retirement at a future time.\r\n\r\n"
-        slot_uri: cim:IdentifiedObject.aliasName
-        multivalued: false
-        range: string
-        required: false
-      description:
-        description: The description is a free human readable text describing or naming
-          the object. It may be non unique and may not correlate to a naming hierarchy.
-        slot_uri: cim:IdentifiedObject.description
-        multivalued: false
-        range: string
-        required: false
-      energy_ident_code_eic:
-        description: The attribute is used for an exchange of the EIC code (Energy
-          identification Code). The length of the string is 16 characters as defined
-          by the EIC code. For details on EIC scheme please refer to ENTSO-E web site.
-        slot_uri: eu:IdentifiedObject.energyIdentCodeEic
-        multivalued: false
-        range: string
-        required: false
-      european_article_number_ean:
-        description: The attribute is used for an exchange of the EAN code (European
-          Article Number). The length of the string is 16 characters as defined by
-          the EAN code. For details on EAN scheme please refer to the [Codebesluit
-          toekenning EAN-codes elektriciteit](https://www.acm.nl/nl/publicaties/codebesluit-toekenning-ean-codes-elektriciteit).
-        slot_uri: nl:IdentifiedObject.europeanArticleNumberEAN
-        multivalued: false
-        range: string
-        required: false
-      m_rid:
-        description: "Master resource identifier issued by a model authority. The\
-          \ mRID is unique within an exchange context. Global uniqueness is easily\
-          \ achieved by using a UUID, as specified in RFC 4122, for the mRID. The\
-          \ use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax\
-          \ conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about\
-          \ attributes that identify CIM object elements."
-        slot_uri: cim:IdentifiedObject.mRID
-        multivalued: false
-        range: string
-        required: false
-      names:
-        description: All names of this identified object.
-        slot_uri: cim:IdentifiedObject.Names
-        multivalued: true
-        range: Name
-        required: false
-      aliasName:
-        description: "The aliasName is free text human readable name of the object\
-          \ alternative to IdentifiedObject.name. It may be non unique and may not\
-          \ correlate to a naming hierarchy.\r\nThe attribute aliasName is retained\
-          \ because of backwards compatibility between CIM relases. It is however\
-          \ recommended to replace aliasName with the Name class as aliasName is planned\
-          \ for retirement at a future time.\r\n\r\n"
-        slot_uri: cim:IdentifiedObject.aliasName
-        multivalued: false
-        range: string
-        required: false
-      mRID:
-        description: "Master resource identifier issued by a model authority. The\
-          \ mRID is unique within an exchange context. Global uniqueness is easily\
-          \ achieved by using a UUID, as specified in RFC 4122, for the mRID. The\
-          \ use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax\
-          \ conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about\
-          \ attributes that identify CIM object elements."
-        slot_uri: cim:IdentifiedObject.mRID
-        multivalued: false
-        range: string
-        required: false
-      energyIdentCodeEic:
-        description: The attribute is used for an exchange of the EIC code (Energy
-          identification Code). The length of the string is 16 characters as defined
-          by the EIC code. For details on EIC scheme please refer to ENTSO-E web site.
-        slot_uri: eu:IdentifiedObject.energyIdentCodeEic
-        multivalued: false
-        range: string
-        required: false
-      shortName:
-        description: The attribute is used for an exchange of a human readable short
-          name with length of the string 12 characters maximum.
-        slot_uri: eu:IdentifiedObject.shortName
-        multivalued: false
-        range: string
-        required: false
-    class_uri: cim:IdentifiedObject
   Name:
     description: "The Name class provides the means to define any number of human\
       \ readable  names for an object. A name is <b>not</b> to be used for defining\
@@ -628,6 +638,815 @@ classes:
         range: NameType
         required: false
     class_uri: cim:NameTypeAuthority
+  IdentifiedObject:
+    description: This is a root class to provide common identification for all classes
+      needing identification and naming attributes.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
+    attributes:
+      description:
+        description: The description is a free human readable text describing or naming
+          the object. It may be non unique and may not correlate to a naming hierarchy.
+        slot_uri: cim:IdentifiedObject.description
+        multivalued: false
+        range: string
+        required: false
+      m_rid:
+        description: "Master resource identifier issued by a model authority. The\
+          \ mRID is unique within an exchange context. Global uniqueness is easily\
+          \ achieved by using a UUID, as specified in RFC 4122, for the mRID. The\
+          \ use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax\
+          \ conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about\
+          \ attributes that identify CIM object elements."
+        slot_uri: cim:IdentifiedObject.mRID
+        multivalued: false
+        range: string
+        required: false
+      names:
+        description: All names of this identified object.
+        slot_uri: cim:IdentifiedObject.Names
+        multivalued: true
+        range: Name
+        required: false
+    class_uri: cim:IdentifiedObject
+  EnergySource:
+    description: A generic equivalent for an energy supplier on a transmission or
+      distribution voltage level.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Wires
+    is_a: EnergyConnection
+    class_uri: cim:EnergySource
+  ActivePower:
+    annotations:
+      represents_cim_data_type:
+        tag: represents_cim_data_type
+        value: true
+    description: Product of RMS value of the voltage and the RMS value of the in-phase
+      component of the current.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Domain
+    attributes:
+      multiplier:
+        slot_uri: cim:ActivePower.multiplier
+        multivalued: false
+        range: UnitMultiplier
+        required: false
+      unit:
+        slot_uri: cim:ActivePower.unit
+        multivalued: false
+        range: UnitSymbol
+        required: false
+      value:
+        slot_uri: cim:ActivePower.value
+        multivalued: false
+        range: float
+        required: false
+    class_uri: cim:ActivePower
+  EnergyConnection:
+    description: A connection of energy generation or consumption on the power system
+      model.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Wires
+    is_a: ConductingEquipment
+    class_uri: cim:EnergyConnection
+  ConductingEquipment:
+    description: The parts of the AC power system that are designed to carry current
+      or that are conductively connected through terminals.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
+    is_a: Equipment
+    attributes:
+      terminals:
+        description: Conducting equipment have terminals that may be connected to
+          other conducting equipment terminals via connectivity nodes or topological
+          nodes.
+        slot_uri: cim:ConductingEquipment.Terminals
+        multivalued: true
+        range: Terminal
+        required: false
+    class_uri: cim:ConductingEquipment
+  Terminal:
+    description: An AC electrical connection point to a piece of conducting equipment.
+      Terminals are connected at physical connection points called connectivity nodes.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
+    is_a: ACDCTerminal
+    attributes:
+      topological_node:
+        description: The topological node associated with the terminal.   This can
+          be used as an alternative to the connectivity node path to topological node,
+          thus making it unnecessary to model connectivity nodes in some cases.   Note
+          that the if connectivity nodes are in the model, this association would
+          probably not be used as an input specification.
+        slot_uri: cim:Terminal.TopologicalNode
+        multivalued: false
+        range: TopologicalNode
+        required: false
+      connectivity_node:
+        description: The connectivity node to which this terminal connects with zero
+          impedance.
+        slot_uri: cim:Terminal.ConnectivityNode
+        multivalued: false
+        range: ConnectivityNode
+        required: false
+      conducting_equipment:
+        description: The conducting equipment of the terminal.  Conducting equipment
+          have  terminals that may be connected to other conducting equipment terminals
+          via connectivity nodes or topological nodes.
+        slot_uri: cim:Terminal.ConductingEquipment
+        multivalued: false
+        range: ConductingEquipment
+        required: true
+      transformer_end:
+        description: All transformer ends connected at this terminal.
+        slot_uri: cim:Terminal.TransformerEnd
+        multivalued: true
+        range: TransformerEnd
+        required: false
+    class_uri: cim:Terminal
+  TopologicalNode:
+    description: "For a detailed substation model a topological node is a set of connectivity\
+      \ nodes that, in the current network state, are connected together through any\
+      \ type of closed switches, including  jumpers. Topological nodes change as the\
+      \ current network state changes (i.e., switches, breakers, etc. change state).\r\
+      \nFor a planning model, switch statuses are not used to form topological nodes.\
+      \ Instead they are manually created or deleted in a model builder tool. Topological\
+      \ nodes maintained this way are also called \"busses\"."
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Topology
+    is_a: IdentifiedObject
+    attributes:
+      connectivity_nodes:
+        description: The connectivity nodes combine together to form this topological
+          node.  May depend on the current state of switches in the network.
+        slot_uri: cim:TopologicalNode.ConnectivityNodes
+        multivalued: true
+        range: ConnectivityNode
+        required: false
+      terminal:
+        description: The terminals associated with the topological node.   This can
+          be used as an alternative to the connectivity node path to terminal, thus
+          making it unnecessary to model connectivity nodes in some cases.   Note
+          that if connectivity nodes are in the model, this association would probably
+          not be used as an input specification.
+        slot_uri: cim:TopologicalNode.Terminal
+        multivalued: true
+        range: Terminal
+        required: false
+    class_uri: cim:TopologicalNode
+  ConnectivityNodeContainer:
+    description: "A base class for all objects that may contain connectivity nodes\
+      \ or topological nodes.\r\n"
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
+    is_a: PowerSystemResource
+    class_uri: cim:ConnectivityNodeContainer
+  ConnectivityNode:
+    description: Connectivity nodes are points where terminals of AC conducting equipment
+      are connected together with zero impedance.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
+    is_a: IdentifiedObject
+    attributes:
+      topological_node:
+        description: The topological node to which this connectivity node is assigned.  May
+          depend on the current state of switches in the network.
+        slot_uri: cim:ConnectivityNode.TopologicalNode
+        multivalued: false
+        range: TopologicalNode
+        required: false
+      terminals:
+        description: 'Terminals interconnected with zero impedance at a this connectivity
+          node. '
+        slot_uri: cim:ConnectivityNode.Terminals
+        multivalued: true
+        range: Terminal
+        required: false
+    class_uri: cim:ConnectivityNode
+  TransformerEnd:
+    description: A conducting connection point of a power transformer. It corresponds
+      to a physical transformer winding terminal.  In earlier CIM versions, the TransformerWinding
+      class served a similar purpose, but this class is more flexible because it associates
+      to terminal but is not a specialization of ConductingEquipment.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Wires
+    is_a: IdentifiedObject
+    attributes:
+      terminal:
+        description: Terminal of the power transformer to which this transformer end
+          belongs.
+        slot_uri: cim:TransformerEnd.Terminal
+        multivalued: false
+        range: Terminal
+        required: false
+    class_uri: cim:TransformerEnd
+  Equipment:
+    description: The parts of a power system that are physical devices, electronic
+      or mechanical.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
+    is_a: PowerSystemResource
+    attributes:
+      operational_limit_set:
+        description: The operational limit sets associated with this equipment.
+        slot_uri: cim:Equipment.OperationalLimitSet
+        multivalued: true
+        range: OperationalLimitSet
+        required: false
+      equipment_container:
+        description: Container of this equipment.
+        slot_uri: cim:Equipment.EquipmentContainer
+        multivalued: false
+        range: EquipmentContainer
+        required: false
+      usage_points:
+        description: All usage points connected to the electrical grid through this
+          equipment.
+        slot_uri: cim:Equipment.UsagePoints
+        multivalued: true
+        range: UsagePoint
+        required: false
+    class_uri: cim:Equipment
+  OperationalLimitSet:
+    description: "A set of limits associated with equipment.  Sets of limits might\
+      \ apply to a specific temperature, or season for example. A set of limits may\
+      \ contain different severities of limit levels that would apply to the same\
+      \ equipment. The set may contain limits of different types such as apparent\
+      \ power and current limits or high and low voltage limits  that are logically\
+      \ applied together as a set.\r\n"
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.OperationalLimits
+    is_a: IdentifiedObject
+    attributes:
+      terminal:
+        description: The terminal where the operational limit set apply.
+        slot_uri: cim:OperationalLimitSet.Terminal
+        multivalued: false
+        range: ACDCTerminal
+        required: false
+      operational_limit_value:
+        description: Values of equipment limits.
+        slot_uri: cim:OperationalLimitSet.OperationalLimitValue
+        multivalued: true
+        range: OperationalLimit
+        required: false
+    class_uri: cim:OperationalLimitSet
+  ACDCTerminal:
+    description: An electrical connection point (AC or DC) to a piece of conducting
+      equipment. Terminals are connected at physical connection points called connectivity
+      nodes.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
+    is_a: IdentifiedObject
+    attributes:
+      operational_limit_set:
+        description: The operational limit sets at the terminal.
+        slot_uri: cim:ACDCTerminal.OperationalLimitSet
+        multivalued: true
+        range: OperationalLimitSet
+        required: false
+      measurements:
+        description: Measurements associated with this terminal defining  where the
+          measurement is placed in the network topology.  It may be used, for instance,
+          to capture the sensor position, such as a voltage transformer (PT) at a
+          busbar or a current transformer (CT) at the bar between a breaker and an
+          isolator.
+        slot_uri: cim:ACDCTerminal.Measurements
+        multivalued: true
+        range: Measurement
+        required: false
+    class_uri: cim:ACDCTerminal
+  Measurement:
+    description: "A Measurement represents any measured, calculated or non-measured\
+      \ non-calculated quantity. Any piece of equipment may contain Measurements,\
+      \ e.g. a substation may have temperature measurements and door open indications,\
+      \ a transformer may have oil temperature and tank pressure measurements, a bay\
+      \ may contain a number of power flow measurements and a Breaker may contain\
+      \ a switch status measurement. \r\nThe PSR - Measurement association is intended\
+      \ to capture this use of Measurement and is included in the naming hierarchy\
+      \ based on EquipmentContainer. The naming hierarchy typically has Measurements\
+      \ as leaves, e.g. Substation-VoltageLevel-Bay-Switch-Measurement.\r\nSome Measurements\
+      \ represent quantities related to a particular sensor location in the network,\
+      \ e.g. a voltage transformer (VT) or potential transformer (PT) at a busbar\
+      \ or a current transformer (CT) at the bar between a breaker and an isolator.\
+      \ The sensing position is not captured in the PSR - Measurement association.\
+      \ Instead it is captured by the Measurement - Terminal association that is used\
+      \ to define the sensing location in the network topology. The location is defined\
+      \ by the connection of the Terminal to ConductingEquipment. \r\nIf both a Terminal\
+      \ and PSR are associated, and the PSR is of type ConductingEquipment, the associated\
+      \ Terminal should belong to that ConductingEquipment instance.\r\nWhen the sensor\
+      \ location is needed both Measurement-PSR and Measurement-Terminal are used."
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Meas
+    is_a: IdentifiedObject
+    attributes:
+      measurement_type:
+        description: "Specifies the type of measurement.  For example, this specifies\
+          \ if the measurement represents an indoor temperature, outdoor temperature,\
+          \ bus voltage, line flow, etc.\r\nWhen the measurementType is set to \"\
+          Specialization\", the type of Measurement is defined in more detail by the\
+          \ specialized class which inherits from Measurement.\r\n\r\n"
+        slot_uri: cim:Measurement.measurementType
+        multivalued: false
+        range: string
+        required: false
+      unit_multiplier:
+        description: The unit multiplier of the measured quantity.
+        slot_uri: cim:Measurement.unitMultiplier
+        multivalued: false
+        range: UnitMultiplier
+        required: false
+      unit_symbol:
+        description: The unit of measure of the measured quantity.
+        slot_uri: cim:Measurement.unitSymbol
+        multivalued: false
+        range: UnitSymbol
+        required: false
+      terminal:
+        description: One or more measurements may be associated with a terminal in
+          the network.
+        slot_uri: cim:Measurement.Terminal
+        multivalued: false
+        range: ACDCTerminal
+        required: false
+    class_uri: cim:Measurement
+  PowerSystemResource:
+    description: A power system resource (PSR) can be an item of equipment such as
+      a switch, an equipment container containing many individual items of equipment
+      such as a substation, or an organisational entity such as sub-control area.
+      Power system resources can have measurements associated.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
+    is_a: IdentifiedObject
+    attributes:
+      location:
+        description: Location of this power system resource.
+        slot_uri: cim:PowerSystemResource.Location
+        multivalued: false
+        range: Location
+        required: false
+    class_uri: cim:PowerSystemResource
+  Location:
+    description: "The place, scene, or point of something where someone or something\
+      \ has been, is, and/or will be at a given moment in time. It can be defined\
+      \ with one or more position points (coordinates) in a given coordinate system.\r\
+      \n"
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Common
+    is_a: IdentifiedObject
+    attributes:
+      main_address:
+        description: Main address of the location.
+        slot_uri: cim:Location.mainAddress
+        multivalued: false
+        range: StreetAddress
+        required: false
+      power_system_resources:
+        description: All power system resources at this location.
+        slot_uri: cim:Location.PowerSystemResources
+        multivalued: true
+        range: PowerSystemResource
+        required: false
+      coordinate_system:
+        description: Coordinate system used to describe position points of this location.
+        slot_uri: cim:Location.CoordinateSystem
+        multivalued: false
+        range: CoordinateSystem
+        required: false
+      position_points:
+        description: Sequence of position points describing this location, expressed
+          in coordinate system 'Location.CoordinateSystem'.
+        slot_uri: cim:Location.PositionPoints
+        multivalued: true
+        range: PositionPoint
+        required: false
+    class_uri: cim:Location
+  StreetAddress:
+    description: General purpose street and postal address information.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Common
+    attributes:
+      postal_code:
+        description: Postal code for the address.
+        slot_uri: cim:StreetAddress.postalCode
+        multivalued: false
+        range: string
+        required: false
+      street_detail:
+        description: Street detail.
+        slot_uri: cim:StreetAddress.streetDetail
+        multivalued: false
+        range: StreetDetail
+        required: false
+      town_detail:
+        description: Town detail.
+        slot_uri: cim:StreetAddress.townDetail
+        multivalued: false
+        range: TownDetail
+        required: false
+    class_uri: cim:StreetAddress
+  StreetDetail:
+    description: "Street details, in the context of address.\r\n"
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Common
+    attributes:
+      code:
+        description: (if applicable) Utilities often make use of external reference
+          systems, such as those of the town-planner's department or surveyor general's
+          mapping system, that allocate global reference codes to streets.
+        slot_uri: cim:StreetDetail.code
+        multivalued: false
+        range: string
+        required: false
+      number:
+        description: Designator of the specific location on the street. Includes
+          number suffix, i.e. '11 A'.
+        slot_uri: cim:StreetDetail.number
+        multivalued: false
+        range: string
+        required: false
+    class_uri: cim:StreetDetail
+  TownDetail:
+    description: "Town details, in the context of address.\r\n"
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Common
+    attributes:
+      name:
+        slot_uri: cim:TownDetail.name
+        range: string
+        required: false
+        multivalued: false
+        description: Town name.
+      section:
+        description: Town section. For example, it is common for there to be 36 sections
+          per township.
+        slot_uri: cim:TownDetail.section
+        multivalued: false
+        range: string
+        required: false
+      state_or_province:
+        description: Name of the state or province.
+        slot_uri: cim:TownDetail.stateOrProvince
+        multivalued: false
+        range: string
+        required: false
+    class_uri: cim:TownDetail
+  CoordinateSystem:
+    description: "Coordinate reference system.\r\n"
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Common
+    is_a: IdentifiedObject
+    attributes:
+      crs_urn:
+        description: "A Uniform Resource Name (URN) for the coordinate reference system\
+          \ (crs) used to define 'Location.PositionPoints'.\r\nAn example would be\
+          \ the European Petroleum Survey Group (EPSG) code for a coordinate reference\
+          \ system, defined in URN under the Open Geospatial Consortium (OGC) namespace\
+          \ as: urn:ogc:def:crs:EPSG::XXXX, where XXXX is an EPSG code (a full list\
+          \ of codes can be found at the EPSG Registry web site http://www.epsg-registry.org/).\
+          \ To define the coordinate system as being WGS84 (latitude, longitude) using\
+          \ an EPSG OGC, this attribute would be urn:ogc:def:crs:EPSG::4.3.2.6\r\n\
+          A profile should limit this code to a set of allowed URNs agreed to by all\
+          \ sending and receiving parties."
+        slot_uri: cim:CoordinateSystem.crsUrn
+        multivalued: false
+        range: string
+        required: false
+      locations:
+        description: All locations described with position points in this coordinate
+          system.
+        slot_uri: cim:CoordinateSystem.Locations
+        multivalued: true
+        range: Location
+        required: false
+    class_uri: cim:CoordinateSystem
+  PositionPoint:
+    description: Set of spatial coordinates that determine a point, defined in the
+      coordinate system specified in 'Location.CoordinateSystem'. Use a single position
+      point instance to describe a point-oriented location. Use a sequence of position
+      points to describe a line-oriented object (physical location of non-point oriented
+      objects like cables or lines), or area of an object (like a substation or a
+      geographical zone - in this case, have first and last position point with the
+      same values).
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Common
+    attributes:
+      group_number:
+        description: Zero-relative sequence number of this group within a series of
+          points; used when there is a need to express disjoint groups of points that
+          are considered to be part of a single location.
+        slot_uri: cim:PositionPoint.groupNumber
+        multivalued: false
+        range: integer
+        required: false
+      sequence_number:
+        description: Zero-relative sequence number of this point within a series of
+          points.
+        slot_uri: cim:PositionPoint.sequenceNumber
+        multivalued: false
+        range: integer
+        required: false
+      x_position:
+        description: X axis position.
+        slot_uri: cim:PositionPoint.xPosition
+        multivalued: false
+        range: string
+        required: false
+      y_position:
+        description: Y axis position.
+        slot_uri: cim:PositionPoint.yPosition
+        multivalued: false
+        range: string
+        required: false
+      z_position:
+        description: (if applicable) Z axis position.
+        slot_uri: cim:PositionPoint.zPosition
+        multivalued: false
+        range: string
+        required: false
+      location:
+        description: Location described by this position point.
+        slot_uri: cim:PositionPoint.Location
+        multivalued: false
+        range: Location
+        required: true
+    class_uri: cim:PositionPoint
+  OperationalLimit:
+    description: "A value and normal value associated with a specific kind of limit.\
+      \ \r\nThe sub class value and normalValue attributes vary inversely to the associated\
+      \ OperationalLimitType.acceptableDuration (acceptableDuration for short).  \r\
+      \nIf a particular piece of equipment has multiple operational limits of the\
+      \ same kind (apparent power, current, etc.), the limit with the greatest acceptableDuration\
+      \ shall have the smallest limit value and the limit with the smallest acceptableDuration\
+      \ shall have the largest limit value.  Note: A large current can only be allowed\
+      \ to flow through a piece of equipment for a short duration without causing\
+      \ damage, but a lesser current can be allowed to flow for a longer duration. "
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.OperationalLimits
+    is_a: IdentifiedObject
+    attributes:
+      operational_limit_type:
+        description: The limit type associated with this limit.
+        slot_uri: cim:OperationalLimit.OperationalLimitType
+        multivalued: false
+        range: OperationalLimitType
+        required: false
+      operational_limit_set:
+        description: The limit set to which the limit values belong.
+        slot_uri: cim:OperationalLimit.OperationalLimitSet
+        multivalued: false
+        range: OperationalLimitSet
+        required: true
+    class_uri: cim:OperationalLimit
+  OperationalLimitType:
+    description: "The operational meaning of a category of limits.\r\n"
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.OperationalLimits
+    is_a: IdentifiedObject
+    attributes:
+      operational_limit:
+        description: The operational limits associated with this type of limit.
+        slot_uri: cim:OperationalLimitType.OperationalLimit
+        multivalued: true
+        range: OperationalLimit
+        required: false
+    class_uri: cim:OperationalLimitType
+  EquipmentContainer:
+    description: 'A modelling construct to provide a root class for containing equipment. '
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
+    is_a: ConnectivityNodeContainer
+    attributes:
+      equipments:
+        description: Contained equipment.
+        slot_uri: cim:EquipmentContainer.Equipments
+        multivalued: true
+        range: Equipment
+        required: false
+    class_uri: cim:EquipmentContainer
+  UsagePoint:
+    description: Logical or physical point in the network to which readings or events
+      may be attributed. Used at the place where a physical or virtual meter may be
+      located; however, it is not required that a meter be present.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Metering
+    is_a: IdentifiedObject
+    attributes:
+      equipments:
+        description: All equipment connecting this usage point to the electrical grid.
+        slot_uri: cim:UsagePoint.Equipments
+        multivalued: true
+        range: Equipment
+        required: false
+    class_uri: cim:UsagePoint
+  Substation:
+    description: "A collection of equipment for purposes other than generation or\
+      \ utilization, through which electric energy in bulk is passed for the purposes\
+      \ of switching or modifying its characteristics. \r\n"
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
+    is_a: EquipmentContainer
+    attributes:
+      region:
+        description: The SubGeographicalRegion containing the substation.
+        slot_uri: cim:Substation.Region
+        multivalued: false
+        range: SubGeographicalRegion
+        required: false
+    class_uri: cim:Substation
+  SubGeographicalRegion:
+    description: "A subset of a geographical region of a power system network model.\r\
+      \n"
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
+    is_a: IdentifiedObject
+    attributes:
+      lines:
+        description: The lines within the sub-geographical region.
+        slot_uri: cim:SubGeographicalRegion.Lines
+        multivalued: true
+        range: Line
+        required: false
+      substations:
+        description: The substations in this sub-geographical region.
+        slot_uri: cim:SubGeographicalRegion.Substations
+        multivalued: true
+        range: Substation
+        required: false
+      region:
+        description: The geographical region which this sub-geographical region is
+          within.
+        slot_uri: cim:SubGeographicalRegion.Region
+        multivalued: false
+        range: GeographicalRegion
+        required: false
+    class_uri: cim:SubGeographicalRegion
+  Line:
+    description: 'Contains equipment beyond a substation belonging to a power transmission
+      line. '
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Wires
+    is_a: EquipmentContainer
+    attributes:
+      region:
+        description: The sub-geographical region of the line.
+        slot_uri: cim:Line.Region
+        multivalued: false
+        range: SubGeographicalRegion
+        required: false
+    class_uri: cim:Line
+  GeographicalRegion:
+    description: "A geographical region of a power system network model.\r\n"
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
+    is_a: IdentifiedObject
+    attributes:
+      regions:
+        description: All sub-geographical regions within this geographical region.
+        slot_uri: cim:GeographicalRegion.Regions
+        multivalued: true
+        range: SubGeographicalRegion
+        required: false
+    class_uri: cim:GeographicalRegion
+  PowerTransformer:
+    description: "An electrical device consisting of  two or more coupled windings,\
+      \ with or without a magnetic core, for introducing mutual coupling between electric\
+      \ circuits. Transformers can be used to control voltage and phase shift (active\
+      \ power flow).\r\nA power transformer may be composed of separate transformer\
+      \ tanks that need not be identical.\r\nA power transformer can be modelled with\
+      \ or without tanks and is intended for use in both balanced and unbalanced representations.\
+      \   A power transformer typically has two terminals, but may have one (grounding),\
+      \ three or more terminals.\r\nThe inherited association ConductingEquipment.BaseVoltage\
+      \ should not be used.  The association from TransformerEnd to BaseVoltage should\
+      \ be used instead."
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Wires
+    is_a: ConductingEquipment
+    attributes:
+      power_transformer_end:
+        description: The ends of this power transformer.
+        slot_uri: cim:PowerTransformer.PowerTransformerEnd
+        multivalued: true
+        range: PowerTransformerEnd
+        required: false
+    class_uri: cim:PowerTransformer
+  PowerTransformerEnd:
+    description: "A PowerTransformerEnd is associated with each Terminal of a PowerTransformer.\r\
+      \nThe impedance values r, r0, x, and x0 of a PowerTransformerEnd represents\
+      \ a star equivalent as follows.\r\n1) for a two Terminal PowerTransformer the\
+      \ high voltage (TransformerEnd.endNumber=1) PowerTransformerEnd has non zero\
+      \ values on r, r0, x, and x0 while the low voltage (TransformerEnd.endNumber=2)\
+      \ PowerTransformerEnd has zero values for r, r0, x, and x0.  Parameters are\
+      \ always provided, even if the PowerTransformerEnds have the same rated voltage.\
+      \  In this case, the parameters are provided at the PowerTransformerEnd which\
+      \ has TransformerEnd.endNumber equal to 1.\r\n2) for a three Terminal PowerTransformer\
+      \ the three PowerTransformerEnds represent a star equivalent with each leg in\
+      \ the star represented by r, r0, x, and x0 values.\r\n3) For a three Terminal\
+      \ transformer each PowerTransformerEnd shall have g, g0, b and b0 values corresponding\
+      \ to the no load losses distributed on the three PowerTransformerEnds. The total\
+      \ no load loss shunt impedances may also be placed at one of the PowerTransformerEnds,\
+      \ preferably the end numbered 1, having the shunt values on end 1.  This is\
+      \ the preferred way.\r\n4) for a PowerTransformer with more than three Terminals\
+      \ the PowerTransformerEnd impedance values cannot be used. Instead use the TransformerMeshImpedance\
+      \ or split the transformer into multiple PowerTransformers.\r\nEach PowerTransformerEnd\
+      \ must be contained by a PowerTransformer. Because a PowerTransformerEnd (or\
+      \ any other object) can not be contained by more than one parent, a PowerTransformerEnd\
+      \ can not have an association to an EquipmentContainer (Substation, VoltageLevel,\
+      \ etc)."
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Wires
+    is_a: TransformerEnd
+    attributes:
+      power_transformer:
+        description: The power transformer of this power transformer end.
+        slot_uri: cim:PowerTransformerEnd.PowerTransformer
+        multivalued: false
+        range: PowerTransformer
+        required: false
+    class_uri: cim:PowerTransformerEnd
+  ACLineSegment:
+    description: "A wire or combination of wires, with consistent electrical characteristics,\
+      \ building a single electrical system, used to carry alternating current between\
+      \ points in the power system.\r\nFor symmetrical, transposed three phase lines,\
+      \ it is sufficient to use attributes of the line segment, which describe impedances\
+      \ and admittances for the entire length of the segment.  Additionally impedances\
+      \ can be computed by using length and associated per length impedances.\r\n\
+      The BaseVoltage at the two ends of ACLineSegments in a Line shall have the same\
+      \ BaseVoltage.nominalVoltage. However, boundary lines may have slightly different\
+      \ BaseVoltage.nominalVoltages and variation is allowed. Larger voltage difference\
+      \ in general requires use of an equivalent branch."
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Wires
+    is_a: Conductor
+    class_uri: cim:ACLineSegment
+  Conductor:
+    description: 'Combination of conducting material with consistent electrical characteristics,
+      building a single electrical system, used to carry current between points in
+      the power system.  '
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Wires
+    is_a: ConductingEquipment
+    class_uri: cim:Conductor
+  Analog:
+    description: "Analog represents an analog Measurement.\r\n"
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Meas
+    is_a: Measurement
+    attributes:
+      positive_flow_in:
+        description: If true then this measurement is an active power, reactive power
+          or current with the convention that a positive value measured at the Terminal
+          means power is flowing into the related PowerSystemResource.
+        slot_uri: cim:Analog.positiveFlowIn
+        multivalued: false
+        range: boolean
+        required: false
+      analog_values:
+        description: The values connected to this measurement.
+        slot_uri: cim:Analog.AnalogValues
+        multivalued: true
+        range: AnalogValue
+        required: false
+    class_uri: cim:Analog
+  AnalogValue:
+    description: AnalogValue represents an analog MeasurementValue.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Meas
+    is_a: MeasurementValue
+    attributes:
+      value:
+        description: The value to supervise.
+        slot_uri: cim:AnalogValue.value
+        multivalued: false
+        range: float
+        required: false
+      analog:
+        description: Measurement to which this value is connected.
+        slot_uri: cim:AnalogValue.Analog
+        multivalued: false
+        range: Analog
+        required: true
+    class_uri: cim:AnalogValue
+  ActivePowerLimit:
+    description: Limit on active power flow.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.OperationalLimits
+    is_a: OperationalLimit
+    attributes:
+      value:
+        description: Value of active power limit. The attribute shall be a positive
+          value or zero.
+        slot_uri: cim:ActivePowerLimit.value
+        multivalued: false
+        range: ActivePower
+        required: false
+    class_uri: cim:ActivePowerLimit
+  RegisteredLoad:
+    description: "Model of a load that is registered to participate in the market.\r\
+      \n\r\nRegisteredLoad is used to model any load that is served by the wholesale\
+      \ market directly. RegisteredLoads may be dispatchable or non-dispatchable and\
+      \ may or may not have bid curves. Examples of RegisteredLoads would include:\
+      \ distribution company load, energy retailer load, large bulk power system connected\
+      \ facility load.\r\n\r\nLoads that are served indirectly, for example - through\
+      \ an energy retailer or a vertical utility, should be modeled as RegisteredDistributedResources.\
+      \ Examples of RegisteredDistributedResources would include: distribution level\
+      \ storage, distribution level generation and distribution level demand response."
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC62325.MarketOperations.ReferenceData
+    is_a: RegisteredResource
+    class_uri: cim:RegisteredLoad
+  RegisteredResource:
+    description: A resource that is registered through the market participant registration
+      system. Examples include generating unit, load, and non-physical generator or
+      load.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC62325.MarketCommon
+    is_a: PowerSystemResource
+    attributes:
+      mkt_connectivity_node:
+        slot_uri: cim:RegisteredResource.MktConnectivityNode
+        multivalued: false
+        range: MktConnectivityNode
+        required: false
+      market_participant:
+        slot_uri: cim:RegisteredResource.MarketParticipant
+        multivalued: false
+        range: MarketParticipant
+        required: false
+    class_uri: cim:RegisteredResource
+  MktConnectivityNode:
+    description: Subclass of IEC61970:Topology:ConnectivityNode.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC62325.MarketOperations.MarketOpCommon
+    is_a: ConnectivityNode
+    attributes:
+      registered_resource:
+        slot_uri: cim:MktConnectivityNode.RegisteredResource
+        multivalued: true
+        range: RegisteredResource
+        required: false
+    class_uri: cim:MktConnectivityNode
   MarketParticipant:
     description: An identification of a party acting in a electricity market business
       process. This class is used to identify organizations that can participate in
@@ -635,61 +1454,17 @@ classes:
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC62325.MarketCommon
     is_a: Organisation
     attributes:
-      MarketDocument:
-        slot_uri: cim:MarketParticipant.MarketDocument
-        multivalued: true
-        range: MarketDocument
-        required: false
-      MarketRole:
+      market_role:
         slot_uri: cim:MarketParticipant.MarketRole
         multivalued: true
         range: MarketRole
         required: false
+      registered_resource:
+        slot_uri: cim:MarketParticipant.RegisteredResource
+        multivalued: true
+        range: RegisteredResource
+        required: false
     class_uri: cim:MarketParticipant
-  MarketDocument:
-    description: 'Electronic document containing the information necessary to satisfy
-      a given business process set of requirements. '
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC62325.MarketManagement
-    is_a: Document
-    attributes:
-      Period:
-        slot_uri: cim:MarketDocument.Period
-        multivalued: true
-        range: Period
-        required: false
-      SelfMarketDocument:
-        slot_uri: cim:MarketDocument.SelfMarketDocument
-        multivalued: true
-        range: MarketDocument
-        required: false
-      MarketParticipant:
-        slot_uri: cim:MarketDocument.MarketParticipant
-        multivalued: true
-        range: MarketParticipant
-        required: false
-      MarketDocument:
-        slot_uri: cim:MarketDocument.MarketDocument
-        multivalued: true
-        range: MarketDocument
-        required: false
-    class_uri: cim:MarketDocument
-  Period:
-    description: An identification of a time interval that may have a given resolution.
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC62325.MarketManagement
-    attributes:
-      resolution:
-        description: "The number of units of time that compose an individual step\
-          \ within a period.\r\n"
-        slot_uri: cim:Period.resolution
-        multivalued: false
-        range: integer
-        required: false
-      MarketDocument:
-        slot_uri: cim:Period.MarketDocument
-        multivalued: true
-        range: MarketDocument
-        required: false
-    class_uri: cim:Period
   MarketRole:
     description: The external intended behavior played by a party within the electricity
       market.
@@ -704,7 +1479,7 @@ classes:
         multivalued: false
         range: string
         required: false
-      MarketParticipant:
+      market_participant:
         slot_uri: cim:MarketRole.MarketParticipant
         multivalued: true
         range: MarketParticipant
@@ -715,13 +1490,6 @@ classes:
       manufacturer, customer, etc.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Common
     is_a: IdentifiedObject
-    attributes:
-      Roles:
-        description: All roles of this organisation.
-        slot_uri: cim:Organisation.Roles
-        multivalued: true
-        range: OrganisationRole
-        required: false
     class_uri: cim:Organisation
   OrganisationRole:
     description: "Identifies a way in which an organisation may participate in the\
@@ -729,471 +1497,45 @@ classes:
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Common
     is_a: IdentifiedObject
     attributes:
-      Organisation:
+      organisation:
         description: Organisation having this role.
         slot_uri: cim:OrganisationRole.Organisation
         multivalued: false
         range: Organisation
         required: false
     class_uri: cim:OrganisationRole
-  MarketAgreement:
-    description: "An identification  or eventually the contents of an agreement between\
-      \ two or more parties.\r\n"
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC62325.MarketManagement
-    is_a: MarketDocument
-    class_uri: cim:MarketAgreement
-  Document:
-    description: Parent class for different groupings of information collected and
-      managed as a part of a business process. It will frequently contain references
-      to other objects, such as assets, people and power system resources.
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Common
-    is_a: IdentifiedObject
-    attributes:
-      authorName:
-        description: Name of the author of this document.
-        slot_uri: cim:Document.authorName
-        multivalued: false
-        range: string
-        required: false
-      comment:
-        description: Free text comment.
-        slot_uri: cim:Document.comment
-        multivalued: false
-        range: string
-        required: false
-      createdDateTime:
-        description: "Date and time that this document was created.\r\n"
-        slot_uri: cim:Document.createdDateTime
-        multivalued: false
-        range: date
-        required: false
-      lastModifiedDateTime:
-        description: "Date and time this document was last modified. Documents may\
-          \ potentially be modified many times during their lifetime.\r\n"
-        slot_uri: cim:Document.lastModifiedDateTime
-        multivalued: false
-        range: date
-        required: false
-      revisionNumber:
-        description: Revision number for this document.
-        slot_uri: cim:Document.revisionNumber
-        multivalued: false
-        range: string
-        required: false
-      subject:
-        description: Document subject.
-        slot_uri: cim:Document.subject
-        multivalued: false
-        range: string
-        required: false
-      title:
-        description: Document title.
-        slot_uri: cim:Document.title
-        multivalued: false
-        range: string
-        required: false
-      type:
-        description: Utility-specific classification of this document, according to
-          its corporate standards, practices, and existing IT systems (e.g., for management
-          of assets, maintenance, work, outage, customers, etc.).
-        slot_uri: cim:Document.type
-        multivalued: false
-        range: string
-        required: false
-    class_uri: cim:Document
   MarketEvaluationPoint:
     description: The identification of an entity where energy products are measured
       or computed.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC62325.MarketManagement
     is_a: UsagePoint
     class_uri: cim:MarketEvaluationPoint
-  UsagePoint:
-    description: Logical or physical point in the network to which readings or events
-      may be attributed. Used at the place where a physical or virtual meter may be
-      located; however, it is not required that a meter be present.
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Metering
-    is_a: IdentifiedObject
-    attributes:
-      amiBillingReady:
-        description: "Tracks the lifecycle of the metering installation at a usage\
-          \ point with respect to readiness for billing via advanced metering infrastructure\
-          \ reads.\r\n"
-        slot_uri: cim:UsagePoint.amiBillingReady
-        multivalued: false
-        range: AmiBillingReadyKind
-        required: false
-      checkBilling:
-        description: True if as a result of an inspection or otherwise, there is a
-          reason to suspect that a previous billing may have been performed with erroneous
-          data. Value should be reset once this potential discrepancy has been resolved.
-        slot_uri: cim:UsagePoint.checkBilling
-        multivalued: false
-        range: boolean
-        required: false
-      connectionCategory:
-        description: A code used to specify the connection category, e.g., low voltage
-          or low pressure, where the usage point is defined.
-        slot_uri: cim:UsagePoint.connectionCategory
-        multivalued: false
-        range: string
-        required: false
-      connectionState:
-        description: "State of the usage point with respect to connection to the network.\r\
-          \n"
-        slot_uri: cim:UsagePoint.connectionState
-        multivalued: false
-        range: UsagePointConnectedKind
-        required: false
-      disconnectionMethod:
-        description: Is an indication of how the usage point is physically connected
-          or disconnected.
-        slot_uri: cim:UsagePoint.disconnectionMethod
-        multivalued: false
-        range: string
-        required: false
-      grounded:
-        description: True if grounded.
-        slot_uri: cim:UsagePoint.grounded
-        multivalued: false
-        range: boolean
-        required: false
-      isSdp:
-        description: "If true, this usage point is a service delivery point, i.e.,\
-          \ a usage point where the ownership of the service changes hands.\r\n"
-        slot_uri: cim:UsagePoint.isSdp
-        multivalued: false
-        range: boolean
-        required: false
-      isVirtual:
-        description: If true, this usage point is virtual, i.e., no physical location
-          exists in the network where a meter could be located to collect the meter
-          readings. For example, one may define a virtual usage point to serve as
-          an aggregation of usage for all of a company's premises distributed widely
-          across the distribution territory. Otherwise, the usage point is physical,
-          i.e., there is a logical point in the network where a meter could be located
-          to collect meter readings.
-        slot_uri: cim:UsagePoint.isVirtual
-        multivalued: false
-        range: boolean
-        required: false
-      minimalUsageExpected:
-        description: If true, minimal or zero usage is expected at this usage point
-          for situations such as premises vacancy, logical or physical disconnect.
-          It is used for readings validation and estimation.
-        slot_uri: cim:UsagePoint.minimalUsageExpected
-        multivalued: false
-        range: boolean
-        required: false
-      outageRegion:
-        description: "Outage region in which this usage point is located.\r\n"
-        slot_uri: cim:UsagePoint.outageRegion
-        multivalued: false
-        range: string
-        required: false
-      phaseCode:
-        description: "Phase code. Number of wires and specific nominal phases can\
-          \ be deduced from enumeration literal values. For example, ABCN is three-phase,\
-          \ four-wire, s12n (splitSecondary12N) is single-phase, three-wire, and s1n\
-          \ and s2n are single-phase, two-wire.\r\n"
-        slot_uri: cim:UsagePoint.phaseCode
-        multivalued: false
-        range: PhaseCode
-        required: false
-      phaseCount:
-        description: "Number of potential phases the Usage Point supports, typically\
-          \ 0, 1 or 3.\r\n"
-        slot_uri: cim:UsagePoint.phaseCount
-        multivalued: false
-        range: integer
-        required: false
-      readCycle:
-        description: "Cycle day on which the meter for this usage point will normally\
-          \ be read.  Usually correlated with the billing cycle.\r\n"
-        slot_uri: cim:UsagePoint.readCycle
-        multivalued: false
-        range: string
-        required: false
-      readRoute:
-        description: "Identifier of the route to which this usage point is assigned\
-          \ for purposes of meter reading. Typically used to configure hand held meter\
-          \ reading systems prior to collection of reads.\r\n"
-        slot_uri: cim:UsagePoint.readRoute
-        multivalued: false
-        range: string
-        required: false
-      serviceDeliveryRemark:
-        description: "Remarks about this usage point, for example the reason for it\
-          \ being rated with a non-nominal priority.\r\n"
-        slot_uri: cim:UsagePoint.serviceDeliveryRemark
-        multivalued: false
-        range: string
-        required: false
-      servicePriority:
-        description: "Priority of service for this usage point. Note that usage points\
-          \ at the same service location can have different priorities.\r\n"
-        slot_uri: cim:UsagePoint.servicePriority
-        multivalued: false
-        range: string
-        required: false
-    class_uri: cim:UsagePoint
   EnergyConsumer:
-    description: 'Generic user of energy - a  point of consumption on the power system
-      model.
-
-      EnergyConsumer.pfixed, .qfixed, .pfixedPct and .qfixedPct have meaning only
-      if there is no LoadResponseCharacteristic associated with EnergyConsumer or
-      if LoadResponseCharacteristic.exponentModel is set to False.'
+    description: "Generic user of energy - a  point of consumption on the power system\
+      \ model.\r\nEnergyConsumer.pfixed, .qfixed, .pfixedPct and .qfixedPct have meaning\
+      \ only if there is no LoadResponseCharacteristic associated with EnergyConsumer\
+      \ or if LoadResponseCharacteristic.exponentModel is set to False."
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Wires
     is_a: EnergyConnection
     class_uri: cim:EnergyConsumer
-  EnergyConnection:
-    description: A connection of energy generation or consumption on the power system
-      model.
-    is_a: ConductingEquipment
-    class_uri: cim:EnergyConnection
-  ConductingEquipment:
-    description: The parts of the AC power system that are designed to carry current
-      or that are conductively connected through terminals.
-    is_a: Equipment
-    class_uri: cim:ConductingEquipment
-  Equipment:
-    description: The parts of a power system that are physical devices, electronic
-      or mechanical.
-    is_a: PowerSystemResource
+  MeasurementValue:
+    description: "The current state for a measurement. A state value is an instance\
+      \ of a measurement from a specific source. Measurements can be associated with\
+      \ many state values, each representing a different source for the measurement.\r\
+      \n"
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Meas
+    is_a: IOPoint
     attributes:
-      aggregate:
-        description: "The aggregate flag provides an alternative way of representing\
-          \ an aggregated (equivalent) element. It is applicable in cases when the\
-          \ dedicated classes for equivalent equipment do not have all of the attributes\
-          \ necessary to represent the required level of detail.  In case the flag\
-          \ is set to \u201Ctrue\u201D the single instance of equipment represents\
-          \ multiple pieces of equipment that have been modelled together as an aggregate\
-          \ equivalent obtained by a network reduction procedure. Examples would be\
-          \ power transformers or synchronous machines operating in parallel modelled\
-          \ as a single aggregate power transformer or aggregate synchronous machine.\
-          \  \nThe attribute is not used for EquivalentBranch, EquivalentShunt and\
-          \ EquivalentInjection."
-        slot_uri: cim:Equipment.aggregate
+      time_stamp:
+        description: The time when the value was last updated.
+        slot_uri: cim:MeasurementValue.timeStamp
         multivalued: false
-        range: boolean
+        range: date
         required: false
-      normallyInService:
-        description: Specifies the availability of the equipment under normal operating
-          conditions. True means the equipment is available for topology processing,
-          which determines if the equipment is energized or not. False means that
-          the equipment is treated by network applications as if it is not in the
-          model.
-        slot_uri: cim:Equipment.normallyInService
-        multivalued: false
-        range: boolean
-        required: false
-      EquipmentContainer:
-        description: Container of this equipment.
-        slot_uri: cim:Equipment.EquipmentContainer
-        multivalued: false
-        range: EquipmentContainer
-        required: false
-      OperationalLimitSet:
-        description: The operational limit sets associated with this equipment.
-        slot_uri: cim:Equipment.OperationalLimitSet
-        multivalued: true
-        range: OperationalLimitSet
-        required: false
-    class_uri: cim:Equipment
-  EquipmentContainer:
-    description: A modelling construct to provide a root class for containing equipment.
-    is_a: ConnectivityNodeContainer
-    attributes:
-      Equipments:
-        description: Contained equipment.
-        slot_uri: cim:EquipmentContainer.Equipments
-        multivalued: true
-        range: Equipment
-        required: false
-    class_uri: cim:EquipmentContainer
-  OperationalLimitSet:
-    description: A set of limits associated with equipment.  Sets of limits might
-      apply to a specific temperature, or season for example. A set of limits may
-      contain different severities of limit levels that would apply to the same equipment.
-      The set may contain limits of different types such as apparent power and current
-      limits or high and low voltage limits  that are logically applied together as
-      a set.
+    class_uri: cim:MeasurementValue
+  IOPoint:
+    description: The class describe a measurement or control value. The purpose is
+      to enable having attributes and associations common for measurement and control.
+    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Meas
     is_a: IdentifiedObject
-    attributes:
-      Equipment:
-        description: The equipment to which the limit set applies.
-        slot_uri: cim:OperationalLimitSet.Equipment
-        multivalued: false
-        range: Equipment
-        required: false
-      OperationalLimitValue:
-        description: Values of equipment limits.
-        slot_uri: cim:OperationalLimitSet.OperationalLimitValue
-        multivalued: true
-        range: OperationalLimit
-        required: false
-    class_uri: cim:OperationalLimitSet
-  OperationalLimit:
-    description: "A value and normal value associated with a specific kind of limit.\
-      \ \nThe sub class value and normalValue attributes vary inversely to the associated\
-      \ OperationalLimitType.acceptableDuration (acceptableDuration for short).  \n\
-      If a particular piece of equipment has multiple operational limits of the same\
-      \ kind (apparent power, current, etc.), the limit with the greatest acceptableDuration\
-      \ shall have the smallest limit value and the limit with the smallest acceptableDuration\
-      \ shall have the largest limit value.  Note: A large current can only be allowed\
-      \ to flow through a piece of equipment for a short duration without causing\
-      \ damage, but a lesser current can be allowed to flow for a longer duration."
-    is_a: IdentifiedObject
-    attributes:
-      OperationalLimitSet:
-        description: The limit set to which the limit values belong.
-        slot_uri: cim:OperationalLimit.OperationalLimitSet
-        multivalued: false
-        range: OperationalLimitSet
-        required: true
-    class_uri: cim:OperationalLimit
-  PowerSystemResource:
-    description: A power system resource (PSR) can be an item of equipment such as
-      a switch, an equipment container containing many individual items of equipment
-      such as a substation, or an organisational entity such as sub-control area.
-      Power system resources can have measurements associated.
-    is_a: IdentifiedObject
-    class_uri: cim:PowerSystemResource
-  PowerTransformer:
-    description: 'An electrical device consisting of  two or more coupled windings,
-      with or without a magnetic core, for introducing mutual coupling between electric
-      circuits. Transformers can be used to control voltage and phase shift (active
-      power flow).
-
-      A power transformer may be composed of separate transformer tanks that need
-      not be identical.
-
-      A power transformer can be modelled with or without tanks and is intended for
-      use in both balanced and unbalanced representations.   A power transformer typically
-      has two terminals, but may have one (grounding), three or more terminals.
-
-      The inherited association ConductingEquipment.BaseVoltage should not be used.  The
-      association from TransformerEnd to BaseVoltage should be used instead.'
-    is_a: ConductingEquipment
-    class_uri: cim:PowerTransformer
-  ACLineSegment:
-    description: 'A wire or combination of wires, with consistent electrical characteristics,
-      building a single electrical system, used to carry alternating current between
-      points in the power system.
-
-      For symmetrical, transposed three phase lines, it is sufficient to use attributes
-      of the line segment, which describe impedances and admittances for the entire
-      length of the segment.  Additionally impedances can be computed by using length
-      and associated per length impedances.
-
-      The BaseVoltage at the two ends of ACLineSegments in a Line shall have the same
-      BaseVoltage.nominalVoltage. However, boundary lines may have slightly different
-      BaseVoltage.nominalVoltages and variation is allowed. Larger voltage difference
-      in general requires use of an equivalent branch.'
-    is_a: Conductor
-    class_uri: cim:ACLineSegment
-  Conductor:
-    description: Combination of conducting material with consistent electrical characteristics,
-      building a single electrical system, used to carry current between points in
-      the power system.
-    is_a: ConductingEquipment
-    class_uri: cim:Conductor
-  EnergySource:
-    description: A generic equivalent for an energy supplier on a transmission or
-      distribution voltage level.
-    is_a: EnergyConnection
-    class_uri: cim:EnergySource
-  Substation:
-    description: A collection of equipment for purposes other than generation or utilization,
-      through which electric energy in bulk is passed for the purposes of switching
-      or modifying its characteristics.
-    is_a: EquipmentContainer
-    class_uri: cim:Substation
-  ConnectivityNodeContainer:
-    description: A base class for all objects that may contain connectivity nodes
-      or topological nodes.
-    is_a: PowerSystemResource
-    class_uri: cim:ConnectivityNodeContainer
-  ActivePowerLimit:
-    description: Limit on active power flow.
-    is_a: OperationalLimit
-    class_uri: cim:ActivePowerLimit
-  Analog:
-    description: Analog represents an analog Measurement.
-    is_a: Measurement
-    attributes:
-      positiveFlowIn:
-        description: If true then this measurement is an active power, reactive power
-          or current with the convention that a positive value measured at the Terminal
-          means power is flowing into the related PowerSystemResource.
-        slot_uri: cim:Analog.positiveFlowIn
-        multivalued: false
-        range: boolean
-        required: false
-    class_uri: cim:Analog
-  Measurement:
-    description: "A Measurement represents any measured, calculated or non-measured\
-      \ non-calculated quantity. Any piece of equipment may contain Measurements,\
-      \ e.g. a substation may have temperature measurements and door open indications,\
-      \ a transformer may have oil temperature and tank pressure measurements, a bay\
-      \ may contain a number of power flow measurements and a Breaker may contain\
-      \ a switch status measurement. \nThe PSR - Measurement association is intended\
-      \ to capture this use of Measurement and is included in the naming hierarchy\
-      \ based on EquipmentContainer. The naming hierarchy typically has Measurements\
-      \ as leaves, e.g. Substation-VoltageLevel-Bay-Switch-Measurement.\nSome Measurements\
-      \ represent quantities related to a particular sensor location in the network,\
-      \ e.g. a voltage transformer (VT) or potential transformer (PT) at a busbar\
-      \ or a current transformer (CT) at the bar between a breaker and an isolator.\
-      \ The sensing position is not captured in the PSR - Measurement association.\
-      \ Instead it is captured by the Measurement - Terminal association that is used\
-      \ to define the sensing location in the network topology. The location is defined\
-      \ by the connection of the Terminal to ConductingEquipment. \nIf both a Terminal\
-      \ and PSR are associated, and the PSR is of type ConductingEquipment, the associated\
-      \ Terminal should belong to that ConductingEquipment instance.\nWhen the sensor\
-      \ location is needed both Measurement-PSR and Measurement-Terminal are used.\
-      \ The Measurement-Terminal association is never used alone."
-    is_a: IdentifiedObject
-    attributes:
-      measurementType:
-        description: 'Specifies the type of measurement.  For example, this specifies
-          if the measurement represents an indoor temperature, outdoor temperature,
-          bus voltage, line flow, etc.
-
-          When the measurementType is set to "Specialization", the type of Measurement
-          is defined in more detail by the specialized class which inherits from Measurement.'
-        slot_uri: cim:Measurement.measurementType
-        multivalued: false
-        range: string
-        required: true
-      phases:
-        description: 'Indicates to which phases the measurement applies and avoids
-          the need to use ''measurementType'' to also encode phase information (which
-          would explode the types). The phase information in Measurement, along with
-          ''measurementType'' and ''phases'' uniquely defines a Measurement for a
-          device, based on normal network phase. Their meaning will not change when
-          the computed energizing phasing is changed due to jumpers or other reasons.
-
-          If the attribute is missing three phases (ABC) shall be assumed.'
-        slot_uri: cim:Measurement.phases
-        multivalued: false
-        range: PhaseCode
-        required: false
-      unitMultiplier:
-        description: The unit multiplier of the measured quantity.
-        slot_uri: cim:Measurement.unitMultiplier
-        multivalued: false
-        range: UnitMultiplier
-        required: true
-      unitSymbol:
-        description: The unit of measure of the measured quantity.
-        slot_uri: cim:Measurement.unitSymbol
-        multivalued: false
-        range: UnitSymbol
-        required: true
-    class_uri: cim:Measurement
-  Location:
-    description: The place, scene, or point of something where someone or something
-      has been, is, and/or will be at a given moment in time. It can be defined with
-      one or more position points (coordinates) in a given coordinate system.
-    is_a: IdentifiedObject
-    class_uri: cim:Location
-
+    class_uri: cim:IOPoint
