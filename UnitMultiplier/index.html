@@ -321,6 +321,15 @@
 
 
 <h1 id="enum-unitmultiplier">Enum: UnitMultiplier</h1>
+<p>_The unit multipliers defined for the CIM.  When applied to unit symbols, the unit symbol is treated as a derived unit. Regardless of the contents of the unit symbol text, the unit symbol shall be treated as if it were a single-character unit symbol. Unit symbols should not contain multipliers, and it should be left to the multiplier to define the multiple for an entire data type. 
+_</p>
+<p>_
+_</p>
+<p>_For example, if a unit symbol is "m2Pers" and the multiplier is "k", then the value is k(m**2/s), and the multiplier applies to the entire final value, not to any individual part of the value. This can be conceptualized by substituting a derived unit symbol for the unit type. If one imagines that the symbol "Þ" represents the derived unit "m2Pers", then applying the multiplier "k" can be conceptualized simply as "kÞ".
+_</p>
+<p>_
+_</p>
+<p><em>For example, the SI unit for mass is "kg" and not "g".  If the unit symbol is defined as "kg", then the multiplier is applied to "kg" as a whole and does not replace the "k" in front of the "g". In this case, the multiplier of "m" would be used with the unit symbol of "kg" to represent one gram.  As a text string, this violates the instructions in IEC 80000-1. However, because the unit symbol in CIM is treated as a derived unit instead of as an SI unit, it makes more sense to conceptualize the "kg" as if it were replaced by one of the proposed replacements for the SI mass symbol. If one imagines that the "kg" were replaced by a symbol "Þ", then it is easier to conceptualize the multiplier "m" as creating the proper unit "mÞ", and not the forbidden unit "mkg".</em></p>
 <p>URI: <a href="./">UnitMultiplier</a></p>
 <h2 id="permissible-values">Permissible Values</h2>
 <table>
@@ -333,43 +342,8 @@
 </thead>
 <tbody>
 <tr>
-<td>y</td>
-<td>cim:UnitMultiplier.y</td>
-<td></td>
-</tr>
-<tr>
-<td>z</td>
-<td>cim:UnitMultiplier.z</td>
-<td></td>
-</tr>
-<tr>
 <td>a</td>
 <td>cim:UnitMultiplier.a</td>
-<td></td>
-</tr>
-<tr>
-<td>f</td>
-<td>cim:UnitMultiplier.f</td>
-<td></td>
-</tr>
-<tr>
-<td>p</td>
-<td>cim:UnitMultiplier.p</td>
-<td></td>
-</tr>
-<tr>
-<td>n</td>
-<td>cim:UnitMultiplier.n</td>
-<td></td>
-</tr>
-<tr>
-<td>micro</td>
-<td>cim:UnitMultiplier.micro</td>
-<td></td>
-</tr>
-<tr>
-<td>m</td>
-<td>cim:UnitMultiplier.m</td>
 <td></td>
 </tr>
 <tr>
@@ -383,13 +357,23 @@
 <td></td>
 </tr>
 <tr>
-<td>none</td>
-<td>cim:UnitMultiplier.none</td>
+<td>da</td>
+<td>cim:UnitMultiplier.da</td>
 <td></td>
 </tr>
 <tr>
-<td>da</td>
-<td>cim:UnitMultiplier.da</td>
+<td>E</td>
+<td>cim:UnitMultiplier.E</td>
+<td></td>
+</tr>
+<tr>
+<td>f</td>
+<td>cim:UnitMultiplier.f</td>
+<td></td>
+</tr>
+<tr>
+<td>G</td>
+<td>cim:UnitMultiplier.G</td>
 <td></td>
 </tr>
 <tr>
@@ -403,18 +387,33 @@
 <td></td>
 </tr>
 <tr>
+<td>m</td>
+<td>cim:UnitMultiplier.m</td>
+<td></td>
+</tr>
+<tr>
 <td>M</td>
 <td>cim:UnitMultiplier.M</td>
 <td></td>
 </tr>
 <tr>
-<td>G</td>
-<td>cim:UnitMultiplier.G</td>
+<td>micro</td>
+<td>cim:UnitMultiplier.micro</td>
 <td></td>
 </tr>
 <tr>
-<td>T</td>
-<td>cim:UnitMultiplier.T</td>
+<td>n</td>
+<td>cim:UnitMultiplier.n</td>
+<td></td>
+</tr>
+<tr>
+<td>none</td>
+<td>cim:UnitMultiplier.none</td>
+<td></td>
+</tr>
+<tr>
+<td>p</td>
+<td>cim:UnitMultiplier.p</td>
 <td></td>
 </tr>
 <tr>
@@ -423,18 +422,28 @@
 <td></td>
 </tr>
 <tr>
-<td>E</td>
-<td>cim:UnitMultiplier.E</td>
+<td>T</td>
+<td>cim:UnitMultiplier.T</td>
 <td></td>
 </tr>
 <tr>
-<td>Z</td>
-<td>cim:UnitMultiplier.Z</td>
+<td>y</td>
+<td>cim:UnitMultiplier.y</td>
 <td></td>
 </tr>
 <tr>
 <td>Y</td>
 <td>cim:UnitMultiplier.Y</td>
+<td></td>
+</tr>
+<tr>
+<td>z</td>
+<td>cim:UnitMultiplier.z</td>
+<td></td>
+</tr>
+<tr>
+<td>Z</td>
+<td>cim:UnitMultiplier.Z</td>
 <td></td>
 </tr>
 </tbody>
@@ -449,7 +458,11 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../unitMultiplier/">unitMultiplier</a></td>
+<td><a href="../multiplier/">multiplier</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../unit_multiplier/">unit_multiplier</a></td>
 <td>The unit multiplier of the measured quantity</td>
 </tr>
 </tbody>
@@ -462,73 +475,94 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UnitMultiplier</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;The</span><span class="nv"> </span><span class="s">unit</span><span class="nv"> </span><span class="s">multipliers</span><span class="nv"> </span><span class="s">defined</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">CIM.</span><span class="nv">  </span><span class="s">When</span><span class="nv"> </span><span class="s">applied</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">unit</span><span class="nv"> </span><span class="s">symbols,\</span>
+<span class="w">  </span><span class="s">\ the</span><span class="nv"> </span><span class="s">unit</span><span class="nv"> </span><span class="s">symbol</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">treated</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">derived</span><span class="nv"> </span><span class="s">unit.</span><span class="nv"> </span><span class="s">Regardless</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">contents</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the\</span>
+<span class="w">  </span><span class="s">\ unit</span><span class="nv"> </span><span class="s">symbol</span><span class="nv"> </span><span class="s">text,</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">unit</span><span class="nv"> </span><span class="s">symbol</span><span class="nv"> </span><span class="s">shall</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">treated</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">it</span><span class="nv"> </span><span class="s">were</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">single-character\</span>
+<span class="w">  </span><span class="s">\ unit</span><span class="nv"> </span><span class="s">symbol.</span><span class="nv"> </span><span class="s">Unit</span><span class="nv"> </span><span class="s">symbols</span><span class="nv"> </span><span class="s">should</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">contain</span><span class="nv"> </span><span class="s">multipliers,</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">it</span><span class="nv"> </span><span class="s">should</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">left\</span>
+<span class="w">  </span><span class="s">\ to</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">multiplier</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">define</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">multiple</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">an</span><span class="nv"> </span><span class="s">entire</span><span class="nv"> </span><span class="s">data</span><span class="nv"> </span><span class="s">type.</span><span class="nv"> </span><span class="s">\r\n\r\nFor\</span>
+<span class="w">  </span><span class="s">\ example,</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">unit</span><span class="nv"> </span><span class="s">symbol</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">\&quot;m2Pers\&quot;</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">multiplier</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">\&quot;k\&quot;,</span><span class="nv"> </span><span class="s">then</span><span class="nv"> </span><span class="s">the\</span>
+<span class="w">  </span><span class="s">\ value</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">k(m**2/s),</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">multiplier</span><span class="nv"> </span><span class="s">applies</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">entire</span><span class="nv"> </span><span class="s">final</span><span class="nv"> </span><span class="s">value,</span><span class="nv"> </span><span class="s">not\</span>
+<span class="w">  </span><span class="s">\ to</span><span class="nv"> </span><span class="s">any</span><span class="nv"> </span><span class="s">individual</span><span class="nv"> </span><span class="s">part</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">value.</span><span class="nv"> </span><span class="s">This</span><span class="nv"> </span><span class="s">can</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">conceptualized</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">substituting\</span>
+<span class="w">  </span><span class="s">\ a</span><span class="nv"> </span><span class="s">derived</span><span class="nv"> </span><span class="s">unit</span><span class="nv"> </span><span class="s">symbol</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">unit</span><span class="nv"> </span><span class="s">type.</span><span class="nv"> </span><span class="s">If</span><span class="nv"> </span><span class="s">one</span><span class="nv"> </span><span class="s">imagines</span><span class="nv"> </span><span class="s">that</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">symbol</span><span class="nv"> </span><span class="s">\&quot;Þ\&quot;\</span>
+<span class="w">  </span><span class="s">\ represents</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">derived</span><span class="nv"> </span><span class="s">unit</span><span class="nv"> </span><span class="s">\&quot;m2Pers\&quot;,</span><span class="nv"> </span><span class="s">then</span><span class="nv"> </span><span class="s">applying</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">multiplier</span><span class="nv"> </span><span class="s">\&quot;k\&quot;</span><span class="nv"> </span><span class="s">can\</span>
+<span class="w">  </span><span class="s">\ be</span><span class="nv"> </span><span class="s">conceptualized</span><span class="nv"> </span><span class="s">simply</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">\&quot;kÞ\&quot;.\r\n\r\nFor</span><span class="nv"> </span><span class="s">example,</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">SI</span><span class="nv"> </span><span class="s">unit</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">mass</span><span class="nv"> </span><span class="s">is\</span>
+<span class="w">  </span><span class="s">\ \&quot;kg\&quot;</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">\&quot;g\&quot;.</span><span class="nv">  </span><span class="s">If</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">unit</span><span class="nv"> </span><span class="s">symbol</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">defined</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">\&quot;kg\&quot;,</span><span class="nv"> </span><span class="s">then</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">multiplier\</span>
+<span class="w">  </span><span class="s">\ is</span><span class="nv"> </span><span class="s">applied</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">\&quot;kg\&quot;</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">whole</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">does</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">replace</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">\&quot;k\&quot;</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">front</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the\</span>
+<span class="w">  </span><span class="s">\ \&quot;g\&quot;.</span><span class="nv"> </span><span class="s">In</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">case,</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">multiplier</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">\&quot;m\&quot;</span><span class="nv"> </span><span class="s">would</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">used</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">unit</span><span class="nv"> </span><span class="s">symbol\</span>
+<span class="w">  </span><span class="s">\ of</span><span class="nv"> </span><span class="s">\&quot;kg\&quot;</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">represent</span><span class="nv"> </span><span class="s">one</span><span class="nv"> </span><span class="s">gram.</span><span class="nv">  </span><span class="s">As</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">text</span><span class="nv"> </span><span class="s">string,</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">violates</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">instructions\</span>
+<span class="w">  </span><span class="s">\ in</span><span class="nv"> </span><span class="s">IEC</span><span class="nv"> </span><span class="s">80000-1.</span><span class="nv"> </span><span class="s">However,</span><span class="nv"> </span><span class="s">because</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">unit</span><span class="nv"> </span><span class="s">symbol</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">CIM</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">treated</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">derived\</span>
+<span class="w">  </span><span class="s">\ unit</span><span class="nv"> </span><span class="s">instead</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">an</span><span class="nv"> </span><span class="s">SI</span><span class="nv"> </span><span class="s">unit,</span><span class="nv"> </span><span class="s">it</span><span class="nv"> </span><span class="s">makes</span><span class="nv"> </span><span class="s">more</span><span class="nv"> </span><span class="s">sense</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">conceptualize</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">\&quot;kg\&quot;\</span>
+<span class="w">  </span><span class="s">\ as</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">it</span><span class="nv"> </span><span class="s">were</span><span class="nv"> </span><span class="s">replaced</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">one</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">proposed</span><span class="nv"> </span><span class="s">replacements</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">SI</span><span class="nv"> </span><span class="s">mass</span><span class="nv"> </span><span class="s">symbol.\</span>
+<span class="w">  </span><span class="s">\ If</span><span class="nv"> </span><span class="s">one</span><span class="nv"> </span><span class="s">imagines</span><span class="nv"> </span><span class="s">that</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">\&quot;kg\&quot;</span><span class="nv"> </span><span class="s">were</span><span class="nv"> </span><span class="s">replaced</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">symbol</span><span class="nv"> </span><span class="s">\&quot;Þ\&quot;,</span><span class="nv"> </span><span class="s">then</span><span class="nv"> </span><span class="s">it</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">easier\</span>
+<span class="w">  </span><span class="s">\ to</span><span class="nv"> </span><span class="s">conceptualize</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">multiplier</span><span class="nv"> </span><span class="s">\&quot;m\&quot;</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">creating</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">proper</span><span class="nv"> </span><span class="s">unit</span><span class="nv"> </span><span class="s">\&quot;mÞ\&quot;,</span><span class="nv"> </span><span class="s">and\</span>
+<span class="w">  </span><span class="s">\ not</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">forbidden</span><span class="nv"> </span><span class="s">unit</span><span class="nv"> </span><span class="s">\&quot;mkg\&quot;.&quot;</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="nt">enum_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://iec.ch/TC57/CIM100#UnitMultiplier</span>
+<span class="nt">enum_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier</span>
 <span class="nt">permissible_values</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">y</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">y</span>
-<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.y</span>
-<span class="w">  </span><span class="nt">z</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">z</span>
-<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.z</span>
 <span class="w">  </span><span class="nt">a</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">a</span>
 <span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.a</span>
-<span class="w">  </span><span class="nt">f</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">f</span>
-<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.f</span>
-<span class="w">  </span><span class="nt">p</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">p</span>
-<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.p</span>
-<span class="w">  </span><span class="nt">n</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">n</span>
-<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.n</span>
-<span class="w">  </span><span class="nt">micro</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">micro</span>
-<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.micro</span>
-<span class="w">  </span><span class="nt">m</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">m</span>
-<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.m</span>
 <span class="w">  </span><span class="nt">c</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">c</span>
 <span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.c</span>
 <span class="w">  </span><span class="nt">d</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">d</span>
 <span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.d</span>
-<span class="w">  </span><span class="nt">none</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span>
-<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.none</span>
 <span class="w">  </span><span class="nt">da</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">da</span>
 <span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.da</span>
+<span class="w">  </span><span class="nt">E</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">E</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.E</span>
+<span class="w">  </span><span class="nt">f</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">f</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.f</span>
+<span class="w">  </span><span class="nt">G</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">G</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.G</span>
 <span class="w">  </span><span class="nt">h</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">h</span>
 <span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.h</span>
 <span class="w">  </span><span class="nt">k</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">k</span>
 <span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.k</span>
+<span class="w">  </span><span class="nt">m</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">m</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.m</span>
 <span class="w">  </span><span class="nt">M</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">M</span>
 <span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.M</span>
-<span class="w">  </span><span class="nt">G</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">G</span>
-<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.G</span>
-<span class="w">  </span><span class="nt">T</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">T</span>
-<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.T</span>
+<span class="w">  </span><span class="nt">micro</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">micro</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.micro</span>
+<span class="w">  </span><span class="nt">n</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">n</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.n</span>
+<span class="w">  </span><span class="nt">none</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.none</span>
+<span class="w">  </span><span class="nt">p</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">p</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.p</span>
 <span class="w">  </span><span class="nt">P</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">P</span>
 <span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.P</span>
-<span class="w">  </span><span class="nt">E</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">E</span>
-<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.E</span>
-<span class="w">  </span><span class="nt">Z</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Z</span>
-<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.Z</span>
+<span class="w">  </span><span class="nt">T</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">T</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.T</span>
+<span class="w">  </span><span class="nt">y</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">y</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.y</span>
 <span class="w">  </span><span class="nt">Y</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Y</span>
 <span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.Y</span>
+<span class="w">  </span><span class="nt">z</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">z</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.z</span>
+<span class="w">  </span><span class="nt">Z</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Z</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:UnitMultiplier.Z</span>
 </code></pre></div>
 </details>
 

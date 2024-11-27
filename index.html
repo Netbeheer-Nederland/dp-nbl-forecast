@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#information-model-for-data-product-forecast-for-netbewust-laden" class="md-skip">
+        <a href="#tc57cim" class="md-skip">
           Skip to content
         </a>
       
@@ -383,9 +383,9 @@
   </a>
 
 
-<h1 id="information-model-for-data-product-forecast-for-netbewust-laden">Information model for data product forecast for Netbewust laden.</h1>
+<h1 id="tc57cim">TC57CIM</h1>
 <p>URI: http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0</p>
-<p>Name: dp-nbl-forecast</p>
+<p>Name: TC57CIM</p>
 <h2 id="classes">Classes</h2>
 <table>
 <thead>
@@ -396,8 +396,16 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="ACDCTerminal/">ACDCTerminal</a></td>
+<td>An electrical connection point (AC or DC) to a piece of conducting equipment</td>
+</tr>
+<tr>
 <td><a href="ACLineSegment/">ACLineSegment</a></td>
 <td>A wire or combination of wires, with consistent electrical characteristics, b...</td>
+</tr>
+<tr>
+<td><a href="ActivePower/">ActivePower</a></td>
+<td>Product of RMS value of the voltage and the RMS value of the in-phase compone...</td>
 </tr>
 <tr>
 <td><a href="ActivePowerLimit/">ActivePowerLimit</a></td>
@@ -408,6 +416,10 @@
 <td>Analog represents an analog Measurement</td>
 </tr>
 <tr>
+<td><a href="AnalogValue/">AnalogValue</a></td>
+<td>AnalogValue represents an analog MeasurementValue</td>
+</tr>
+<tr>
 <td><a href="ConductingEquipment/">ConductingEquipment</a></td>
 <td>The parts of the AC power system that are designed to carry current or that a...</td>
 </tr>
@@ -416,12 +428,16 @@
 <td>Combination of conducting material with consistent electrical characteristics...</td>
 </tr>
 <tr>
+<td><a href="ConnectivityNode/">ConnectivityNode</a></td>
+<td>Connectivity nodes are points where terminals of AC conducting equipment are ...</td>
+</tr>
+<tr>
 <td><a href="ConnectivityNodeContainer/">ConnectivityNodeContainer</a></td>
 <td>A base class for all objects that may contain connectivity nodes or topologic...</td>
 </tr>
 <tr>
-<td><a href="Document/">Document</a></td>
-<td>Parent class for different groupings of information collected and managed as ...</td>
+<td><a href="CoordinateSystem/">CoordinateSystem</a></td>
+<td>Coordinate reference system</td>
 </tr>
 <tr>
 <td><a href="EnergyConnection/">EnergyConnection</a></td>
@@ -444,20 +460,24 @@
 <td>A modelling construct to provide a root class for containing equipment</td>
 </tr>
 <tr>
+<td><a href="GeographicalRegion/">GeographicalRegion</a></td>
+<td>A geographical region of a power system network model</td>
+</tr>
+<tr>
 <td><a href="IdentifiedObject/">IdentifiedObject</a></td>
 <td>This is a root class to provide common identification for all classes needing...</td>
 </tr>
 <tr>
+<td><a href="IOPoint/">IOPoint</a></td>
+<td>The class describe a measurement or control value</td>
+</tr>
+<tr>
+<td><a href="Line/">Line</a></td>
+<td>Contains equipment beyond a substation belonging to a power transmission line</td>
+</tr>
+<tr>
 <td><a href="Location/">Location</a></td>
 <td>The place, scene, or point of something where someone or something has been, ...</td>
-</tr>
-<tr>
-<td><a href="MarketAgreement/">MarketAgreement</a></td>
-<td>An identification  or eventually the contents of an agreement between two or ...</td>
-</tr>
-<tr>
-<td><a href="MarketDocument/">MarketDocument</a></td>
-<td>Electronic document containing the information necessary to satisfy a given b...</td>
 </tr>
 <tr>
 <td><a href="MarketEvaluationPoint/">MarketEvaluationPoint</a></td>
@@ -474,6 +494,14 @@
 <tr>
 <td><a href="Measurement/">Measurement</a></td>
 <td>A Measurement represents any measured, calculated or non-measured non-calcula...</td>
+</tr>
+<tr>
+<td><a href="MeasurementValue/">MeasurementValue</a></td>
+<td>The current state for a measurement</td>
+</tr>
+<tr>
+<td><a href="MktConnectivityNode/">MktConnectivityNode</a></td>
+<td>Subclass of IEC61970:Topology:ConnectivityNode</td>
 </tr>
 <tr>
 <td><a href="Name/">Name</a></td>
@@ -496,6 +524,10 @@
 <td>A set of limits associated with equipment</td>
 </tr>
 <tr>
+<td><a href="OperationalLimitType/">OperationalLimitType</a></td>
+<td>The operational meaning of a category of limits</td>
+</tr>
+<tr>
 <td><a href="Organisation/">Organisation</a></td>
 <td>Organisation that might have roles as utility, contractor, supplier, manufact...</td>
 </tr>
@@ -504,8 +536,8 @@
 <td>Identifies a way in which an organisation may participate in the utility ente...</td>
 </tr>
 <tr>
-<td><a href="Period/">Period</a></td>
-<td>An identification of a time interval that may have a given resolution</td>
+<td><a href="PositionPoint/">PositionPoint</a></td>
+<td>Set of spatial coordinates that determine a point, defined in the coordinate ...</td>
 </tr>
 <tr>
 <td><a href="PowerSystemResource/">PowerSystemResource</a></td>
@@ -516,8 +548,48 @@
 <td>An electrical device consisting of  two or more coupled windings, with or wit...</td>
 </tr>
 <tr>
+<td><a href="PowerTransformerEnd/">PowerTransformerEnd</a></td>
+<td>A PowerTransformerEnd is associated with each Terminal of a PowerTransformer</td>
+</tr>
+<tr>
+<td><a href="RegisteredLoad/">RegisteredLoad</a></td>
+<td>Model of a load that is registered to participate in the market</td>
+</tr>
+<tr>
+<td><a href="RegisteredResource/">RegisteredResource</a></td>
+<td>A resource that is registered through the market participant registration sys...</td>
+</tr>
+<tr>
+<td><a href="StreetAddress/">StreetAddress</a></td>
+<td>General purpose street and postal address information</td>
+</tr>
+<tr>
+<td><a href="StreetDetail/">StreetDetail</a></td>
+<td>Street details, in the context of address</td>
+</tr>
+<tr>
+<td><a href="SubGeographicalRegion/">SubGeographicalRegion</a></td>
+<td>A subset of a geographical region of a power system network model</td>
+</tr>
+<tr>
 <td><a href="Substation/">Substation</a></td>
 <td>A collection of equipment for purposes other than generation or utilization, ...</td>
+</tr>
+<tr>
+<td><a href="Terminal/">Terminal</a></td>
+<td>An AC electrical connection point to a piece of conducting equipment</td>
+</tr>
+<tr>
+<td><a href="TopologicalNode/">TopologicalNode</a></td>
+<td>For a detailed substation model a topological node is a set of connectivity n...</td>
+</tr>
+<tr>
+<td><a href="TownDetail/">TownDetail</a></td>
+<td>Town details, in the context of address</td>
+</tr>
+<tr>
+<td><a href="TransformerEnd/">TransformerEnd</a></td>
+<td>A conducting connection point of a power transformer</td>
 </tr>
 <tr>
 <td><a href="UsagePoint/">UsagePoint</a></td>
@@ -535,124 +607,104 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="aggregate/">aggregate</a></td>
-<td>The aggregate flag provides an alternative way of representing an aggregated ...</td>
+<td><a href="analog/">analog</a></td>
+<td>Measurement to which this value is connected</td>
 </tr>
 <tr>
-<td><a href="alias_name/">alias_name</a></td>
-<td>The aliasName is free text human readable name of the object alternative to I...</td>
+<td><a href="analog_values/">analog_values</a></td>
+<td>The values connected to this measurement</td>
 </tr>
 <tr>
-<td><a href="aliasName/">aliasName</a></td>
-<td>The aliasName is free text human readable name of the object alternative to I...</td>
+<td><a href="code/">code</a></td>
+<td>(if applicable) Utilities often make use of external reference systems, such ...</td>
 </tr>
 <tr>
-<td><a href="amiBillingReady/">amiBillingReady</a></td>
-<td>Tracks the lifecycle of the metering installation at a usage point with respe...</td>
+<td><a href="conducting_equipment/">conducting_equipment</a></td>
+<td>The conducting equipment of the terminal</td>
 </tr>
 <tr>
-<td><a href="authorName/">authorName</a></td>
-<td>Name of the author of this document</td>
+<td><a href="connectivity_node/">connectivity_node</a></td>
+<td>The connectivity node to which this terminal connects with zero impedance</td>
 </tr>
 <tr>
-<td><a href="checkBilling/">checkBilling</a></td>
-<td>True if as a result of an inspection or otherwise, there is a reason to suspe...</td>
+<td><a href="connectivity_nodes/">connectivity_nodes</a></td>
+<td>The connectivity nodes combine together to form this topological node</td>
 </tr>
 <tr>
-<td><a href="comment/">comment</a></td>
-<td>Free text comment</td>
+<td><a href="coordinate_system/">coordinate_system</a></td>
+<td>Coordinate system used to describe position points of this location</td>
 </tr>
 <tr>
-<td><a href="connectionCategory/">connectionCategory</a></td>
-<td>A code used to specify the connection category, e</td>
-</tr>
-<tr>
-<td><a href="connectionState/">connectionState</a></td>
-<td>State of the usage point with respect to connection to the network</td>
-</tr>
-<tr>
-<td><a href="createdDateTime/">createdDateTime</a></td>
-<td>Date and time that this document was created</td>
+<td><a href="crs_urn/">crs_urn</a></td>
+<td>A Uniform Resource Name (URN) for the coordinate reference system (crs) used ...</td>
 </tr>
 <tr>
 <td><a href="description/">description</a></td>
-<td>The description is a free human readable text describing or naming the object</td>
+<td>Description of the name type</td>
 </tr>
 <tr>
-<td><a href="disconnectionMethod/">disconnectionMethod</a></td>
-<td>Is an indication of how the usage point is physically connected or disconnect...</td>
-</tr>
-<tr>
-<td><a href="energy_ident_code_eic/">energy_ident_code_eic</a></td>
-<td>The attribute is used for an exchange of the EIC code (Energy identification ...</td>
-</tr>
-<tr>
-<td><a href="energyIdentCodeEic/">energyIdentCodeEic</a></td>
-<td>The attribute is used for an exchange of the EIC code (Energy identification ...</td>
-</tr>
-<tr>
-<td><a href="Equipment/">Equipment</a></td>
-<td>The equipment to which the limit set applies</td>
-</tr>
-<tr>
-<td><a href="EquipmentContainer/">EquipmentContainer</a></td>
+<td><a href="equipment_container/">equipment_container</a></td>
 <td>Container of this equipment</td>
 </tr>
 <tr>
-<td><a href="Equipments/">Equipments</a></td>
+<td><a href="equipments/">equipments</a></td>
 <td>Contained equipment</td>
 </tr>
 <tr>
-<td><a href="european_article_number_ean/">european_article_number_ean</a></td>
-<td>The attribute is used for an exchange of the EAN code (European Article Numbe...</td>
-</tr>
-<tr>
-<td><a href="grounded/">grounded</a></td>
-<td>True if grounded</td>
+<td><a href="group_number/">group_number</a></td>
+<td>Zero-relative sequence number of this group within a series of points; used w...</td>
 </tr>
 <tr>
 <td><a href="identified_object/">identified_object</a></td>
 <td>Identified object that this name designates</td>
 </tr>
 <tr>
-<td><a href="isSdp/">isSdp</a></td>
-<td>If true, this usage point is a service delivery point, i</td>
+<td><a href="lines/">lines</a></td>
+<td>The lines within the sub-geographical region</td>
 </tr>
 <tr>
-<td><a href="isVirtual/">isVirtual</a></td>
-<td>If true, this usage point is virtual, i</td>
+<td><a href="location/">location</a></td>
+<td>Location of this power system resource</td>
 </tr>
 <tr>
-<td><a href="lastModifiedDateTime/">lastModifiedDateTime</a></td>
-<td>Date and time this document was last modified</td>
+<td><a href="locations/">locations</a></td>
+<td>All locations described with position points in this coordinate system</td>
 </tr>
 <tr>
 <td><a href="m_rid/">m_rid</a></td>
 <td>Master resource identifier issued by a model authority</td>
 </tr>
 <tr>
-<td><a href="MarketDocument/">MarketDocument</a></td>
+<td><a href="main_address/">main_address</a></td>
+<td>Main address of the location</td>
+</tr>
+<tr>
+<td><a href="market_participant/">market_participant</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="MarketParticipant/">MarketParticipant</a></td>
+<td><a href="market_role/">market_role</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="MarketRole/">MarketRole</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="measurementType/">measurementType</a></td>
+<td><a href="measurement_type/">measurement_type</a></td>
 <td>Specifies the type of measurement</td>
 </tr>
 <tr>
-<td><a href="minimalUsageExpected/">minimalUsageExpected</a></td>
-<td>If true, minimal or zero usage is expected at this usage point for situations...</td>
+<td><a href="measurements/">measurements</a></td>
+<td>Measurements associated with this terminal defining  where the measurement is...</td>
 </tr>
 <tr>
-<td><a href="mRID/">mRID</a></td>
-<td>Master resource identifier issued by a model authority</td>
+<td><a href="mkt_connectivity_node/">mkt_connectivity_node</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="multiplier/">multiplier</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="name/">name</a></td>
+<td>Town name</td>
 </tr>
 <tr>
 <td><a href="name_type/">name_type</a></td>
@@ -668,103 +720,147 @@
 </tr>
 <tr>
 <td><a href="names/">names</a></td>
-<td>All names of this identified object</td>
+<td>All names of this type</td>
 </tr>
 <tr>
-<td><a href="normallyInService/">normallyInService</a></td>
-<td>Specifies the availability of the equipment under normal operating conditions</td>
+<td><a href="number/">number</a></td>
+<td>Designator of the specific location on the street</td>
 </tr>
 <tr>
-<td><a href="OperationalLimitSet/">OperationalLimitSet</a></td>
+<td><a href="operational_limit/">operational_limit</a></td>
+<td>The operational limits associated with this type of limit</td>
+</tr>
+<tr>
+<td><a href="operational_limit_set/">operational_limit_set</a></td>
 <td>The operational limit sets associated with this equipment</td>
 </tr>
 <tr>
-<td><a href="OperationalLimitValue/">OperationalLimitValue</a></td>
+<td><a href="operational_limit_type/">operational_limit_type</a></td>
+<td>The limit type associated with this limit</td>
+</tr>
+<tr>
+<td><a href="operational_limit_value/">operational_limit_value</a></td>
 <td>Values of equipment limits</td>
 </tr>
 <tr>
-<td><a href="Organisation/">Organisation</a></td>
+<td><a href="organisation/">organisation</a></td>
 <td>Organisation having this role</td>
 </tr>
 <tr>
-<td><a href="outageRegion/">outageRegion</a></td>
-<td>Outage region in which this usage point is located</td>
+<td><a href="position_points/">position_points</a></td>
+<td>Sequence of position points describing this location, expressed in coordinate...</td>
 </tr>
 <tr>
-<td><a href="Period/">Period</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="phaseCode/">phaseCode</a></td>
-<td>Phase code</td>
-</tr>
-<tr>
-<td><a href="phaseCount/">phaseCount</a></td>
-<td>Number of potential phases the Usage Point supports, typically 0, 1 or 3</td>
-</tr>
-<tr>
-<td><a href="phases/">phases</a></td>
-<td>Indicates to which phases the measurement applies and avoids the need to use ...</td>
-</tr>
-<tr>
-<td><a href="positiveFlowIn/">positiveFlowIn</a></td>
+<td><a href="positive_flow_in/">positive_flow_in</a></td>
 <td>If true then this measurement is an active power, reactive power or current w...</td>
 </tr>
 <tr>
-<td><a href="readCycle/">readCycle</a></td>
-<td>Cycle day on which the meter for this usage point will normally be read</td>
+<td><a href="postal_code/">postal_code</a></td>
+<td>Postal code for the address</td>
 </tr>
 <tr>
-<td><a href="readRoute/">readRoute</a></td>
-<td>Identifier of the route to which this usage point is assigned for purposes of...</td>
+<td><a href="power_system_resources/">power_system_resources</a></td>
+<td>All power system resources at this location</td>
 </tr>
 <tr>
-<td><a href="resolution/">resolution</a></td>
-<td>The number of units of time that compose an individual step within a period</td>
+<td><a href="power_transformer/">power_transformer</a></td>
+<td>The power transformer of this power transformer end</td>
 </tr>
 <tr>
-<td><a href="revisionNumber/">revisionNumber</a></td>
-<td>Revision number for this document</td>
+<td><a href="power_transformer_end/">power_transformer_end</a></td>
+<td>The ends of this power transformer</td>
 </tr>
 <tr>
-<td><a href="Roles/">Roles</a></td>
-<td>All roles of this organisation</td>
+<td><a href="region/">region</a></td>
+<td>The SubGeographicalRegion containing the substation</td>
 </tr>
 <tr>
-<td><a href="SelfMarketDocument/">SelfMarketDocument</a></td>
+<td><a href="regions/">regions</a></td>
+<td>All sub-geographical regions within this geographical region</td>
+</tr>
+<tr>
+<td><a href="registered_resource/">registered_resource</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="serviceDeliveryRemark/">serviceDeliveryRemark</a></td>
-<td>Remarks about this usage point, for example the reason for it being rated wit...</td>
+<td><a href="section/">section</a></td>
+<td>Town section</td>
 </tr>
 <tr>
-<td><a href="servicePriority/">servicePriority</a></td>
-<td>Priority of service for this usage point</td>
+<td><a href="sequence_number/">sequence_number</a></td>
+<td>Zero-relative sequence number of this point within a series of points</td>
 </tr>
 <tr>
-<td><a href="shortName/">shortName</a></td>
-<td>The attribute is used for an exchange of a human readable short name with len...</td>
+<td><a href="state_or_province/">state_or_province</a></td>
+<td>Name of the state or province</td>
 </tr>
 <tr>
-<td><a href="subject/">subject</a></td>
-<td>Document subject</td>
+<td><a href="street_detail/">street_detail</a></td>
+<td>Street detail</td>
 </tr>
 <tr>
-<td><a href="title/">title</a></td>
-<td>Document title</td>
+<td><a href="substations/">substations</a></td>
+<td>The substations in this sub-geographical region</td>
+</tr>
+<tr>
+<td><a href="terminal/">terminal</a></td>
+<td>The terminals associated with the topological node</td>
+</tr>
+<tr>
+<td><a href="terminals/">terminals</a></td>
+<td>Conducting equipment have terminals that may be connected to other conducting...</td>
+</tr>
+<tr>
+<td><a href="time_stamp/">time_stamp</a></td>
+<td>The time when the value was last updated</td>
+</tr>
+<tr>
+<td><a href="topological_node/">topological_node</a></td>
+<td>The topological node associated with the terminal</td>
+</tr>
+<tr>
+<td><a href="town_detail/">town_detail</a></td>
+<td>Town detail</td>
+</tr>
+<tr>
+<td><a href="transformer_end/">transformer_end</a></td>
+<td>All transformer ends connected at this terminal</td>
 </tr>
 <tr>
 <td><a href="type/">type</a></td>
 <td>The kind of market roles that can be played by parties for given domains with...</td>
 </tr>
 <tr>
-<td><a href="unitMultiplier/">unitMultiplier</a></td>
+<td><a href="unit/">unit</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="unit_multiplier/">unit_multiplier</a></td>
 <td>The unit multiplier of the measured quantity</td>
 </tr>
 <tr>
-<td><a href="unitSymbol/">unitSymbol</a></td>
+<td><a href="unit_symbol/">unit_symbol</a></td>
 <td>The unit of measure of the measured quantity</td>
+</tr>
+<tr>
+<td><a href="usage_points/">usage_points</a></td>
+<td>All usage points connected to the electrical grid through this equipment</td>
+</tr>
+<tr>
+<td><a href="value/">value</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="x_position/">x_position</a></td>
+<td>X axis position</td>
+</tr>
+<tr>
+<td><a href="y_position/">y_position</a></td>
+<td>Y axis position</td>
+</tr>
+<tr>
+<td><a href="z_position/">z_position</a></td>
+<td>(if applicable) Z axis position</td>
 </tr>
 </tbody>
 </table>
@@ -782,20 +878,44 @@
 <td>Lifecycle states of the metering installation at a usage point with respect t...</td>
 </tr>
 <tr>
+<td><a href="OperationalLimitDirectionKind/">OperationalLimitDirectionKind</a></td>
+<td>The direction attribute describes the side of  a limit that is a violation</td>
+</tr>
+<tr>
 <td><a href="PhaseCode/">PhaseCode</a></td>
 <td>An unordered enumeration of phase identifiers</td>
 </tr>
 <tr>
-<td><a href="UnitMultiplier/">UnitMultiplier</a></td>
+<td><a href="PhaseShuntConnectionKind/">PhaseShuntConnectionKind</a></td>
+<td>The configuration of phase connections for a single terminal device such as a...</td>
+</tr>
+<tr>
+<td><a href="ResourceRegistrationStatus/">ResourceRegistrationStatus</a></td>
+<td>Types of resource registration status, for example:</td>
+</tr>
+<tr>
+<td></td>
 <td></td>
 </tr>
 <tr>
+<td><a href="UnitMultiplier/">UnitMultiplier</a></td>
+<td>The unit multipliers defined for the CIM</td>
+</tr>
+<tr>
 <td><a href="UnitSymbol/">UnitSymbol</a></td>
-<td></td>
+<td>The derived units defined for usage in the CIM</td>
 </tr>
 <tr>
 <td><a href="UsagePointConnectedKind/">UsagePointConnectedKind</a></td>
 <td>State of the usage point with respect to connection to the network</td>
+</tr>
+<tr>
+<td><a href="WindingConnection/">WindingConnection</a></td>
+<td>Winding connection type</td>
+</tr>
+<tr>
+<td><a href="YesNo/">YesNo</a></td>
+<td>Used as a flag set to Yes or No</td>
 </tr>
 </tbody>
 </table>
