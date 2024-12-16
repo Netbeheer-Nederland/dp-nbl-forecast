@@ -21,7 +21,14 @@
                 "measurements": {
                     "description": "Measurements associated with this terminal defining  where the measurement is placed in the network topology.  It may be used, for instance, to capture the sensor position, such as a voltage transformer (PT) at a busbar or a current transformer (CT) at the bar between a breaker and an isolator.",
                     "items": {
-                        "$ref": "#/$defs/Measurement"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/Measurement"
+                            },
+                            {
+                                "$ref": "#/$defs/Analog"
+                            }
+                        ]
                     },
                     "type": [
                         "array",
@@ -845,7 +852,29 @@
                 "equipments": {
                     "description": "Contained equipment.",
                     "items": {
-                        "$ref": "#/$defs/Equipment"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/Equipment"
+                            },
+                            {
+                                "$ref": "#/$defs/ConductingEquipment"
+                            },
+                            {
+                                "$ref": "#/$defs/EnergyConnection"
+                            },
+                            {
+                                "$ref": "#/$defs/PowerTransformer"
+                            },
+                            {
+                                "$ref": "#/$defs/Conductor"
+                            },
+                            {
+                                "$ref": "#/$defs/ACLineSegment"
+                            },
+                            {
+                                "$ref": "#/$defs/EnergyConsumer"
+                            }
+                        ]
                     },
                     "type": [
                         "array",
@@ -1045,7 +1074,29 @@
                 "equipments": {
                     "description": "Contained equipment.",
                     "items": {
-                        "$ref": "#/$defs/Equipment"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/Equipment"
+                            },
+                            {
+                                "$ref": "#/$defs/ConductingEquipment"
+                            },
+                            {
+                                "$ref": "#/$defs/EnergyConnection"
+                            },
+                            {
+                                "$ref": "#/$defs/PowerTransformer"
+                            },
+                            {
+                                "$ref": "#/$defs/Conductor"
+                            },
+                            {
+                                "$ref": "#/$defs/ACLineSegment"
+                            },
+                            {
+                                "$ref": "#/$defs/EnergyConsumer"
+                            }
+                        ]
                     },
                     "type": [
                         "array",
@@ -1223,6 +1274,9 @@
                             "$ref": "#/$defs/Organisation"
                         },
                         {
+                            "$ref": "#/$defs/MarketParticipant"
+                        },
+                        {
                             "type": "null"
                         }
                     ],
@@ -1356,7 +1410,14 @@
                 },
                 "registered_resource": {
                     "items": {
-                        "$ref": "#/$defs/RegisteredResource"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/RegisteredResource"
+                            },
+                            {
+                                "$ref": "#/$defs/RegisteredLoad"
+                            }
+                        ]
                     },
                     "type": [
                         "array",
@@ -1393,7 +1454,128 @@
             "description": "The Name class provides the means to define any number of human readable  names for an object. A name is <b>not</b> to be used for defining inter-object relationships. For inter-object relationships instead use the object identification 'mRID'.",
             "properties": {
                 "identified_object": {
-                    "$ref": "#/$defs/IdentifiedObject",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/IdentifiedObject"
+                        },
+                        {
+                            "$ref": "#/$defs/TopologicalNode"
+                        },
+                        {
+                            "$ref": "#/$defs/ConnectivityNode"
+                        },
+                        {
+                            "$ref": "#/$defs/TransformerEnd"
+                        },
+                        {
+                            "$ref": "#/$defs/OperationalLimitSet"
+                        },
+                        {
+                            "$ref": "#/$defs/ACDCTerminal"
+                        },
+                        {
+                            "$ref": "#/$defs/Measurement"
+                        },
+                        {
+                            "$ref": "#/$defs/PowerSystemResource"
+                        },
+                        {
+                            "$ref": "#/$defs/Location"
+                        },
+                        {
+                            "$ref": "#/$defs/CoordinateSystem"
+                        },
+                        {
+                            "$ref": "#/$defs/OperationalLimit"
+                        },
+                        {
+                            "$ref": "#/$defs/OperationalLimitType"
+                        },
+                        {
+                            "$ref": "#/$defs/UsagePoint"
+                        },
+                        {
+                            "$ref": "#/$defs/SubGeographicalRegion"
+                        },
+                        {
+                            "$ref": "#/$defs/GeographicalRegion"
+                        },
+                        {
+                            "$ref": "#/$defs/Organisation"
+                        },
+                        {
+                            "$ref": "#/$defs/OrganisationRole"
+                        },
+                        {
+                            "$ref": "#/$defs/IOPoint"
+                        },
+                        {
+                            "$ref": "#/$defs/MeasurementValue"
+                        },
+                        {
+                            "$ref": "#/$defs/AnalogValue"
+                        },
+                        {
+                            "$ref": "#/$defs/MarketRole"
+                        },
+                        {
+                            "$ref": "#/$defs/MarketParticipant"
+                        },
+                        {
+                            "$ref": "#/$defs/ActivePowerLimit"
+                        },
+                        {
+                            "$ref": "#/$defs/ConnectivityNodeContainer"
+                        },
+                        {
+                            "$ref": "#/$defs/Equipment"
+                        },
+                        {
+                            "$ref": "#/$defs/RegisteredResource"
+                        },
+                        {
+                            "$ref": "#/$defs/RegisteredLoad"
+                        },
+                        {
+                            "$ref": "#/$defs/ConductingEquipment"
+                        },
+                        {
+                            "$ref": "#/$defs/EnergyConnection"
+                        },
+                        {
+                            "$ref": "#/$defs/PowerTransformer"
+                        },
+                        {
+                            "$ref": "#/$defs/Conductor"
+                        },
+                        {
+                            "$ref": "#/$defs/ACLineSegment"
+                        },
+                        {
+                            "$ref": "#/$defs/EnergyConsumer"
+                        },
+                        {
+                            "$ref": "#/$defs/EquipmentContainer"
+                        },
+                        {
+                            "$ref": "#/$defs/Substation"
+                        },
+                        {
+                            "$ref": "#/$defs/Line"
+                        },
+                        {
+                            "$ref": "#/$defs/Analog"
+                        },
+                        {
+                            "$ref": "#/$defs/Terminal"
+                        },
+                        {
+                            "$ref": "#/$defs/PowerTransformerEnd"
+                        },
+                        {
+                            "$ref": "#/$defs/MktConnectivityNode"
+                        }
+                    ],
                     "description": "Identified object that this name designates."
                 },
                 "name_type": {
@@ -1553,7 +1735,14 @@
                 "operational_limit_value": {
                     "description": "Values of equipment limits.",
                     "items": {
-                        "$ref": "#/$defs/OperationalLimit"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/OperationalLimit"
+                            },
+                            {
+                                "$ref": "#/$defs/ActivePowerLimit"
+                            }
+                        ]
                     },
                     "type": [
                         "array",
@@ -1595,7 +1784,14 @@
                 "operational_limit": {
                     "description": "The operational limits associated with this type of limit.",
                     "items": {
-                        "$ref": "#/$defs/OperationalLimit"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/OperationalLimit"
+                            },
+                            {
+                                "$ref": "#/$defs/ActivePowerLimit"
+                            }
+                        ]
                     },
                     "type": [
                         "array",
@@ -1670,6 +1866,9 @@
                     "anyOf": [
                         {
                             "$ref": "#/$defs/Organisation"
+                        },
+                        {
+                            "$ref": "#/$defs/MarketParticipant"
                         },
                         {
                             "type": "null"
@@ -2187,7 +2386,29 @@
                 "equipments": {
                     "description": "Contained equipment.",
                     "items": {
-                        "$ref": "#/$defs/Equipment"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/Equipment"
+                            },
+                            {
+                                "$ref": "#/$defs/ConductingEquipment"
+                            },
+                            {
+                                "$ref": "#/$defs/EnergyConnection"
+                            },
+                            {
+                                "$ref": "#/$defs/PowerTransformer"
+                            },
+                            {
+                                "$ref": "#/$defs/Conductor"
+                            },
+                            {
+                                "$ref": "#/$defs/ACLineSegment"
+                            },
+                            {
+                                "$ref": "#/$defs/EnergyConsumer"
+                            }
+                        ]
                     },
                     "type": [
                         "array",
@@ -2221,17 +2442,6 @@
                         "array",
                         "null"
                     ]
-                },
-                "region": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/SubGeographicalRegion"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "The SubGeographicalRegion containing the substation."
                 }
             },
             "title": "Substation",
@@ -2242,13 +2452,35 @@
             "description": "An AC electrical connection point to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes.",
             "properties": {
                 "conducting_equipment": {
-                    "$ref": "#/$defs/ConductingEquipment",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ConductingEquipment"
+                        },
+                        {
+                            "$ref": "#/$defs/EnergyConnection"
+                        },
+                        {
+                            "$ref": "#/$defs/PowerTransformer"
+                        },
+                        {
+                            "$ref": "#/$defs/Conductor"
+                        },
+                        {
+                            "$ref": "#/$defs/ACLineSegment"
+                        },
+                        {
+                            "$ref": "#/$defs/EnergyConsumer"
+                        }
+                    ],
                     "description": "The conducting equipment of the terminal. Conducting equipment have  terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes."
                 },
                 "connectivity_node": {
                     "anyOf": [
                         {
                             "$ref": "#/$defs/ConnectivityNode"
+                        },
+                        {
+                            "$ref": "#/$defs/MktConnectivityNode"
                         },
                         {
                             "type": "null"
@@ -2273,7 +2505,14 @@
                 "measurements": {
                     "description": "Measurements associated with this terminal defining  where the measurement is placed in the network topology.  It may be used, for instance, to capture the sensor position, such as a voltage transformer (PT) at a busbar or a current transformer (CT) at the bar between a breaker and an isolator.",
                     "items": {
-                        "$ref": "#/$defs/Measurement"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/Measurement"
+                            },
+                            {
+                                "$ref": "#/$defs/Analog"
+                            }
+                        ]
                     },
                     "type": [
                         "array",
@@ -2314,7 +2553,14 @@
                 "connectivity_nodes": {
                     "description": "The connectivity nodes combine together to form this topological node.  May depend on the current state of switches in the network.",
                     "items": {
-                        "$ref": "#/$defs/ConnectivityNode"
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/ConnectivityNode"
+                            },
+                            {
+                                "$ref": "#/$defs/MktConnectivityNode"
+                            }
+                        ]
                     },
                     "type": [
                         "array",

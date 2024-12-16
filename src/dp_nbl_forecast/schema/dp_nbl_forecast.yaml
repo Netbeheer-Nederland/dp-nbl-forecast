@@ -1198,13 +1198,6 @@ classes:
       \ of switching or modifying its characteristics. \r\n"
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     is_a: EquipmentContainer
-    attributes:
-      region:
-        description: The SubGeographicalRegion containing the substation.
-        slot_uri: cim:Substation.Region
-        multivalued: false
-        range: SubGeographicalRegion
-        required: false
     class_uri: cim:Substation
   SubGeographicalRegion:
     description: "A subset of a geographical region of a power system network model.\r\
