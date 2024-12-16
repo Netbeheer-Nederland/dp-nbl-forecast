@@ -1,13 +1,19 @@
-name: TC57CIM
-title: TC57CIM
+name: NBLForecastDataproduct
+description: |-
+  ![Netbewust Laden Forecast](assets/dp_nbl_forecast-20241216.svg)
+
+  ## Additional schemas
+  * [JSON Schema](https://raw.githubusercontent.com/Netbeheer-Nederland/dp-nbl-forecast/refs/heads/main/project/jsonschema/dp_nbl_forecast.schema.json)
+  ## Identifiers
+title: Netbewust Laden Dataproduct
 id: http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0
+version: 1.0.0
 imports:
 - linkml:types
 prefixes:
   linkml: https://w3id.org/linkml/
   github: https://github.com/
   cim: https://cim.ucaiug.io/ns#
-  dcat: http://www.w3.org/ns/dcat#
   dct: http://purl.org/dc/terms/
   nbnl: https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/
   this: http://data.netbeheernederland.nl/dp-nbl-forecast/def#
@@ -567,6 +573,38 @@ enums:
       Yn:
         meaning: cim:PhaseShuntConnectionKind.Yn
 classes:
+  ForecastDataSet:
+    description: A single instance of a published dataset.
+    attributes:
+      identifier:
+        slot_uri: dct:identifier
+        multivalued: false
+        required: true
+      contact_point:
+        slot_uri: dcat:contactPoint
+        multivalued: false
+        required: true
+      conforms_to:
+        slot_uri: dct:conformsTo
+        multivalued: false
+        required: true
+      release_date:
+        slot_uri: dct:issued
+        multivalued: false
+        range: date
+        required: true
+      version:
+        slot_uri: owl:versionInfo
+        multivalued: false
+        required: true
+      regions:
+        description: Geographical regions included in this dataset.
+        slot_uri: this:ForecastDataSet.Regions
+        multivalued: true
+        range: GeographicalRegion
+        required: false
+    class_uri: this:ForecastDataSet
+    tree_root: true
   Name:
     description: "The Name class provides the means to define any number of human\
       \ readable  names for an object. A name is <b>not</b> to be used for defining\
@@ -668,12 +706,6 @@ classes:
         range: Name
         required: false
     class_uri: cim:IdentifiedObject
-  EnergySource:
-    description: A generic equivalent for an energy supplier on a transmission or
-      distribution voltage level.
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Wires
-    is_a: EnergyConnection
-    class_uri: cim:EnergySource
   ActivePower:
     annotations:
       represents_cim_data_type:
@@ -726,16 +758,6 @@ classes:
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     is_a: ACDCTerminal
     attributes:
-      topological_node:
-        description: The topological node associated with the terminal.   This can
-          be used as an alternative to the connectivity node path to topological node,
-          thus making it unnecessary to model connectivity nodes in some cases.   Note
-          that the if connectivity nodes are in the model, this association would
-          probably not be used as an input specification.
-        slot_uri: cim:Terminal.TopologicalNode
-        multivalued: false
-        range: TopologicalNode
-        required: false
       connectivity_node:
         description: The connectivity node to which this terminal connects with zero
           impedance.
@@ -744,19 +766,13 @@ classes:
         range: ConnectivityNode
         required: false
       conducting_equipment:
-        description: The conducting equipment of the terminal.  Conducting equipment
-          have  terminals that may be connected to other conducting equipment terminals
-          via connectivity nodes or topological nodes.
         slot_uri: cim:Terminal.ConductingEquipment
-        multivalued: false
         range: ConductingEquipment
         required: true
-      transformer_end:
-        description: All transformer ends connected at this terminal.
-        slot_uri: cim:Terminal.TransformerEnd
-        multivalued: true
-        range: TransformerEnd
-        required: false
+        multivalued: false
+        description: The conducting equipment of the terminal. Conducting equipment
+          have  terminals that may be connected to other conducting equipment terminals
+          via connectivity nodes or topological nodes.
     class_uri: cim:Terminal
   TopologicalNode:
     description: "For a detailed substation model a topological node is a set of connectivity\
@@ -842,12 +858,6 @@ classes:
         multivalued: true
         range: OperationalLimitSet
         required: false
-      equipment_container:
-        description: Container of this equipment.
-        slot_uri: cim:Equipment.EquipmentContainer
-        multivalued: false
-        range: EquipmentContainer
-        required: false
       usage_points:
         description: All usage points connected to the electrical grid through this
           equipment.
@@ -866,12 +876,6 @@ classes:
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.OperationalLimits
     is_a: IdentifiedObject
     attributes:
-      terminal:
-        description: The terminal where the operational limit set apply.
-        slot_uri: cim:OperationalLimitSet.Terminal
-        multivalued: false
-        range: ACDCTerminal
-        required: false
       operational_limit_value:
         description: Values of equipment limits.
         slot_uri: cim:OperationalLimitSet.OperationalLimitValue
@@ -948,13 +952,6 @@ classes:
         multivalued: false
         range: UnitSymbol
         required: false
-      terminal:
-        description: One or more measurements may be associated with a terminal in
-          the network.
-        slot_uri: cim:Measurement.Terminal
-        multivalued: false
-        range: ACDCTerminal
-        required: false
     class_uri: cim:Measurement
   PowerSystemResource:
     description: A power system resource (PSR) can be an item of equipment such as
@@ -984,12 +981,6 @@ classes:
         slot_uri: cim:Location.mainAddress
         multivalued: false
         range: StreetAddress
-        required: false
-      power_system_resources:
-        description: All power system resources at this location.
-        slot_uri: cim:Location.PowerSystemResources
-        multivalued: true
-        range: PowerSystemResource
         required: false
       coordinate_system:
         description: Coordinate system used to describe position points of this location.
@@ -1169,12 +1160,6 @@ classes:
         multivalued: false
         range: OperationalLimitType
         required: false
-      operational_limit_set:
-        description: The limit set to which the limit values belong.
-        slot_uri: cim:OperationalLimit.OperationalLimitSet
-        multivalued: false
-        range: OperationalLimitSet
-        required: true
     class_uri: cim:OperationalLimit
   OperationalLimitType:
     description: "The operational meaning of a category of limits.\r\n"
@@ -1206,13 +1191,6 @@ classes:
       located; however, it is not required that a meter be present.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Metering
     is_a: IdentifiedObject
-    attributes:
-      equipments:
-        description: All equipment connecting this usage point to the electrical grid.
-        slot_uri: cim:UsagePoint.Equipments
-        multivalued: true
-        range: Equipment
-        required: false
     class_uri: cim:UsagePoint
   Substation:
     description: "A collection of equipment for purposes other than generation or\
@@ -1246,29 +1224,15 @@ classes:
         multivalued: true
         range: Substation
         required: false
-      region:
-        description: The geographical region which this sub-geographical region is
-          within.
-        slot_uri: cim:SubGeographicalRegion.Region
-        multivalued: false
-        range: GeographicalRegion
-        required: false
     class_uri: cim:SubGeographicalRegion
   Line:
     description: 'Contains equipment beyond a substation belonging to a power transmission
       line. '
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Wires
     is_a: EquipmentContainer
-    attributes:
-      region:
-        description: The sub-geographical region of the line.
-        slot_uri: cim:Line.Region
-        multivalued: false
-        range: SubGeographicalRegion
-        required: false
     class_uri: cim:Line
   GeographicalRegion:
-    description: "A geographical region of a power system network model.\r\n"
+    description: "A geographical region of a power system network model."
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     is_a: IdentifiedObject
     attributes:
@@ -1325,13 +1289,6 @@ classes:
       \ etc)."
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Wires
     is_a: TransformerEnd
-    attributes:
-      power_transformer:
-        description: The power transformer of this power transformer end.
-        slot_uri: cim:PowerTransformerEnd.PowerTransformer
-        multivalued: false
-        range: PowerTransformer
-        required: false
     class_uri: cim:PowerTransformerEnd
   ACLineSegment:
     description: "A wire or combination of wires, with consistent electrical characteristics,\
@@ -1425,11 +1382,6 @@ classes:
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC62325.MarketCommon
     is_a: PowerSystemResource
     attributes:
-      mkt_connectivity_node:
-        slot_uri: cim:RegisteredResource.MktConnectivityNode
-        multivalued: false
-        range: MktConnectivityNode
-        required: false
       market_participant:
         slot_uri: cim:RegisteredResource.MarketParticipant
         multivalued: false
@@ -1459,11 +1411,6 @@ classes:
         multivalued: true
         range: MarketRole
         required: false
-      registered_resource:
-        slot_uri: cim:MarketParticipant.RegisteredResource
-        multivalued: true
-        range: RegisteredResource
-        required: false
     class_uri: cim:MarketParticipant
   MarketRole:
     description: The external intended behavior played by a party within the electricity
@@ -1478,11 +1425,6 @@ classes:
         slot_uri: cim:MarketRole.type
         multivalued: false
         range: string
-        required: false
-      market_participant:
-        slot_uri: cim:MarketRole.MarketParticipant
-        multivalued: true
-        range: MarketParticipant
         required: false
     class_uri: cim:MarketRole
   Organisation:
@@ -1504,12 +1446,6 @@ classes:
         range: Organisation
         required: false
     class_uri: cim:OrganisationRole
-  MarketEvaluationPoint:
-    description: The identification of an entity where energy products are measured
-      or computed.
-    from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC62325.MarketManagement
-    is_a: UsagePoint
-    class_uri: cim:MarketEvaluationPoint
   EnergyConsumer:
     description: "Generic user of energy - a  point of consumption on the power system\
       \ model.\r\nEnergyConsumer.pfixed, .qfixed, .pfixedPct and .qfixedPct have meaning\

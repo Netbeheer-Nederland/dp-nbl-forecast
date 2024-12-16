@@ -63,17 +63,6 @@
                         "null"
                     ]
                 },
-                "equipment_container": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/EquipmentContainer"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Container of this equipment."
-                },
                 "location": {
                     "anyOf": [
                         {
@@ -184,10 +173,6 @@
                         "null"
                     ]
                 },
-                "operational_limit_set": {
-                    "$ref": "#/$defs/OperationalLimitSet",
-                    "description": "The limit set to which the limit values belong."
-                },
                 "operational_limit_type": {
                     "anyOf": [
                         {
@@ -211,9 +196,6 @@
                     "description": "Value of active power limit. The attribute shall be a positive value or zero."
                 }
             },
-            "required": [
-                "operational_limit_set"
-            ],
             "title": "ActivePowerLimit",
             "type": "object"
         },
@@ -282,17 +264,6 @@
                         "boolean",
                         "null"
                     ]
-                },
-                "terminal": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/ACDCTerminal"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "One or more measurements may be associated with a terminal in the network."
                 },
                 "unit_multiplier": {
                     "$ref": "#/$defs/UnitMultiplier",
@@ -371,17 +342,6 @@
                         "null"
                     ]
                 },
-                "equipment_container": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/EquipmentContainer"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Container of this equipment."
-                },
                 "location": {
                     "anyOf": [
                         {
@@ -454,17 +414,6 @@
                         "string",
                         "null"
                     ]
-                },
-                "equipment_container": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/EquipmentContainer"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Container of this equipment."
                 },
                 "location": {
                     "anyOf": [
@@ -684,17 +633,6 @@
                         "null"
                     ]
                 },
-                "equipment_container": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/EquipmentContainer"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Container of this equipment."
-                },
                 "location": {
                     "anyOf": [
                         {
@@ -768,17 +706,6 @@
                         "null"
                     ]
                 },
-                "equipment_container": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/EquipmentContainer"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Container of this equipment."
-                },
                 "location": {
                     "anyOf": [
                         {
@@ -841,90 +768,6 @@
             "title": "EnergyConsumer",
             "type": "object"
         },
-        "EnergySource": {
-            "additionalProperties": false,
-            "description": "A generic equivalent for an energy supplier on a transmission or distribution voltage level.",
-            "properties": {
-                "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "equipment_container": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/EquipmentContainer"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Container of this equipment."
-                },
-                "location": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/Location"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Location of this power system resource."
-                },
-                "m_rid": {
-                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "names": {
-                    "description": "All names of this identified object.",
-                    "items": {
-                        "$ref": "#/$defs/Name"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "operational_limit_set": {
-                    "description": "The operational limit sets associated with this equipment.",
-                    "items": {
-                        "$ref": "#/$defs/OperationalLimitSet"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "terminals": {
-                    "description": "Conducting equipment have terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes.",
-                    "items": {
-                        "$ref": "#/$defs/Terminal"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "usage_points": {
-                    "description": "All usage points connected to the electrical grid through this equipment.",
-                    "items": {
-                        "$ref": "#/$defs/UsagePoint"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                }
-            },
-            "title": "EnergySource",
-            "type": "object"
-        },
         "Equipment": {
             "additionalProperties": false,
             "description": "The parts of a power system that are physical devices, electronic or mechanical.",
@@ -935,17 +778,6 @@
                         "string",
                         "null"
                     ]
-                },
-                "equipment_container": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/EquipmentContainer"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Container of this equipment."
                 },
                 "location": {
                     "anyOf": [
@@ -1050,6 +882,47 @@
                 }
             },
             "title": "EquipmentContainer",
+            "type": "object"
+        },
+        "ForecastDataSet": {
+            "additionalProperties": false,
+            "description": "A single instance of a published dataset.",
+            "properties": {
+                "conforms_to": {
+                    "type": "string"
+                },
+                "contact_point": {
+                    "type": "string"
+                },
+                "identifier": {
+                    "type": "string"
+                },
+                "regions": {
+                    "description": "Geographical regions included in this dataset.",
+                    "items": {
+                        "$ref": "#/$defs/GeographicalRegion"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "release_date": {
+                    "format": "date",
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "identifier",
+                "contact_point",
+                "conforms_to",
+                "release_date",
+                "version"
+            ],
+            "title": "ForecastDataSet",
             "type": "object"
         },
         "GeographicalRegion": {
@@ -1206,17 +1079,6 @@
                         "array",
                         "null"
                     ]
-                },
-                "region": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/SubGeographicalRegion"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "The sub-geographical region of the line."
                 }
             },
             "title": "Line",
@@ -1281,61 +1143,9 @@
                         "array",
                         "null"
                     ]
-                },
-                "power_system_resources": {
-                    "description": "All power system resources at this location.",
-                    "items": {
-                        "$ref": "#/$defs/PowerSystemResource"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
                 }
             },
             "title": "Location",
-            "type": "object"
-        },
-        "MarketEvaluationPoint": {
-            "additionalProperties": false,
-            "description": "The identification of an entity where energy products are measured or computed.",
-            "properties": {
-                "description": {
-                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "equipments": {
-                    "description": "All equipment connecting this usage point to the electrical grid.",
-                    "items": {
-                        "$ref": "#/$defs/Equipment"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "m_rid": {
-                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "names": {
-                    "description": "All names of this identified object.",
-                    "items": {
-                        "$ref": "#/$defs/Name"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                }
-            },
-            "title": "MarketEvaluationPoint",
             "type": "object"
         },
         "MarketParticipant": {
@@ -1374,15 +1184,6 @@
                         "array",
                         "null"
                     ]
-                },
-                "registered_resource": {
-                    "items": {
-                        "$ref": "#/$defs/RegisteredResource"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
                 }
             },
             "title": "MarketParticipant",
@@ -1403,15 +1204,6 @@
                     "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
                     "type": [
                         "string",
-                        "null"
-                    ]
-                },
-                "market_participant": {
-                    "items": {
-                        "$ref": "#/$defs/MarketParticipant"
-                    },
-                    "type": [
-                        "array",
                         "null"
                     ]
                 },
@@ -1481,17 +1273,6 @@
                         "array",
                         "null"
                     ]
-                },
-                "terminal": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/ACDCTerminal"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "One or more measurements may be associated with a terminal in the network."
                 },
                 "unit_multiplier": {
                     "$ref": "#/$defs/UnitMultiplier",
@@ -1716,10 +1497,6 @@
                         "null"
                     ]
                 },
-                "operational_limit_set": {
-                    "$ref": "#/$defs/OperationalLimitSet",
-                    "description": "The limit set to which the limit values belong."
-                },
                 "operational_limit_type": {
                     "anyOf": [
                         {
@@ -1732,9 +1509,6 @@
                     "description": "The limit type associated with this limit."
                 }
             },
-            "required": [
-                "operational_limit_set"
-            ],
             "title": "OperationalLimit",
             "type": "object"
         },
@@ -1785,17 +1559,6 @@
                         "array",
                         "null"
                     ]
-                },
-                "terminal": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/ACDCTerminal"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "The terminal where the operational limit set apply."
                 }
             },
             "title": "OperationalLimitSet",
@@ -2067,17 +1830,6 @@
                         "null"
                     ]
                 },
-                "equipment_container": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/EquipmentContainer"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Container of this equipment."
-                },
                 "location": {
                     "anyOf": [
                         {
@@ -2178,17 +1930,6 @@
                         "null"
                     ]
                 },
-                "power_transformer": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/PowerTransformer"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "The power transformer of this power transformer end."
-                },
                 "terminal": {
                     "anyOf": [
                         {
@@ -2243,16 +1984,6 @@
                         }
                     ]
                 },
-                "mkt_connectivity_node": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/MktConnectivityNode"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
                 "names": {
                     "description": "All names of this identified object.",
                     "items": {
@@ -2300,16 +2031,6 @@
                     "anyOf": [
                         {
                             "$ref": "#/$defs/MarketParticipant"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "mkt_connectivity_node": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/MktConnectivityNode"
                         },
                         {
                             "type": "null"
@@ -2438,17 +2159,6 @@
                         "null"
                     ]
                 },
-                "region": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/GeographicalRegion"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "The geographical region which this sub-geographical region is within."
-                },
                 "substations": {
                     "description": "The substations in this sub-geographical region.",
                     "items": {
@@ -2533,7 +2243,7 @@
             "properties": {
                 "conducting_equipment": {
                     "$ref": "#/$defs/ConductingEquipment",
-                    "description": "The conducting equipment of the terminal.  Conducting equipment have  terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes."
+                    "description": "The conducting equipment of the terminal. Conducting equipment have  terminals that may be connected to other conducting equipment terminals via connectivity nodes or topological nodes."
                 },
                 "connectivity_node": {
                     "anyOf": [
@@ -2584,27 +2294,6 @@
                     "description": "The operational limit sets at the terminal.",
                     "items": {
                         "$ref": "#/$defs/OperationalLimitSet"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "topological_node": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/TopologicalNode"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "The topological node associated with the terminal.   This can be used as an alternative to the connectivity node path to topological node, thus making it unnecessary to model connectivity nodes in some cases.   Note that the if connectivity nodes are in the model, this association would probably not be used as an input specification."
-                },
-                "transformer_end": {
-                    "description": "All transformer ends connected at this terminal.",
-                    "items": {
-                        "$ref": "#/$defs/TransformerEnd"
                     },
                     "type": [
                         "array",
@@ -2929,16 +2618,6 @@
                         "null"
                     ]
                 },
-                "equipments": {
-                    "description": "All equipment connecting this usage point to the electrical grid.",
-                    "items": {
-                        "$ref": "#/$defs/Equipment"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
                 "m_rid": {
                     "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
                     "type": [
@@ -2997,8 +2676,44 @@
     "$id": "http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
+    "description": "A single instance of a published dataset.",
     "metamodel_version": "1.7.0",
-    "title": "TC57CIM",
+    "properties": {
+        "conforms_to": {
+            "type": "string"
+        },
+        "contact_point": {
+            "type": "string"
+        },
+        "identifier": {
+            "type": "string"
+        },
+        "regions": {
+            "description": "Geographical regions included in this dataset.",
+            "items": {
+                "$ref": "#/$defs/GeographicalRegion"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "release_date": {
+            "format": "date",
+            "type": "string"
+        },
+        "version": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "identifier",
+        "contact_point",
+        "conforms_to",
+        "release_date",
+        "version"
+    ],
+    "title": "NBLForecastDataproduct",
     "type": "object",
-    "version": null
+    "version": "1.0.0"
 }
