@@ -239,15 +239,6 @@ _</p>
     click OperationalLimit href "../OperationalLimit"
 
 
-      OperationalLimitSet : terminal
-
-
-
-
-    OperationalLimitSet --&gt; "0..1" ACDCTerminal : terminal
-    click ACDCTerminal href "../ACDCTerminal"
-
-
 </code></pre>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
@@ -267,12 +258,6 @@ _</p>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><a href="../terminal/">terminal</a></td>
-<td>0..1 <br/> <a href="../ACDCTerminal/">ACDCTerminal</a></td>
-<td>The terminal where the operational limit set apply</td>
-<td>direct</td>
-</tr>
 <tr>
 <td><a href="../operational_limit_value/">operational_limit_value</a></td>
 <td>* <br/> <a href="../OperationalLimit/">OperationalLimit</a></td>
@@ -311,12 +296,6 @@ _</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../EnergySource/">EnergySource</a></td>
-<td><a href="../operational_limit_set/">operational_limit_set</a></td>
-<td>range</td>
-<td><a href="./">OperationalLimitSet</a></td>
-</tr>
-<tr>
 <td><a href="../EnergyConnection/">EnergyConnection</a></td>
 <td><a href="../operational_limit_set/">operational_limit_set</a></td>
 <td>range</td>
@@ -347,12 +326,6 @@ _</p>
 <td><a href="./">OperationalLimitSet</a></td>
 </tr>
 <tr>
-<td><a href="../OperationalLimit/">OperationalLimit</a></td>
-<td><a href="../operational_limit_set/">operational_limit_set</a></td>
-<td>range</td>
-<td><a href="./">OperationalLimitSet</a></td>
-</tr>
-<tr>
 <td><a href="../PowerTransformer/">PowerTransformer</a></td>
 <td><a href="../operational_limit_set/">operational_limit_set</a></td>
 <td>range</td>
@@ -366,12 +339,6 @@ _</p>
 </tr>
 <tr>
 <td><a href="../Conductor/">Conductor</a></td>
-<td><a href="../operational_limit_set/">operational_limit_set</a></td>
-<td>range</td>
-<td><a href="./">OperationalLimitSet</a></td>
-</tr>
-<tr>
-<td><a href="../ActivePowerLimit/">ActivePowerLimit</a></td>
 <td><a href="../operational_limit_set/">operational_limit_set</a></td>
 <td>range</td>
 <td><a href="./">OperationalLimitSet</a></td>
@@ -423,19 +390,6 @@ _</p>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IdentifiedObject</span>
 <span class="nt">attributes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">terminal</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">terminal</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The terminal where the operational limit set apply.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:OperationalLimitSet.Terminal</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TopologicalNode</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TransformerEnd</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OperationalLimitSet</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Measurement</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ACDCTerminal</span>
-<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">  </span><span class="nt">operational_limit_value</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">operational_limit_value</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Values of equipment limits.</span>
@@ -463,21 +417,6 @@ _</p>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IdentifiedObject</span>
 <span class="nt">attributes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">terminal</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">terminal</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The terminal where the operational limit set apply.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:OperationalLimitSet.Terminal</span>
-<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">terminal</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OperationalLimitSet</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TopologicalNode</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TransformerEnd</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OperationalLimitSet</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Measurement</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ACDCTerminal</span>
-<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">  </span><span class="nt">operational_limit_value</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">operational_limit_value</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Values of equipment limits.</span>

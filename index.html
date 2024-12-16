@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tc57cim" class="md-skip">
+        <a href="#netbewust-laden-dataproduct" class="md-skip">
           Skip to content
         </a>
       
@@ -245,6 +245,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#additional-schemas" class="md-nav__link">
+    Additional schemas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identifiers" class="md-nav__link">
+    Identifiers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#classes" class="md-nav__link">
     Classes
   </a>
@@ -329,6 +343,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#additional-schemas" class="md-nav__link">
+    Additional schemas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identifiers" class="md-nav__link">
+    Identifiers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#classes" class="md-nav__link">
     Classes
   </a>
@@ -383,9 +411,15 @@
   </a>
 
 
-<h1 id="tc57cim">TC57CIM</h1>
+<h1 id="netbewust-laden-dataproduct">Netbewust Laden Dataproduct</h1>
+<p><img alt="Netbewust Laden Forecast" src="assets/dp_nbl_forecast-20241216.svg" /></p>
+<h2 id="additional-schemas">Additional schemas</h2>
+<ul>
+<li><a href="https://raw.githubusercontent.com/Netbeheer-Nederland/dp-nbl-forecast/refs/heads/main/project/jsonschema/dp_nbl_forecast.schema.json">JSON Schema</a></li>
+</ul>
+<h2 id="identifiers">Identifiers</h2>
 <p>URI: http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0</p>
-<p>Name: TC57CIM</p>
+<p>Name: NBLForecastDataproduct</p>
 <h2 id="classes">Classes</h2>
 <table>
 <thead>
@@ -448,16 +482,16 @@
 <td>Generic user of energy - a  point of consumption on the power system model</td>
 </tr>
 <tr>
-<td><a href="EnergySource/">EnergySource</a></td>
-<td>A generic equivalent for an energy supplier on a transmission or distribution...</td>
-</tr>
-<tr>
 <td><a href="Equipment/">Equipment</a></td>
 <td>The parts of a power system that are physical devices, electronic or mechanic...</td>
 </tr>
 <tr>
 <td><a href="EquipmentContainer/">EquipmentContainer</a></td>
 <td>A modelling construct to provide a root class for containing equipment</td>
+</tr>
+<tr>
+<td><a href="ForecastDataSet/">ForecastDataSet</a></td>
+<td>A single instance of a published dataset</td>
 </tr>
 <tr>
 <td><a href="GeographicalRegion/">GeographicalRegion</a></td>
@@ -478,10 +512,6 @@
 <tr>
 <td><a href="Location/">Location</a></td>
 <td>The place, scene, or point of something where someone or something has been, ...</td>
-</tr>
-<tr>
-<td><a href="MarketEvaluationPoint/">MarketEvaluationPoint</a></td>
-<td>The identification of an entity where energy products are measured or compute...</td>
 </tr>
 <tr>
 <td><a href="MarketParticipant/">MarketParticipant</a></td>
@@ -623,12 +653,20 @@
 <td>The conducting equipment of the terminal</td>
 </tr>
 <tr>
+<td><a href="conforms_to/">conforms_to</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="connectivity_node/">connectivity_node</a></td>
 <td>The connectivity node to which this terminal connects with zero impedance</td>
 </tr>
 <tr>
 <td><a href="connectivity_nodes/">connectivity_nodes</a></td>
 <td>The connectivity nodes combine together to form this topological node</td>
+</tr>
+<tr>
+<td><a href="contact_point/">contact_point</a></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="coordinate_system/">coordinate_system</a></td>
@@ -643,10 +681,6 @@
 <td>Description of the name type</td>
 </tr>
 <tr>
-<td><a href="equipment_container/">equipment_container</a></td>
-<td>Container of this equipment</td>
-</tr>
-<tr>
 <td><a href="equipments/">equipments</a></td>
 <td>Contained equipment</td>
 </tr>
@@ -657,6 +691,10 @@
 <tr>
 <td><a href="identified_object/">identified_object</a></td>
 <td>Identified object that this name designates</td>
+</tr>
+<tr>
+<td><a href="identifier/">identifier</a></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="lines/">lines</a></td>
@@ -693,10 +731,6 @@
 <tr>
 <td><a href="measurements/">measurements</a></td>
 <td>Measurements associated with this terminal defining  where the measurement is...</td>
-</tr>
-<tr>
-<td><a href="mkt_connectivity_node/">mkt_connectivity_node</a></td>
-<td></td>
 </tr>
 <tr>
 <td><a href="multiplier/">multiplier</a></td>
@@ -759,14 +793,6 @@
 <td>Postal code for the address</td>
 </tr>
 <tr>
-<td><a href="power_system_resources/">power_system_resources</a></td>
-<td>All power system resources at this location</td>
-</tr>
-<tr>
-<td><a href="power_transformer/">power_transformer</a></td>
-<td>The power transformer of this power transformer end</td>
-</tr>
-<tr>
 <td><a href="power_transformer_end/">power_transformer_end</a></td>
 <td>The ends of this power transformer</td>
 </tr>
@@ -776,10 +802,14 @@
 </tr>
 <tr>
 <td><a href="regions/">regions</a></td>
-<td>All sub-geographical regions within this geographical region</td>
+<td>Geographical regions included in this dataset</td>
 </tr>
 <tr>
 <td><a href="registered_resource/">registered_resource</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="release_date/">release_date</a></td>
 <td></td>
 </tr>
 <tr>
@@ -816,15 +846,11 @@
 </tr>
 <tr>
 <td><a href="topological_node/">topological_node</a></td>
-<td>The topological node associated with the terminal</td>
+<td>The topological node to which this connectivity node is assigned</td>
 </tr>
 <tr>
 <td><a href="town_detail/">town_detail</a></td>
 <td>Town detail</td>
-</tr>
-<tr>
-<td><a href="transformer_end/">transformer_end</a></td>
-<td>All transformer ends connected at this terminal</td>
 </tr>
 <tr>
 <td><a href="type/">type</a></td>
@@ -848,6 +874,10 @@
 </tr>
 <tr>
 <td><a href="value/">value</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="version/">version</a></td>
 <td></td>
 </tr>
 <tr>
