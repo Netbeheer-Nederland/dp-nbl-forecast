@@ -343,13 +343,13 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../OperationalLimit/">OperationalLimit</a></td>
-<td>A value and normal value associated with a specific kind of limit</td>
+<td><a href="../ActivePowerLimit/">ActivePowerLimit</a></td>
+<td>Limit on active power flow</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../ActivePowerLimit/">ActivePowerLimit</a></td>
-<td>Limit on active power flow</td>
+<td><a href="../OperationalLimit/">OperationalLimit</a></td>
+<td>A value and normal value associated with a specific kind of limit</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -361,7 +361,7 @@
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0</li>
+<li>from schema: http://data.netbeheernederland.nl/dp-nbl-forecast/version/1.0.0</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -386,7 +386,7 @@
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">operational_limit_type</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The limit type associated with this limit.</span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version/1.0.0</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:OperationalLimit.OperationalLimitType</span>
 <span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">operational_limit_type</span>
@@ -396,6 +396,8 @@
 <span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OperationalLimitType</span>
 <span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 </details>
 

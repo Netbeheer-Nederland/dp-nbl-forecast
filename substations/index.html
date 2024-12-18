@@ -278,19 +278,6 @@
     Identifier and Mapping Information
   </a>
   
-    <nav class="md-nav" aria-label="Identifier and Mapping Information">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#schema-source" class="md-nav__link">
-    Schema Source
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -328,8 +315,7 @@
 
 
 <h1 id="slot-substations">Slot: substations</h1>
-<p><em>The substations in this sub-geographical region.</em></p>
-<p>URI: <a href="https://cim.ucaiug.io/ns#SubGeographicalRegion.Substations">cim:SubGeographicalRegion.Substations</a></p>
+<p>URI: <a href="https://cim.ucaiug.io/ns#substations">cim:substations</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -347,22 +333,18 @@
 <td>A subset of a geographical region of a power system network model</td>
 <td>no</td>
 </tr>
+<tr>
+<td><a href="../ForecastDataSet/">ForecastDataSet</a></td>
+<td>A single instance of a published dataset</td>
+<td>no</td>
+</tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p>Range: <a href="../Substation/">Substation</a></p>
-</li>
-<li>
-<p>Multivalued: True</p>
-</li>
+<li>Range: <a href="../String/">String</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="schema-source">Schema Source</h3>
-<ul>
-<li>from schema: http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0</li>
-</ul>
 <h2 id="mappings">Mappings</h2>
 <table>
 <thead>
@@ -374,7 +356,7 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>cim:SubGeographicalRegion.Substations</td>
+<td>cim:substations</td>
 </tr>
 <tr>
 <td>native</td>
@@ -385,17 +367,11 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">substations</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The substations in this sub-geographical region.</span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0</span>
-<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:SubGeographicalRegion.Substations</span>
 <span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">substations</span>
-<span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SubGeographicalRegion</span>
 <span class="nt">domain_of</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ForecastDataSet</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SubGeographicalRegion</span>
-<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Substation</span>
-<span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
 </code></pre></div>
 </details>
 

@@ -328,8 +328,8 @@
 
 
 <h1 id="slot-topological_node">Slot: topological_node</h1>
-<p><em>The topological node to which this connectivity node is assigned.  May depend on the current state of switches in the network.</em></p>
-<p>URI: <a href="https://cim.ucaiug.io/ns#ConnectivityNode.TopologicalNode">cim:ConnectivityNode.TopologicalNode</a></p>
+<p><em>The topological node associated with the terminal. This can be used as an alternative to the connectivity node path to topological node, thus making it unnecessary to model connectivity nodes in some cases. Note that the if connectivity nodes are in the model, this association would probably not be used as an input specification.</em></p>
+<p>URI: <a href="https://cim.ucaiug.io/ns#Terminal.TopologicalNode">cim:Terminal.TopologicalNode</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -343,13 +343,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../MktConnectivityNode/">MktConnectivityNode</a></td>
-<td>Subclass of IEC61970:Topology:ConnectivityNode</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ConnectivityNode/">ConnectivityNode</a></td>
-<td>Connectivity nodes are points where terminals of AC conducting equipment are ...</td>
+<td><a href="../Terminal/">Terminal</a></td>
+<td>An AC electrical connection point to a piece of conducting equipment</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -361,7 +356,7 @@
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0</li>
+<li>from schema: http://data.netbeheernederland.nl/dp-nbl-forecast/version/1.0.0</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -374,7 +369,7 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>cim:ConnectivityNode.TopologicalNode</td>
+<td>cim:Terminal.TopologicalNode</td>
 </tr>
 <tr>
 <td>native</td>
@@ -385,15 +380,18 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">topological_node</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The topological node to which this connectivity node is assigned.  May</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">depend on the current state of switches in the network.</span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The topological node associated with the terminal. This can be used as</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">an alternative to the connectivity node path to topological node, thus making it</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">unnecessary to model connectivity nodes in some cases. Note that the if connectivity</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">nodes are in the model, this association would probably not be used as an input</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">specification.</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version/1.0.0</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:ConnectivityNode.TopologicalNode</span>
+<span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:Terminal.TopologicalNode</span>
 <span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">topological_node</span>
-<span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConnectivityNode</span>
+<span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Terminal</span>
 <span class="nt">domain_of</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConnectivityNode</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Terminal</span>
 <span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TopologicalNode</span>
 <span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>

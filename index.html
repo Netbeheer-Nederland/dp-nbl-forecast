@@ -418,7 +418,7 @@
 <li><a href="https://raw.githubusercontent.com/Netbeheer-Nederland/dp-nbl-forecast/refs/heads/main/project/jsonschema/dp_nbl_forecast.schema.json">JSON Schema</a></li>
 </ul>
 <h2 id="identifiers">Identifiers</h2>
-<p>URI: http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0</p>
+<p>URI: http://data.netbeheernederland.nl/dp-nbl-forecast/version/1.0.0</p>
 <p>Name: NBLForecastDataproduct</p>
 <h2 id="classes">Classes</h2>
 <table>
@@ -637,8 +637,16 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="analog/">analog</a></td>
-<td>Measurement to which this value is connected</td>
+<td><a href="ac_line_segments/">ac_line_segments</a></td>
+<td>The ACLineSegment-s in this data set</td>
+</tr>
+<tr>
+<td><a href="active_power_limits/">active_power_limits</a></td>
+<td>ActivePowerLimit-s for this data set</td>
+</tr>
+<tr>
+<td><a href="analog_measurements/">analog_measurements</a></td>
+<td>Measurement-s for this data set</td>
 </tr>
 <tr>
 <td><a href="analog_values/">analog_values</a></td>
@@ -681,8 +689,20 @@
 <td>Description of the name type</td>
 </tr>
 <tr>
+<td><a href="energy_consumers/">energy_consumers</a></td>
+<td>EnergyConsumer-s for this data set</td>
+</tr>
+<tr>
 <td><a href="equipments/">equipments</a></td>
 <td>Contained equipment</td>
+</tr>
+<tr>
+<td><a href="european_article_number_ean/">european_article_number_ean</a></td>
+<td>The attribute is used for an exchange of the EAN code (European Article Numbe...</td>
+</tr>
+<tr>
+<td><a href="geographical_regions/">geographical_regions</a></td>
+<td>GeographicalRegion-s included in this data set</td>
 </tr>
 <tr>
 <td><a href="group_number/">group_number</a></td>
@@ -698,7 +718,7 @@
 </tr>
 <tr>
 <td><a href="lines/">lines</a></td>
-<td>The lines within the sub-geographical region</td>
+<td>The Line-s within this data set</td>
 </tr>
 <tr>
 <td><a href="location/">location</a></td>
@@ -721,8 +741,16 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="market_participants/">market_participants</a></td>
+<td>MarketParticipant-s for this data set</td>
+</tr>
+<tr>
 <td><a href="market_role/">market_role</a></td>
 <td></td>
+</tr>
+<tr>
+<td><a href="market_roles/">market_roles</a></td>
+<td>MarketRole-s for this data set</td>
 </tr>
 <tr>
 <td><a href="measurement_type/">measurement_type</a></td>
@@ -731,6 +759,10 @@
 <tr>
 <td><a href="measurements/">measurements</a></td>
 <td>Measurements associated with this terminal defining  where the measurement is...</td>
+</tr>
+<tr>
+<td><a href="mkt_connectivity_nodes/">mkt_connectivity_nodes</a></td>
+<td>MktConnectivityNode-s for this data set</td>
 </tr>
 <tr>
 <td><a href="multiplier/">multiplier</a></td>
@@ -761,12 +793,12 @@
 <td>Designator of the specific location on the street</td>
 </tr>
 <tr>
-<td><a href="operational_limit/">operational_limit</a></td>
-<td>The operational limits associated with this type of limit</td>
-</tr>
-<tr>
 <td><a href="operational_limit_set/">operational_limit_set</a></td>
 <td>The operational limit sets associated with this equipment</td>
+</tr>
+<tr>
+<td><a href="operational_limit_sets/">operational_limit_sets</a></td>
+<td>OperationalLimitSet-s for this data set</td>
 </tr>
 <tr>
 <td><a href="operational_limit_type/">operational_limit_type</a></td>
@@ -775,10 +807,6 @@
 <tr>
 <td><a href="operational_limit_value/">operational_limit_value</a></td>
 <td>Values of equipment limits</td>
-</tr>
-<tr>
-<td><a href="organisation/">organisation</a></td>
-<td>Organisation having this role</td>
 </tr>
 <tr>
 <td><a href="position_points/">position_points</a></td>
@@ -797,8 +825,16 @@
 <td>The ends of this power transformer</td>
 </tr>
 <tr>
+<td><a href="power_transformers/">power_transformers</a></td>
+<td>The PowerTransformer-s in this data set</td>
+</tr>
+<tr>
 <td><a href="regions/">regions</a></td>
-<td>Geographical regions included in this dataset</td>
+<td>All sub-geographical regions within this geographical region</td>
+</tr>
+<tr>
+<td><a href="registered_loads/">registered_loads</a></td>
+<td>RegisteredLoad-s for this data set</td>
 </tr>
 <tr>
 <td><a href="registered_resource/">registered_resource</a></td>
@@ -825,8 +861,12 @@
 <td>Street detail</td>
 </tr>
 <tr>
+<td><a href="subgeographical_regions/">subgeographical_regions</a></td>
+<td>All SubGeographicalRegion-s within this data set</td>
+</tr>
+<tr>
 <td><a href="substations/">substations</a></td>
-<td>The substations in this sub-geographical region</td>
+<td>The Substation-s in this data set</td>
 </tr>
 <tr>
 <td><a href="terminal/">terminal</a></td>
@@ -834,7 +874,7 @@
 </tr>
 <tr>
 <td><a href="terminals/">terminals</a></td>
-<td>Conducting equipment have terminals that may be connected to other conducting...</td>
+<td>The Terminal-s for this data set</td>
 </tr>
 <tr>
 <td><a href="time_stamp/">time_stamp</a></td>
@@ -842,7 +882,11 @@
 </tr>
 <tr>
 <td><a href="topological_node/">topological_node</a></td>
-<td>The topological node to which this connectivity node is assigned</td>
+<td>The topological node associated with the terminal</td>
+</tr>
+<tr>
+<td><a href="topological_nodes/">topological_nodes</a></td>
+<td>TopologicalNode-s for this data set</td>
 </tr>
 <tr>
 <td><a href="town_detail/">town_detail</a></td>
@@ -866,7 +910,7 @@
 </tr>
 <tr>
 <td><a href="usage_points/">usage_points</a></td>
-<td>All usage points connected to the electrical grid through this equipment</td>
+<td>UsagePoint-s for this data set</td>
 </tr>
 <tr>
 <td><a href="value/">value</a></td>

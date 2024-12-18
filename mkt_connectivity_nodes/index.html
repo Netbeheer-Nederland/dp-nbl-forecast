@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://Netbeheer-Nederland.github.io/dp-nbl-forecast/analog/">
+        <link rel="canonical" href="https://Netbeheer-Nederland.github.io/dp-nbl-forecast/mkt_connectivity_nodes/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-8.5.10">
     
     
       
-        <title>Slot: analog - dp-nbl-forecast</title>
+        <title>Slot: mkt_connectivity_nodes - dp-nbl-forecast</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-analog" class="md-skip">
+        <a href="#slot-mkt_connectivity_nodes" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: analog
+              Slot: mkt_connectivity_nodes
             
           </span>
         </div>
@@ -321,15 +321,15 @@
                 
                   
 
-  <a href="https://github.com/Netbeheer-Nederland/dp-nbl-forecast/edit/master/docs/analog.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/Netbeheer-Nederland/dp-nbl-forecast/edit/master/docs/mkt_connectivity_nodes.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="slot-analog">Slot: analog</h1>
-<p><em>Measurement to which this value is connected.</em></p>
-<p>URI: <a href="https://cim.ucaiug.io/ns#AnalogValue.Analog">cim:AnalogValue.Analog</a></p>
+<h1 id="slot-mkt_connectivity_nodes">Slot: mkt_connectivity_nodes</h1>
+<p><em>MktConnectivityNode-s for this data set.</em></p>
+<p>URI: <a href="http://data.netbeheernederland.nl/dp-nbl-forecast/def#ForecastDataSet.MktConnectivityNodes">this:ForecastDataSet.MktConnectivityNodes</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -343,8 +343,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../AnalogValue/">AnalogValue</a></td>
-<td>AnalogValue represents an analog MeasurementValue</td>
+<td><a href="../ForecastDataSet/">ForecastDataSet</a></td>
+<td>A single instance of a published dataset</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -352,16 +352,16 @@
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../Analog/">Analog</a></p>
+<p>Range: <a href="../MktConnectivityNode/">MktConnectivityNode</a></p>
 </li>
 <li>
-<p>Required: True</p>
+<p>Multivalued: True</p>
 </li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0</li>
+<li>from schema: http://data.netbeheernederland.nl/dp-nbl-forecast/version/1.0.0</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -374,28 +374,30 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>cim:AnalogValue.Analog</td>
+<td>this:ForecastDataSet.MktConnectivityNodes</td>
 </tr>
 <tr>
 <td>native</td>
-<td>cim:analog</td>
+<td>cim:mkt_connectivity_nodes</td>
 </tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">analog</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Measurement to which this value is connected.</span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mkt_connectivity_nodes</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MktConnectivityNode-s for this data set.</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version/1.0.0</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:AnalogValue.Analog</span>
-<span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">analog</span>
-<span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AnalogValue</span>
+<span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">this:ForecastDataSet.MktConnectivityNodes</span>
+<span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mkt_connectivity_nodes</span>
+<span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ForecastDataSet</span>
 <span class="nt">domain_of</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AnalogValue</span>
-<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Analog</span>
-<span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ForecastDataSet</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MktConnectivityNode</span>
+<span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 </details>
 

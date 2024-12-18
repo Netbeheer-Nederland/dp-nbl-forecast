@@ -287,7 +287,7 @@ _</p>
 </tr>
 <tr>
 <td><a href="../m_rid/">m_rid</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>1 <br/> <a href="../String/">String</a></td>
 <td>Master resource identifier issued by a model authority</td>
 <td><a href="../IdentifiedObject/">IdentifiedObject</a></td>
 </tr>
@@ -311,13 +311,13 @@ _</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../ConnectivityNode/">ConnectivityNode</a></td>
-<td><a href="../topological_node/">topological_node</a></td>
+<td><a href="../ForecastDataSet/">ForecastDataSet</a></td>
+<td><a href="../topological_nodes/">topological_nodes</a></td>
 <td>range</td>
 <td><a href="./">TopologicalNode</a></td>
 </tr>
 <tr>
-<td><a href="../MktConnectivityNode/">MktConnectivityNode</a></td>
+<td><a href="../Terminal/">Terminal</a></td>
 <td><a href="../topological_node/">topological_node</a></td>
 <td>range</td>
 <td><a href="./">TopologicalNode</a></td>
@@ -327,7 +327,7 @@ _</p>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0</li>
+<li>from schema: http://data.netbeheernederland.nl/dp-nbl-forecast/version/1.0.0</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -360,7 +360,7 @@ _</p>
 <span class="w">  </span><span class="s">\ planning</span><span class="nv"> </span><span class="s">model,</span><span class="nv"> </span><span class="s">switch</span><span class="nv"> </span><span class="s">statuses</span><span class="nv"> </span><span class="s">are</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">used</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">form</span><span class="nv"> </span><span class="s">topological</span><span class="nv"> </span><span class="s">nodes.</span><span class="nv"> </span><span class="s">Instead\</span>
 <span class="w">  </span><span class="s">\ they</span><span class="nv"> </span><span class="s">are</span><span class="nv"> </span><span class="s">manually</span><span class="nv"> </span><span class="s">created</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">deleted</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">model</span><span class="nv"> </span><span class="s">builder</span><span class="nv"> </span><span class="s">tool.</span><span class="nv"> </span><span class="s">Topological</span><span class="nv"> </span><span class="s">nodes\</span>
 <span class="w">  </span><span class="s">\ maintained</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">way</span><span class="nv"> </span><span class="s">are</span><span class="nv"> </span><span class="s">also</span><span class="nv"> </span><span class="s">called</span><span class="nv"> </span><span class="s">\"busses\"."</span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version/1.0.0</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IdentifiedObject</span>
 <span class="nt">attributes</span><span class="p">:</span>
@@ -368,7 +368,7 @@ _</p>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">connectivity_nodes</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The connectivity nodes combine together to form this topological</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">node.  May depend on the current state of switches in the network.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version/1.0.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:TopologicalNode.ConnectivityNodes</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -383,7 +383,7 @@ _</p>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">it unnecessary to model connectivity nodes in some cases.   Note that if connectivity</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">nodes are in the model, this association would probably not be used as an input</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">specification.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version/1.0.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:TopologicalNode.Terminal</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
@@ -405,7 +405,7 @@ _</p>
 <span class="w">  </span><span class="s">\ planning</span><span class="nv"> </span><span class="s">model,</span><span class="nv"> </span><span class="s">switch</span><span class="nv"> </span><span class="s">statuses</span><span class="nv"> </span><span class="s">are</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">used</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">form</span><span class="nv"> </span><span class="s">topological</span><span class="nv"> </span><span class="s">nodes.</span><span class="nv"> </span><span class="s">Instead\</span>
 <span class="w">  </span><span class="s">\ they</span><span class="nv"> </span><span class="s">are</span><span class="nv"> </span><span class="s">manually</span><span class="nv"> </span><span class="s">created</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">deleted</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">model</span><span class="nv"> </span><span class="s">builder</span><span class="nv"> </span><span class="s">tool.</span><span class="nv"> </span><span class="s">Topological</span><span class="nv"> </span><span class="s">nodes\</span>
 <span class="w">  </span><span class="s">\ maintained</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">way</span><span class="nv"> </span><span class="s">are</span><span class="nv"> </span><span class="s">also</span><span class="nv"> </span><span class="s">called</span><span class="nv"> </span><span class="s">\"busses\"."</span>
-<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version/1.0.0</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IdentifiedObject</span>
 <span class="nt">attributes</span><span class="p">:</span>
@@ -413,7 +413,7 @@ _</p>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">connectivity_nodes</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The connectivity nodes combine together to form this topological</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">node.  May depend on the current state of switches in the network.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version/1.0.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:TopologicalNode.ConnectivityNodes</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">connectivity_nodes</span>
@@ -430,7 +430,7 @@ _</p>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">it unnecessary to model connectivity nodes in some cases.   Note that if connectivity</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">nodes are in the model, this association would probably not be used as an input</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">specification.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version/1.0.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:TopologicalNode.Terminal</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">terminal</span>
@@ -445,7 +445,7 @@ _</p>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The description is a free human readable text describing or naming</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">the object. It may be non unique and may not correlate to a naming hierarchy.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version/1.0.0</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:IdentifiedObject.description</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">description</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TopologicalNode</span>
@@ -464,20 +464,21 @@ _</p>
 <span class="w">      </span><span class="s">\ strongly</span><span class="nv"> </span><span class="s">recommended.\r\nFor</span><span class="nv"> </span><span class="s">CIMXML</span><span class="nv"> </span><span class="s">data</span><span class="nv"> </span><span class="s">files</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">RDF</span><span class="nv"> </span><span class="s">syntax</span><span class="nv"> </span><span class="s">conforming</span><span class="nv"> </span><span class="s">to\</span>
 <span class="w">      </span><span class="s">\ IEC</span><span class="nv"> </span><span class="s">61970-552,</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">mRID</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">mapped</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">rdf:ID</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">rdf:about</span><span class="nv"> </span><span class="s">attributes</span><span class="nv"> </span><span class="s">that</span><span class="nv"> </span><span class="s">identify\</span>
 <span class="w">      </span><span class="s">\ CIM</span><span class="nv"> </span><span class="s">object</span><span class="nv"> </span><span class="s">elements."</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version/1.0.0</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:IdentifiedObject.mRID</span>
+<span class="w">    </span><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">m_rid</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TopologicalNode</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IdentifiedObject</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">  </span><span class="nt">names</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">names</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">All names of this identified object.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version/1.0.0</span>
 <span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:IdentifiedObject.Names</span>
 <span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">names</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TopologicalNode</span>
