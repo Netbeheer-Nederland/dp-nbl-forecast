@@ -17,7 +17,7 @@ LINKML_SCHEMA_GOOGLE_SHEET_TABS=personinfo enums
 ###### linkml generator variables, used by makefile
 
 ## gen-project configuration file
-LINKML_GENERATORS_CONFIG_YAML= --config-file config.yaml --include jsonschema
+LINKML_GENERATORS_CONFIG_YAML= --config-file config.yaml --include jsonschema --include jsonldcontext
 
 ## pass args if gendoc ignores config.yaml (i.e. --no-mergeimports)
 LINKML_GENERATORS_DOC_ARGS= --no-hierarchical-class-view

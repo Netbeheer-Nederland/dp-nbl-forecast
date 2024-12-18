@@ -6,16 +6,17 @@ description: |-
   * [JSON Schema](https://raw.githubusercontent.com/Netbeheer-Nederland/dp-nbl-forecast/refs/heads/main/project/jsonschema/dp_nbl_forecast.schema.json)
   ## Identifiers
 title: Netbewust Laden Dataproduct
-id: http://data.netbeheernederland.nl/dp-nbl-forecast/version#1.0.0
+id: http://data.netbeheernederland.nl/dp-nbl-forecast/version/1.0.0
 version: 1.0.0
 imports:
 - linkml:types
 prefixes:
   linkml: https://w3id.org/linkml/
-  github: https://github.com/
   cim: https://cim.ucaiug.io/ns#
   dct: http://purl.org/dc/terms/
+  github: https://github.com/
   nbnl: https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/
+  nl: http://iec.ch/TC57/CIM100-Netherlands#
   this: http://data.netbeheernederland.nl/dp-nbl-forecast/def#
 default_curi_maps:
 - semweb_context
@@ -597,12 +598,125 @@ classes:
         slot_uri: owl:versionInfo
         multivalued: false
         required: true
-      regions:
-        description: Geographical regions included in this dataset.
-        slot_uri: this:ForecastDataSet.Regions
+      geographical_regions:
+        description: GeographicalRegion-s included in this data set.
+        slot_uri: this:ForecastDataSet.GeographicalRegions
         multivalued: true
         range: GeographicalRegion
         required: false
+        inlined_as_list: true
+      subgeographical_regions:
+        description: All SubGeographicalRegion-s within this data set.
+        slot_uri: this:ForecastDataSet.SubGeographicalRegions
+        multivalued: true
+        range: SubGeographicalRegion
+        required: false
+        inlined_as_list: true
+      lines:
+        description: The Line-s within this data set.
+        slot_uri: this:ForecastDataSet.Lines
+        multivalued: true
+        range: Line
+        required: false
+        inlined_as_list: true
+      substations:
+        description: The Substation-s in this data set.
+        slot_uri: this:ForecastDataSet.Substations
+        multivalued: true
+        range: Substation
+        required: false
+        inlined_as_list: true
+      power_transformers:
+        description: The PowerTransformer-s in this data set.
+        slot_uri: this:ForecastDataSet.PowerTransformers
+        multivalued: true
+        range: PowerTransformer
+        required: false
+        inlined_as_list: true
+      ac_line_segments:
+        description: The ACLineSegment-s in this data set.
+        slot_uri: this:ForecastDataSet.ACLineSegments
+        multivalued: true
+        range: ACLineSegment
+        required: false
+        inlined_as_list: true
+      terminals:
+        description: The Terminal-s for this data set.
+        slot_uri: this:ForecastDataSet.Terminals
+        multivalued: true
+        range: Terminal
+        required: false
+        inlined_as_list: true
+      analog_measurements:
+        description: Measurement-s for this data set.
+        slot_uri: this:ForecastDataSet.AnalogMeasurements
+        multivalued: true
+        range: Analog
+        required: false
+        inlined_as_list: true
+      operational_limit_sets:
+        description: OperationalLimitSet-s for this data set.
+        slot_uri: this:ForecastDataSet.OperationalLimitSets
+        multivalued: true
+        range: OperationalLimitSet
+        required: false
+        inlined_as_list: true
+      active_power_limits:
+        description: ActivePowerLimit-s for this data set.
+        slot_uri: this:ForecastDataSet.ActivePowerLimits
+        multivalued: true
+        range: ActivePowerLimit
+        required: false
+        inlined_as_list: true
+      topological_nodes:
+        description: TopologicalNode-s for this data set.
+        slot_uri: this:ForecastDataSet.TopologicalNodes
+        multivalued: true
+        range: TopologicalNode
+        required: false
+        inlined_as_list: true
+      energy_consumers:
+        description: EnergyConsumer-s for this data set.
+        slot_uri: this:ForecastDataSet.EnergyConsumers
+        multivalued: true
+        range: EnergyConsumer
+        required: false
+        inlined_as_list: true
+      usage_points:
+        description: UsagePoint-s for this data set.
+        slot_uri: this:ForecastDataSet.UsagePoints
+        multivalued: true
+        range: UsagePoint
+        required: false
+        inlined_as_list: true
+      mkt_connectivity_nodes:
+        description: MktConnectivityNode-s for this data set.
+        slot_uri: this:ForecastDataSet.MktConnectivityNodes
+        multivalued: true
+        range: MktConnectivityNode
+        required: false
+        inlined_as_list: true
+      registered_loads:
+        description: RegisteredLoad-s for this data set.
+        slot_uri: this:ForecastDataSet.RegisteredLoads
+        multivalued: true
+        range: RegisteredLoad
+        required: false
+        inlined_as_list: true
+      market_participants:
+        description: MarketParticipant-s for this data set.
+        slot_uri: this:ForecastDataSet.MarketParticipants
+        multivalued: true
+        range: MarketParticipant
+        required: false
+        inlined_as_list: true
+      market_roles:
+        description: MarketRole-s for this data set.
+        slot_uri: this:ForecastDataSet.MarketRoles
+        multivalued: true
+        range: MarketRole
+        required: false
+        inlined_as_list: true
     class_uri: this:ForecastDataSet
     tree_root: true
   Name:
@@ -698,7 +812,8 @@ classes:
         slot_uri: cim:IdentifiedObject.mRID
         multivalued: false
         range: string
-        required: false
+        required: true
+        identifier: true
       names:
         description: All names of this identified object.
         slot_uri: cim:IdentifiedObject.Names
@@ -742,15 +857,6 @@ classes:
       or that are conductively connected through terminals.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     is_a: Equipment
-    attributes:
-      terminals:
-        description: Conducting equipment have terminals that may be connected to
-          other conducting equipment terminals via connectivity nodes or topological
-          nodes.
-        slot_uri: cim:ConductingEquipment.Terminals
-        multivalued: true
-        range: Terminal
-        required: false
     class_uri: cim:ConductingEquipment
   Terminal:
     description: An AC electrical connection point to a piece of conducting equipment.
@@ -758,6 +864,17 @@ classes:
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     is_a: ACDCTerminal
     attributes:
+      topological_node:
+        slot_uri: cim:Terminal.TopologicalNode
+        range: TopologicalNode
+        required: false
+        multivalued: false
+        description: The topological node associated with the terminal. This
+          can be used as an alternative to the connectivity node path to
+          topological node, thus making it unnecessary to model connectivity
+          nodes in some cases. Note that the if connectivity nodes are in the
+          model, this association would probably not be used as an input
+          specification.
       connectivity_node:
         description: The connectivity node to which this terminal connects with zero
           impedance.
@@ -768,7 +885,7 @@ classes:
       conducting_equipment:
         slot_uri: cim:Terminal.ConductingEquipment
         range: ConductingEquipment
-        required: true
+        required: false
         multivalued: false
         description: The conducting equipment of the terminal. Conducting equipment
           have  terminals that may be connected to other conducting equipment terminals
@@ -814,21 +931,6 @@ classes:
       are connected together with zero impedance.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     is_a: IdentifiedObject
-    attributes:
-      topological_node:
-        description: The topological node to which this connectivity node is assigned.  May
-          depend on the current state of switches in the network.
-        slot_uri: cim:ConnectivityNode.TopologicalNode
-        multivalued: false
-        range: TopologicalNode
-        required: false
-      terminals:
-        description: 'Terminals interconnected with zero impedance at a this connectivity
-          node. '
-        slot_uri: cim:ConnectivityNode.Terminals
-        multivalued: true
-        range: Terminal
-        required: false
     class_uri: cim:ConnectivityNode
   TransformerEnd:
     description: A conducting connection point of a power transformer. It corresponds
@@ -967,6 +1069,7 @@ classes:
         multivalued: false
         range: Location
         required: false
+        inlined_as_list: true
     class_uri: cim:PowerSystemResource
   Location:
     description: "The place, scene, or point of something where someone or something\
@@ -982,6 +1085,7 @@ classes:
         multivalued: false
         range: StreetAddress
         required: false
+        inlined_as_list: true
       coordinate_system:
         description: Coordinate system used to describe position points of this location.
         slot_uri: cim:Location.CoordinateSystem
@@ -995,6 +1099,7 @@ classes:
         multivalued: true
         range: PositionPoint
         required: false
+        inlined_as_list: true
     class_uri: cim:Location
   StreetAddress:
     description: General purpose street and postal address information.
@@ -1160,18 +1265,12 @@ classes:
         multivalued: false
         range: OperationalLimitType
         required: false
+        inlined_as_list: true
     class_uri: cim:OperationalLimit
   OperationalLimitType:
     description: "The operational meaning of a category of limits.\r\n"
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.OperationalLimits
     is_a: IdentifiedObject
-    attributes:
-      operational_limit:
-        description: The operational limits associated with this type of limit.
-        slot_uri: cim:OperationalLimitType.OperationalLimit
-        multivalued: true
-        range: OperationalLimit
-        required: false
     class_uri: cim:OperationalLimitType
   EquipmentContainer:
     description: 'A modelling construct to provide a root class for containing equipment. '
@@ -1191,6 +1290,20 @@ classes:
       located; however, it is not required that a meter be present.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Metering
     is_a: IdentifiedObject
+    attributes:
+      european_article_number_ean:
+        description:
+          The attribute is used for an exchange of the EAN code (European
+          Article Number). The length of the string is 18 characters as defined
+          by the EAN code. For details on EAN scheme please refer to the
+          [Codebesluit toekenning EAN-codes
+          elektriciteit](https://www.acm.nl/nl/publicaties/codebesluit-toekenning-ean-codes-elektriciteit).
+        exact_mappings:
+        - nbnl:EAN
+        slot_uri: nl:IdentifiedObject.europeanArticleNumberEAN
+        multivalued: false
+        range: string
+        required: false
     class_uri: cim:UsagePoint
   Substation:
     description: "A collection of equipment for purposes other than generation or\
@@ -1256,6 +1369,7 @@ classes:
         multivalued: true
         range: PowerTransformerEnd
         required: false
+        inlined_as_list: true
     class_uri: cim:PowerTransformer
   PowerTransformerEnd:
     description: "A PowerTransformerEnd is associated with each Terminal of a PowerTransformer.\r\
@@ -1323,6 +1437,7 @@ classes:
         multivalued: true
         range: AnalogValue
         required: false
+        inlined_as_list: true
     class_uri: cim:Analog
   AnalogValue:
     description: AnalogValue represents an analog MeasurementValue.
@@ -1335,12 +1450,6 @@ classes:
         multivalued: false
         range: float
         required: false
-      analog:
-        description: Measurement to which this value is connected.
-        slot_uri: cim:AnalogValue.Analog
-        multivalued: false
-        range: Analog
-        required: true
     class_uri: cim:AnalogValue
   ActivePowerLimit:
     description: Limit on active power flow.
@@ -1354,6 +1463,7 @@ classes:
         multivalued: false
         range: ActivePower
         required: false
+        inlined_as_list: true
     class_uri: cim:ActivePowerLimit
   RegisteredLoad:
     description: "Model of a load that is registered to participate in the market.\r\
@@ -1431,13 +1541,6 @@ classes:
       \ utility enterprise (e.g., customer, manufacturer, etc).\r\n"
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Common
     is_a: IdentifiedObject
-    attributes:
-      organisation:
-        description: Organisation having this role.
-        slot_uri: cim:OrganisationRole.Organisation
-        multivalued: false
-        range: Organisation
-        required: false
     class_uri: cim:OrganisationRole
   EnergyConsumer:
     description: "Generic user of energy - a  point of consumption on the power system\
@@ -1459,7 +1562,7 @@ classes:
         description: The time when the value was last updated.
         slot_uri: cim:MeasurementValue.timeStamp
         multivalued: false
-        range: date
+        range: datetime
         required: false
     class_uri: cim:MeasurementValue
   IOPoint:

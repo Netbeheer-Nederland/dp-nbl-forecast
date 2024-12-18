@@ -1,0 +1,193 @@
+{
+  "identifier": "dp_nbl_forecast_nbnl",
+  "contact_point": "ritger.teunissen@alliander.com",
+  "conforms_to": "http://data.netbeheernederland.nl/dp-nbl-forecast/version/1.0.0",
+  "release_date": "2024-12-18",
+  "version": "1.0.0",
+  "geographical_regions": [
+    {
+      "m_rid": "a9f636b2-bcaf-11ef-855e-4b0e7cb12a5c",
+      "description": "NL",
+      "regions": [
+        "ae1a15ec-bcaf-11ef-aa40-931c7823a620"
+      ]
+    }
+  ],
+  "subgeographical_regions": [
+    {
+      "m_rid": "ae1a15ec-bcaf-11ef-aa40-931c7823a620",
+      "description": "Liander",
+      "lines": [
+        "10a0e754-bcba-11ef-8cf5-5bdf363a7fc6"
+      ],
+      "substations": [
+        "5584ae0e-bcb6-11ef-83c9-53ff346f33c0",
+        "ed01bb0a-bcb6-11ef-8da4-8b9cebfe5e19"
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "m_rid": "10a0e754-bcba-11ef-8cf5-5bdf363a7fc6",
+      "description": "Kabel01L01"
+    }
+  ],
+  "substations": [
+    {
+      "m_rid": "5584ae0e-bcb6-11ef-83c9-53ff346f33c0",
+      "description": "OS Arnhem",
+      "location": {
+        "m_rid": "4d682be6-bcbc-11ef-9f99-d3fd09d466e4",
+        "main_address": {
+          "postal_code": "1234AB",
+          "street_detail": {
+            "number": "1"
+          },
+          "town_detail": {
+            "state_or_province": "Gemeente Arnhem"
+          }
+        }
+      },
+      "equipments": [
+        "4a467694-bd24-11ef-b927-a34777ce873c"
+      ]
+    },
+    {
+      "m_rid": "ed01bb0a-bcb6-11ef-8da4-8b9cebfe5e19",
+      "description": "OS Zaandam"
+    }
+  ],
+  "power_transformers": [
+    {
+      "m_rid": "4a467694-bd24-11ef-b927-a34777ce873c",
+      "description": "power_transformer_01",
+      "power_transformer_end": [
+        {
+          "m_rid": "836c6b8a-bd25-11ef-852f-3f2dd521cbd8",
+          "terminal": "f9520b44-bd24-11ef-af20-6f035c7c6e29"
+        },
+        {
+          "m_rid": "918de612-bd25-11ef-9ac7-336c747656b2",
+          "terminal": "08c1128c-bd25-11ef-a804-7f47b7d3e721"
+        }
+      ]
+    }
+  ],
+  "terminals": [
+    {
+      "m_rid": "f9520b44-bd24-11ef-af20-6f035c7c6e29",
+      "description": "terminal_01",
+      "measurements": [
+        "057ac5f4-bd3a-11ef-b92a-63291adbdfab"
+      ]
+    },
+    {
+      "m_rid": "08c1128c-bd25-11ef-a804-7f47b7d3e721",
+      "description": "terminal_02",
+      "topological_node": "e03e4436-bd3f-11ef-8e61-7ba03b3b4575"
+    },
+    {
+      "m_rid": "c3366cf0-bd40-11ef-ae07-ab85869f7500",
+      "description": "terminal_03",
+      "connectivity_node": "d8a63d4e-bd41-11ef-b36d-8b867c2e374b",
+      "conducting_equipment": "7502475a-bd42-11ef-b815-57ddaa71063a"
+    }
+  ],
+  "analog_measurements": [
+    {
+      "m_rid": "057ac5f4-bd3a-11ef-b92a-63291adbdfab",
+      "positive_flow_in": true,
+      "analog_values": [
+        {
+          "m_rid": "c1067872-bd3a-11ef-b18a-fb7f62c6fdda",
+          "time_stamp": "2024-04-23T18:25:43.511000+00:00",
+          "value": 4.0
+        }
+      ]
+    }
+  ],
+  "operational_limit_sets": [
+    {
+      "m_rid": "b10a3ee8-bd3c-11ef-91bd-8b695e08b28e",
+      "operational_limit_value": [
+        "be9f311c-bd3c-11ef-bbcd-5f63d42bf1c7"
+      ]
+    }
+  ],
+  "active_power_limits": [
+    {
+      "m_rid": "be9f311c-bd3c-11ef-bbcd-5f63d42bf1c7",
+      "operational_limit_type": {
+        "m_rid": "32fc9aa2-bd3f-11ef-986c-4b73fed12139",
+        "description": "Netbewust Laden"
+      },
+      "value": {
+        "multiplier": "M",
+        "unit": "VA",
+        "value": 4.0
+      }
+    }
+  ],
+  "topological_nodes": [
+    {
+      "m_rid": "e03e4436-bd3f-11ef-8e61-7ba03b3b4575",
+      "terminal": [
+        "c3366cf0-bd40-11ef-ae07-ab85869f7500"
+      ]
+    }
+  ],
+  "energy_consumers": [
+    {
+      "m_rid": "7502475a-bd42-11ef-b815-57ddaa71063a",
+      "description": "EnergyConsumer",
+      "location": {
+        "m_rid": "3fcf8e7e-bd44-11ef-b36f-8bd0faa2bc62",
+        "main_address": {
+          "postal_code": "4321BA",
+          "street_detail": {
+            "number": "9"
+          }
+        }
+      },
+      "usage_points": [
+        "4164aafe-bd43-11ef-980a-739b8e055491"
+      ]
+    }
+  ],
+  "usage_points": [
+    {
+      "m_rid": "4164aafe-bd43-11ef-980a-739b8e055491",
+      "european_article_number_ean": "123456789012345678"
+    }
+  ],
+  "mkt_connectivity_nodes": [
+    {
+      "m_rid": "d8a63d4e-bd41-11ef-b36d-8b867c2e374b",
+      "description": "MktConnectivityNode",
+      "registered_resource": [
+        "657fa960-bd44-11ef-a8e0-d7c69e000d44"
+      ]
+    }
+  ],
+  "registered_loads": [
+    {
+      "m_rid": "657fa960-bd44-11ef-a8e0-d7c69e000d44",
+      "market_participant": "3329744a-bd45-11ef-8703-e7c1f2f393c0"
+    }
+  ],
+  "market_participants": [
+    {
+      "m_rid": "3329744a-bd45-11ef-8703-e7c1f2f393c0",
+      "market_role": [
+        "1ae94a20-bd47-11ef-a295-07b42d52d46b"
+      ]
+    }
+  ],
+  "market_roles": [
+    {
+      "m_rid": "1ae94a20-bd47-11ef-a295-07b42d52d46b",
+      "type": "Charge Point Operator"
+    }
+  ],
+  "@type": "ForecastDataSet"
+}
