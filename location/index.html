@@ -278,6 +278,19 @@
     Identifier and Mapping Information
   </a>
   
+    <nav class="md-nav" aria-label="Identifier and Mapping Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schema-source" class="md-nav__link">
+    Schema Source
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -315,7 +328,8 @@
 
 
 <h1 id="slot-location">Slot: location</h1>
-<p>URI: <a href="https://cim.ucaiug.io/ns#location">cim:location</a></p>
+<p><em>Location of this power system resource.</em></p>
+<p>URI: <a href="https://cim.ucaiug.io/ns#PowerSystemResource.Location">cim:PowerSystemResource.Location</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -329,33 +343,13 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../EquipmentContainer/">EquipmentContainer</a></td>
-<td>A modelling construct to provide a root class for containing equipment</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ConductingEquipment/">ConductingEquipment</a></td>
-<td>The parts of the AC power system that are designed to carry current or that a...</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../PowerTransformer/">PowerTransformer</a></td>
-<td>An electrical device consisting of  two or more coupled windings, with or wit...</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Equipment/">Equipment</a></td>
-<td>The parts of a power system that are physical devices, electronic or mechanic...</td>
-<td>no</td>
-</tr>
-<tr>
 <td><a href="../EnergyConsumer/">EnergyConsumer</a></td>
 <td>Generic user of energy - a  point of consumption on the power system model</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../PositionPoint/">PositionPoint</a></td>
-<td>Set of spatial coordinates that determine a point, defined in the coordinate ...</td>
+<td><a href="../PowerSystemResource/">PowerSystemResource</a></td>
+<td>A power system resource (PSR) can be an item of equipment such as a switch, a...</td>
 <td>no</td>
 </tr>
 <tr>
@@ -369,18 +363,13 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../Line/">Line</a></td>
-<td>Contains equipment beyond a substation belonging to a power transmission line</td>
+<td><a href="../ACLineSegment/">ACLineSegment</a></td>
+<td>A wire or combination of wires, with consistent electrical characteristics, b...</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../Substation/">Substation</a></td>
-<td>A collection of equipment for purposes other than generation or utilization, ...</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ConnectivityNodeContainer/">ConnectivityNodeContainer</a></td>
-<td>A base class for all objects that may contain connectivity nodes or topologic...</td>
+<td><a href="../Equipment/">Equipment</a></td>
+<td>The parts of a power system that are physical devices, electronic or mechanic...</td>
 <td>no</td>
 </tr>
 <tr>
@@ -389,13 +378,23 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../ACLineSegment/">ACLineSegment</a></td>
-<td>A wire or combination of wires, with consistent electrical characteristics, b...</td>
+<td><a href="../EquipmentContainer/">EquipmentContainer</a></td>
+<td>A modelling construct to provide a root class for containing equipment</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../PowerSystemResource/">PowerSystemResource</a></td>
-<td>A power system resource (PSR) can be an item of equipment such as a switch, a...</td>
+<td><a href="../ConnectivityNodeContainer/">ConnectivityNodeContainer</a></td>
+<td>A base class for all objects that may contain connectivity nodes or topologic...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Substation/">Substation</a></td>
+<td>A collection of equipment for purposes other than generation or utilization, ...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../ConductingEquipment/">ConductingEquipment</a></td>
+<td>The parts of the AC power system that are designed to carry current or that a...</td>
 <td>no</td>
 </tr>
 <tr>
@@ -403,13 +402,27 @@
 <td>A resource that is registered through the market participant registration sys...</td>
 <td>no</td>
 </tr>
+<tr>
+<td><a href="../PowerTransformer/">PowerTransformer</a></td>
+<td>An electrical device consisting of  two or more coupled windings, with or wit...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Line/">Line</a></td>
+<td>Contains equipment beyond a substation belonging to a power transmission line</td>
+<td>no</td>
+</tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../String/">String</a></li>
+<li>Range: <a href="../Location/">Location</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: http://data.netbeheernederland.nl/dp-nbl-forecast/version/1.0.0</li>
+</ul>
 <h2 id="mappings">Mappings</h2>
 <table>
 <thead>
@@ -421,7 +434,7 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>cim:location</td>
+<td>cim:PowerSystemResource.Location</td>
 </tr>
 <tr>
 <td>native</td>
@@ -432,11 +445,19 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">location</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Location of this power system resource.</span>
+<span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://data.netbeheernederland.nl/dp-nbl-forecast/version/1.0.0</span>
+<span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cim:PowerSystemResource.Location</span>
 <span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">location</span>
+<span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PowerSystemResource</span>
 <span class="nt">domain_of</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PowerSystemResource</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PositionPoint</span>
-<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Location</span>
+<span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 </details>
 
