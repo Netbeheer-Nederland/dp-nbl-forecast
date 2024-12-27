@@ -126,12 +126,14 @@
                     "$ref": "#/$defs/UnitSymbol"
                 },
                 "value": {
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                    "type": "number"
                 }
             },
+            "required": [
+                "multiplier",
+                "unit",
+                "value"
+            ],
             "title": "ActivePower",
             "type": "object"
         },
@@ -161,29 +163,17 @@
                     ]
                 },
                 "operational_limit_type": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/OperationalLimitType"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/OperationalLimitType",
                     "description": "The limit type associated with this limit."
                 },
                 "value": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/ActivePower"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/ActivePower",
                     "description": "Value of active power limit. The attribute shall be a positive value or zero."
                 }
             },
             "required": [
+                "value",
+                "operational_limit_type",
                 "m_rid"
             ],
             "title": "ActivePowerLimit",
@@ -212,10 +202,7 @@
                     "items": {
                         "$ref": "#/$defs/AnalogValue"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "description": {
                     "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
@@ -262,6 +249,9 @@
                 }
             },
             "required": [
+                "analog_values",
+                "unit_multiplier",
+                "unit_symbol",
                 "m_rid"
             ],
             "title": "Analog",
@@ -295,20 +285,16 @@
                 "time_stamp": {
                     "description": "The time when the value was last updated.",
                     "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "value": {
                     "description": "The value to supervise.",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                    "type": "number"
                 }
             },
             "required": [
+                "value",
+                "time_stamp",
                 "m_rid"
             ],
             "title": "AnalogValue",
@@ -521,25 +507,12 @@
             "properties": {
                 "crs_urn": {
                     "description": "A Uniform Resource Name (URN) for the coordinate reference system (crs) used to define 'Location.PositionPoints'.\r\nAn example would be the European Petroleum Survey Group (EPSG) code for a coordinate reference system, defined in URN under the Open Geospatial Consortium (OGC) namespace as: urn:ogc:def:crs:EPSG::XXXX, where XXXX is an EPSG code (a full list of codes can be found at the EPSG Registry web site http://www.epsg-registry.org/). To define the coordinate system as being WGS84 (latitude, longitude) using an EPSG OGC, this attribute would be urn:ogc:def:crs:EPSG::4.3.2.6\r\nA profile should limit this code to a set of allowed URNs agreed to by all sending and receiving parties.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "description": {
                     "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
                     "type": [
                         "string",
-                        "null"
-                    ]
-                },
-                "locations": {
-                    "description": "All locations described with position points in this coordinate system.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
                         "null"
                     ]
                 },
@@ -559,6 +532,7 @@
                 }
             },
             "required": [
+                "crs_urn",
                 "m_rid"
             ],
             "title": "CoordinateSystem",
@@ -769,10 +743,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "location": {
                     "anyOf": [
@@ -801,6 +772,7 @@
                 }
             },
             "required": [
+                "equipments",
                 "m_rid"
             ],
             "title": "EquipmentContainer",
@@ -815,30 +787,21 @@
                     "items": {
                         "$ref": "#/$defs/ACLineSegment"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "active_power_limits": {
                     "description": "ActivePowerLimit-s for this data set.",
                     "items": {
                         "$ref": "#/$defs/ActivePowerLimit"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "analog_measurements": {
                     "description": "Measurement-s for this data set.",
                     "items": {
                         "$ref": "#/$defs/Analog"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "conforms_to": {
                     "type": "string"
@@ -851,20 +814,14 @@
                     "items": {
                         "$ref": "#/$defs/EnergyConsumer"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "geographical_regions": {
                     "description": "GeographicalRegion-s included in this data set.",
                     "items": {
                         "$ref": "#/$defs/GeographicalRegion"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "identifier": {
                     "type": "string"
@@ -874,70 +831,49 @@
                     "items": {
                         "$ref": "#/$defs/Line"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "market_participants": {
                     "description": "MarketParticipant-s for this data set.",
                     "items": {
                         "$ref": "#/$defs/MarketParticipant"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "market_roles": {
                     "description": "MarketRole-s for this data set.",
                     "items": {
                         "$ref": "#/$defs/MarketRole"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "mkt_connectivity_nodes": {
                     "description": "MktConnectivityNode-s for this data set.",
                     "items": {
                         "$ref": "#/$defs/MktConnectivityNode"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "operational_limit_sets": {
                     "description": "OperationalLimitSet-s for this data set.",
                     "items": {
                         "$ref": "#/$defs/OperationalLimitSet"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "power_transformers": {
                     "description": "The PowerTransformer-s in this data set.",
                     "items": {
                         "$ref": "#/$defs/PowerTransformer"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "registered_loads": {
                     "description": "RegisteredLoad-s for this data set.",
                     "items": {
                         "$ref": "#/$defs/RegisteredLoad"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "release_date": {
                     "format": "date",
@@ -948,50 +884,35 @@
                     "items": {
                         "$ref": "#/$defs/SubGeographicalRegion"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "substations": {
                     "description": "The Substation-s in this data set.",
                     "items": {
                         "$ref": "#/$defs/Substation"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "terminals": {
                     "description": "The Terminal-s for this data set.",
                     "items": {
                         "$ref": "#/$defs/Terminal"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "topological_nodes": {
                     "description": "TopologicalNode-s for this data set.",
                     "items": {
                         "$ref": "#/$defs/TopologicalNode"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "usage_points": {
                     "description": "UsagePoint-s for this data set.",
                     "items": {
                         "$ref": "#/$defs/UsagePoint"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "version": {
                     "type": "string"
@@ -1002,7 +923,24 @@
                 "contact_point",
                 "conforms_to",
                 "release_date",
-                "version"
+                "version",
+                "geographical_regions",
+                "subgeographical_regions",
+                "lines",
+                "substations",
+                "power_transformers",
+                "ac_line_segments",
+                "terminals",
+                "analog_measurements",
+                "operational_limit_sets",
+                "active_power_limits",
+                "topological_nodes",
+                "energy_consumers",
+                "usage_points",
+                "mkt_connectivity_nodes",
+                "registered_loads",
+                "market_participants",
+                "market_roles"
             ],
             "title": "ForecastDataSet",
             "type": "object"
@@ -1037,13 +975,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
+                "regions",
                 "m_rid"
             ],
             "title": "GeographicalRegion",
@@ -1129,10 +1065,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "location": {
                     "anyOf": [
@@ -1161,6 +1094,7 @@
                 }
             },
             "required": [
+                "equipments",
                 "m_rid"
             ],
             "title": "Line",
@@ -1245,10 +1179,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "names": {
                     "description": "All names of this identified object.",
@@ -1262,6 +1193,7 @@
                 }
             },
             "required": [
+                "market_role",
                 "m_rid"
             ],
             "title": "MarketParticipant",
@@ -1294,13 +1226,11 @@
                 },
                 "type": {
                     "description": "The kind of market roles that can be played by parties for given domains within the electricity market. Types are flexible using dataType of string for free-entry of role types.\r\n",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
+                "type",
                 "m_rid"
             ],
             "title": "MarketRole",
@@ -1348,6 +1278,8 @@
                 }
             },
             "required": [
+                "unit_multiplier",
+                "unit_symbol",
                 "m_rid"
             ],
             "title": "Measurement",
@@ -1381,13 +1313,11 @@
                 "time_stamp": {
                     "description": "The time when the value was last updated.",
                     "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
+                "time_stamp",
                 "m_rid"
             ],
             "title": "MeasurementValue",
@@ -1422,13 +1352,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
+                "registered_resource",
                 "m_rid"
             ],
             "title": "MktConnectivityNode",
@@ -1438,18 +1366,13 @@
             "additionalProperties": false,
             "description": "The Name class provides the means to define any number of human readable  names for an object. A name is <b>not</b> to be used for defining inter-object relationships. For inter-object relationships instead use the object identification 'mRID'.",
             "properties": {
-                "identified_object": {
-                    "description": "Identified object that this name designates.",
-                    "type": "string"
-                },
                 "name_type": {
                     "$ref": "#/$defs/NameType",
                     "description": "Type of this name."
                 }
             },
             "required": [
-                "name_type",
-                "identified_object"
+                "name_type"
             ],
             "title": "Name",
             "type": "object"
@@ -1475,16 +1398,6 @@
                         }
                     ],
                     "description": "Authority responsible for managing names of this type."
-                },
-                "names": {
-                    "description": "All names of this type.",
-                    "items": {
-                        "$ref": "#/$defs/Name"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
                 }
             },
             "title": "NameType",
@@ -1498,16 +1411,6 @@
                     "description": "Description of the name type authority.\r\n",
                     "type": [
                         "string",
-                        "null"
-                    ]
-                },
-                "name_types": {
-                    "description": "All name types managed by this authority.",
-                    "items": {
-                        "$ref": "#/$defs/NameType"
-                    },
-                    "type": [
-                        "array",
                         "null"
                     ]
                 }
@@ -1541,18 +1444,12 @@
                     ]
                 },
                 "operational_limit_type": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/OperationalLimitType"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/OperationalLimitType",
                     "description": "The limit type associated with this limit."
                 }
             },
             "required": [
+                "operational_limit_type",
                 "m_rid"
             ],
             "title": "OperationalLimit",
@@ -1762,10 +1659,6 @@
                         "null"
                     ]
                 },
-                "location": {
-                    "description": "Location described by this position point.",
-                    "type": "string"
-                },
                 "sequence_number": {
                     "description": "Zero-relative sequence number of this point within a series of points.",
                     "type": [
@@ -1775,17 +1668,11 @@
                 },
                 "x_position": {
                     "description": "X axis position.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "y_position": {
                     "description": "Y axis position.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "z_position": {
                     "description": "(if applicable) Z axis position.",
@@ -1796,7 +1683,8 @@
                 }
             },
             "required": [
-                "location"
+                "x_position",
+                "y_position"
             ],
             "title": "PositionPoint",
             "type": "object"
@@ -1895,10 +1783,7 @@
                     "items": {
                         "$ref": "#/$defs/PowerTransformerEnd"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "usage_points": {
                     "description": "All usage points connected to the electrical grid through this equipment.",
@@ -1912,6 +1797,7 @@
                 }
             },
             "required": [
+                "power_transformer_end",
                 "m_rid"
             ],
             "title": "PowerTransformer",
@@ -1944,13 +1830,11 @@
                 },
                 "terminal": {
                     "description": "Terminal of the power transformer to which this transformer end belongs.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
+                "terminal",
                 "m_rid"
             ],
             "title": "PowerTransformerEnd",
@@ -1983,10 +1867,7 @@
                     "type": "string"
                 },
                 "market_participant": {
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "names": {
                     "description": "All names of this identified object.",
@@ -2000,6 +1881,7 @@
                 }
             },
             "required": [
+                "market_participant",
                 "m_rid"
             ],
             "title": "RegisteredLoad",
@@ -2032,10 +1914,7 @@
                     "type": "string"
                 },
                 "market_participant": {
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "names": {
                     "description": "All names of this identified object.",
@@ -2049,6 +1928,7 @@
                 }
             },
             "required": [
+                "market_participant",
                 "m_rid"
             ],
             "title": "RegisteredResource",
@@ -2071,20 +1951,10 @@
             "properties": {
                 "postal_code": {
                     "description": "Postal code for the address.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "street_detail": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/StreetDetail"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/StreetDetail",
                     "description": "Street detail."
                 },
                 "town_detail": {
@@ -2099,6 +1969,10 @@
                     "description": "Town detail."
                 }
             },
+            "required": [
+                "postal_code",
+                "street_detail"
+            ],
             "title": "StreetAddress",
             "type": "object"
         },
@@ -2115,12 +1989,12 @@
                 },
                 "number": {
                     "description": "Designator of the specific location on the street. Includes number suffix, i.e. '11 A'.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 }
             },
+            "required": [
+                "number"
+            ],
             "title": "StreetDetail",
             "type": "object"
         },
@@ -2140,10 +2014,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "m_rid": {
                     "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
@@ -2164,13 +2035,12 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
+                "lines",
+                "substations",
                 "m_rid"
             ],
             "title": "SubGeographicalRegion",
@@ -2192,10 +2062,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "location": {
                     "anyOf": [
@@ -2224,6 +2091,7 @@
                 }
             },
             "required": [
+                "equipments",
                 "m_rid"
             ],
             "title": "Substation",
@@ -2338,17 +2206,15 @@
                     ]
                 },
                 "terminal": {
-                    "description": "The terminals associated with the topological node.   This can be used as an alternative to the connectivity node path to terminal, thus making it unnecessary to model connectivity nodes in some cases.   Note that if connectivity nodes are in the model, this association would probably not be used as an input specification.",
+                    "description": "The terminals associated with the topological node. This can be used as an alternative to the connectivity node path to terminal, thus making it unnecessary to model connectivity nodes in some cases. Note that if connectivity nodes are in the model, this association would probably not be used as an input specification.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
+                "terminal",
                 "m_rid"
             ],
             "title": "TopologicalNode",
@@ -2374,12 +2240,12 @@
                 },
                 "state_or_province": {
                     "description": "Name of the state or province.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 }
             },
+            "required": [
+                "state_or_province"
+            ],
             "title": "TownDetail",
             "type": "object"
         },
@@ -2410,13 +2276,11 @@
                 },
                 "terminal": {
                     "description": "Terminal of the power transformer to which this transformer end belongs.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
+                "terminal",
                 "m_rid"
             ],
             "title": "TransformerEnd",
@@ -2611,10 +2475,7 @@
                 },
                 "european_article_number_ean": {
                     "description": "The attribute is used for an exchange of the EAN code (European Article Number). The length of the string is 18 characters as defined by the EAN code. For details on EAN scheme please refer to the [Codebesluit toekenning EAN-codes elektriciteit](https://www.acm.nl/nl/publicaties/codebesluit-toekenning-ean-codes-elektriciteit).",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "m_rid": {
                     "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\r\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
@@ -2632,6 +2493,7 @@
                 }
             },
             "required": [
+                "european_article_number_ean",
                 "m_rid"
             ],
             "title": "UsagePoint",
@@ -2682,30 +2544,21 @@
             "items": {
                 "$ref": "#/$defs/ACLineSegment"
             },
-            "type": [
-                "array",
-                "null"
-            ]
+            "type": "array"
         },
         "active_power_limits": {
             "description": "ActivePowerLimit-s for this data set.",
             "items": {
                 "$ref": "#/$defs/ActivePowerLimit"
             },
-            "type": [
-                "array",
-                "null"
-            ]
+            "type": "array"
         },
         "analog_measurements": {
             "description": "Measurement-s for this data set.",
             "items": {
                 "$ref": "#/$defs/Analog"
             },
-            "type": [
-                "array",
-                "null"
-            ]
+            "type": "array"
         },
         "conforms_to": {
             "type": "string"
@@ -2718,20 +2571,14 @@
             "items": {
                 "$ref": "#/$defs/EnergyConsumer"
             },
-            "type": [
-                "array",
-                "null"
-            ]
+            "type": "array"
         },
         "geographical_regions": {
             "description": "GeographicalRegion-s included in this data set.",
             "items": {
                 "$ref": "#/$defs/GeographicalRegion"
             },
-            "type": [
-                "array",
-                "null"
-            ]
+            "type": "array"
         },
         "identifier": {
             "type": "string"
@@ -2741,70 +2588,49 @@
             "items": {
                 "$ref": "#/$defs/Line"
             },
-            "type": [
-                "array",
-                "null"
-            ]
+            "type": "array"
         },
         "market_participants": {
             "description": "MarketParticipant-s for this data set.",
             "items": {
                 "$ref": "#/$defs/MarketParticipant"
             },
-            "type": [
-                "array",
-                "null"
-            ]
+            "type": "array"
         },
         "market_roles": {
             "description": "MarketRole-s for this data set.",
             "items": {
                 "$ref": "#/$defs/MarketRole"
             },
-            "type": [
-                "array",
-                "null"
-            ]
+            "type": "array"
         },
         "mkt_connectivity_nodes": {
             "description": "MktConnectivityNode-s for this data set.",
             "items": {
                 "$ref": "#/$defs/MktConnectivityNode"
             },
-            "type": [
-                "array",
-                "null"
-            ]
+            "type": "array"
         },
         "operational_limit_sets": {
             "description": "OperationalLimitSet-s for this data set.",
             "items": {
                 "$ref": "#/$defs/OperationalLimitSet"
             },
-            "type": [
-                "array",
-                "null"
-            ]
+            "type": "array"
         },
         "power_transformers": {
             "description": "The PowerTransformer-s in this data set.",
             "items": {
                 "$ref": "#/$defs/PowerTransformer"
             },
-            "type": [
-                "array",
-                "null"
-            ]
+            "type": "array"
         },
         "registered_loads": {
             "description": "RegisteredLoad-s for this data set.",
             "items": {
                 "$ref": "#/$defs/RegisteredLoad"
             },
-            "type": [
-                "array",
-                "null"
-            ]
+            "type": "array"
         },
         "release_date": {
             "format": "date",
@@ -2815,50 +2641,35 @@
             "items": {
                 "$ref": "#/$defs/SubGeographicalRegion"
             },
-            "type": [
-                "array",
-                "null"
-            ]
+            "type": "array"
         },
         "substations": {
             "description": "The Substation-s in this data set.",
             "items": {
                 "$ref": "#/$defs/Substation"
             },
-            "type": [
-                "array",
-                "null"
-            ]
+            "type": "array"
         },
         "terminals": {
             "description": "The Terminal-s for this data set.",
             "items": {
                 "$ref": "#/$defs/Terminal"
             },
-            "type": [
-                "array",
-                "null"
-            ]
+            "type": "array"
         },
         "topological_nodes": {
             "description": "TopologicalNode-s for this data set.",
             "items": {
                 "$ref": "#/$defs/TopologicalNode"
             },
-            "type": [
-                "array",
-                "null"
-            ]
+            "type": "array"
         },
         "usage_points": {
             "description": "UsagePoint-s for this data set.",
             "items": {
                 "$ref": "#/$defs/UsagePoint"
             },
-            "type": [
-                "array",
-                "null"
-            ]
+            "type": "array"
         },
         "version": {
             "type": "string"
@@ -2869,7 +2680,24 @@
         "contact_point",
         "conforms_to",
         "release_date",
-        "version"
+        "version",
+        "geographical_regions",
+        "subgeographical_regions",
+        "lines",
+        "substations",
+        "power_transformers",
+        "ac_line_segments",
+        "terminals",
+        "analog_measurements",
+        "operational_limit_sets",
+        "active_power_limits",
+        "topological_nodes",
+        "energy_consumers",
+        "usage_points",
+        "mkt_connectivity_nodes",
+        "registered_loads",
+        "market_participants",
+        "market_roles"
     ],
     "title": "NBLForecastDataproduct",
     "type": "object",

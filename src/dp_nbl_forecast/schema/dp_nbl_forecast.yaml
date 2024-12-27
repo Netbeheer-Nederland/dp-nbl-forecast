@@ -603,119 +603,119 @@ classes:
         slot_uri: this:ForecastDataSet.GeographicalRegions
         multivalued: true
         range: GeographicalRegion
-        required: false
+        required: true
         inlined_as_list: true
       subgeographical_regions:
         description: All SubGeographicalRegion-s within this data set.
         slot_uri: this:ForecastDataSet.SubGeographicalRegions
         multivalued: true
         range: SubGeographicalRegion
-        required: false
+        required: true
         inlined_as_list: true
       lines:
         description: The Line-s within this data set.
         slot_uri: this:ForecastDataSet.Lines
         multivalued: true
         range: Line
-        required: false
+        required: true
         inlined_as_list: true
       substations:
         description: The Substation-s in this data set.
         slot_uri: this:ForecastDataSet.Substations
         multivalued: true
         range: Substation
-        required: false
+        required: true
         inlined_as_list: true
       power_transformers:
         description: The PowerTransformer-s in this data set.
         slot_uri: this:ForecastDataSet.PowerTransformers
         multivalued: true
         range: PowerTransformer
-        required: false
+        required: true
         inlined_as_list: true
       ac_line_segments:
         description: The ACLineSegment-s in this data set.
         slot_uri: this:ForecastDataSet.ACLineSegments
         multivalued: true
         range: ACLineSegment
-        required: false
+        required: true
         inlined_as_list: true
       terminals:
         description: The Terminal-s for this data set.
         slot_uri: this:ForecastDataSet.Terminals
         multivalued: true
         range: Terminal
-        required: false
+        required: true
         inlined_as_list: true
       analog_measurements:
         description: Measurement-s for this data set.
         slot_uri: this:ForecastDataSet.AnalogMeasurements
         multivalued: true
         range: Analog
-        required: false
+        required: true
         inlined_as_list: true
       operational_limit_sets:
         description: OperationalLimitSet-s for this data set.
         slot_uri: this:ForecastDataSet.OperationalLimitSets
         multivalued: true
         range: OperationalLimitSet
-        required: false
+        required: true
         inlined_as_list: true
       active_power_limits:
         description: ActivePowerLimit-s for this data set.
         slot_uri: this:ForecastDataSet.ActivePowerLimits
         multivalued: true
         range: ActivePowerLimit
-        required: false
+        required: true
         inlined_as_list: true
       topological_nodes:
         description: TopologicalNode-s for this data set.
         slot_uri: this:ForecastDataSet.TopologicalNodes
         multivalued: true
         range: TopologicalNode
-        required: false
+        required: true
         inlined_as_list: true
       energy_consumers:
         description: EnergyConsumer-s for this data set.
         slot_uri: this:ForecastDataSet.EnergyConsumers
         multivalued: true
         range: EnergyConsumer
-        required: false
+        required: true
         inlined_as_list: true
       usage_points:
         description: UsagePoint-s for this data set.
         slot_uri: this:ForecastDataSet.UsagePoints
         multivalued: true
         range: UsagePoint
-        required: false
+        required: true
         inlined_as_list: true
       mkt_connectivity_nodes:
         description: MktConnectivityNode-s for this data set.
         slot_uri: this:ForecastDataSet.MktConnectivityNodes
         multivalued: true
         range: MktConnectivityNode
-        required: false
+        required: true
         inlined_as_list: true
       registered_loads:
         description: RegisteredLoad-s for this data set.
         slot_uri: this:ForecastDataSet.RegisteredLoads
         multivalued: true
         range: RegisteredLoad
-        required: false
+        required: true
         inlined_as_list: true
       market_participants:
         description: MarketParticipant-s for this data set.
         slot_uri: this:ForecastDataSet.MarketParticipants
         multivalued: true
         range: MarketParticipant
-        required: false
+        required: true
         inlined_as_list: true
       market_roles:
         description: MarketRole-s for this data set.
         slot_uri: this:ForecastDataSet.MarketRoles
         multivalued: true
         range: MarketRole
-        required: false
+        required: true
         inlined_as_list: true
     class_uri: this:ForecastDataSet
     tree_root: true
@@ -731,12 +731,6 @@ classes:
         slot_uri: cim:Name.NameType
         multivalued: false
         range: NameType
-        required: true
-      identified_object:
-        description: Identified object that this name designates.
-        slot_uri: cim:Name.IdentifiedObject
-        multivalued: false
-        range: IdentifiedObject
         required: true
     class_uri: cim:Name
   NameType:
@@ -765,12 +759,6 @@ classes:
         multivalued: false
         range: NameTypeAuthority
         required: false
-      names:
-        description: All names of this type.
-        slot_uri: cim:NameType.Names
-        multivalued: true
-        range: Name
-        required: false
     class_uri: cim:NameType
   NameTypeAuthority:
     description: "Authority responsible for creation and management of names of a\
@@ -782,12 +770,6 @@ classes:
         slot_uri: cim:NameTypeAuthority.description
         multivalued: false
         range: string
-        required: false
-      name_types:
-        description: All name types managed by this authority.
-        slot_uri: cim:NameTypeAuthority.NameTypes
-        multivalued: true
-        range: NameType
         required: false
     class_uri: cim:NameTypeAuthority
   IdentifiedObject:
@@ -834,17 +816,17 @@ classes:
         slot_uri: cim:ActivePower.multiplier
         multivalued: false
         range: UnitMultiplier
-        required: false
+        required: true
       unit:
         slot_uri: cim:ActivePower.unit
         multivalued: false
         range: UnitSymbol
-        required: false
+        required: true
       value:
         slot_uri: cim:ActivePower.value
         multivalued: false
         range: float
-        required: false
+        required: true
     class_uri: cim:ActivePower
   EnergyConnection:
     description: A connection of energy generation or consumption on the power system
@@ -869,6 +851,9 @@ classes:
         range: TopologicalNode
         required: false
         multivalued: false
+        disjoint_with:
+          - connectivity_node
+          - conducting_equipment
         description: The topological node associated with the terminal. This
           can be used as an alternative to the connectivity node path to
           topological node, thus making it unnecessary to model connectivity
@@ -880,6 +865,9 @@ classes:
           impedance.
         slot_uri: cim:Terminal.ConnectivityNode
         multivalued: false
+        disjoint_with:
+          - conducting_equipment
+          - topological_node
         range: ConnectivityNode
         required: false
       conducting_equipment:
@@ -887,6 +875,9 @@ classes:
         range: ConductingEquipment
         required: false
         multivalued: false
+        disjoint_with:
+          - connectivity_node
+          - topological_node
         description: The conducting equipment of the terminal. Conducting equipment
           have  terminals that may be connected to other conducting equipment terminals
           via connectivity nodes or topological nodes.
@@ -910,15 +901,16 @@ classes:
         range: ConnectivityNode
         required: false
       terminal:
-        description: The terminals associated with the topological node.   This can
-          be used as an alternative to the connectivity node path to terminal, thus
-          making it unnecessary to model connectivity nodes in some cases.   Note
-          that if connectivity nodes are in the model, this association would probably
-          not be used as an input specification.
+        description:
+          The terminals associated with the topological node. This can be used
+          as an alternative to the connectivity node path to terminal, thus
+          making it unnecessary to model connectivity nodes in some cases.
+          Note that if connectivity nodes are in the model, this association
+          would probably not be used as an input specification.
         slot_uri: cim:TopologicalNode.Terminal
         multivalued: true
         range: Terminal
-        required: false
+        required: true
     class_uri: cim:TopologicalNode
   ConnectivityNodeContainer:
     description: "A base class for all objects that may contain connectivity nodes\
@@ -946,7 +938,7 @@ classes:
         slot_uri: cim:TransformerEnd.Terminal
         multivalued: false
         range: Terminal
-        required: false
+        required: true
     class_uri: cim:TransformerEnd
   Equipment:
     description: The parts of a power system that are physical devices, electronic
@@ -1047,13 +1039,13 @@ classes:
         slot_uri: cim:Measurement.unitMultiplier
         multivalued: false
         range: UnitMultiplier
-        required: false
+        required: true
       unit_symbol:
         description: The unit of measure of the measured quantity.
         slot_uri: cim:Measurement.unitSymbol
         multivalued: false
         range: UnitSymbol
-        required: false
+        required: true
     class_uri: cim:Measurement
   PowerSystemResource:
     description: A power system resource (PSR) can be an item of equipment such as
@@ -1110,13 +1102,13 @@ classes:
         slot_uri: cim:StreetAddress.postalCode
         multivalued: false
         range: string
-        required: false
+        required: true
       street_detail:
         description: Street detail.
         slot_uri: cim:StreetAddress.streetDetail
         multivalued: false
         range: StreetDetail
-        required: false
+        required: true
       town_detail:
         description: Town detail.
         slot_uri: cim:StreetAddress.townDetail
@@ -1142,7 +1134,7 @@ classes:
         slot_uri: cim:StreetDetail.number
         multivalued: false
         range: string
-        required: false
+        required: true
     class_uri: cim:StreetDetail
   TownDetail:
     description: "Town details, in the context of address.\r\n"
@@ -1166,7 +1158,7 @@ classes:
         slot_uri: cim:TownDetail.stateOrProvince
         multivalued: false
         range: string
-        required: false
+        required: true
     class_uri: cim:TownDetail
   CoordinateSystem:
     description: "Coordinate reference system.\r\n"
@@ -1187,14 +1179,7 @@ classes:
         slot_uri: cim:CoordinateSystem.crsUrn
         multivalued: false
         range: string
-        required: false
-      locations:
-        description: All locations described with position points in this coordinate
-          system.
-        slot_uri: cim:CoordinateSystem.Locations
-        multivalued: true
-        range: Location
-        required: false
+        required: true
     class_uri: cim:CoordinateSystem
   PositionPoint:
     description: Set of spatial coordinates that determine a point, defined in the
@@ -1226,25 +1211,19 @@ classes:
         slot_uri: cim:PositionPoint.xPosition
         multivalued: false
         range: string
-        required: false
+        required: true
       y_position:
         description: Y axis position.
         slot_uri: cim:PositionPoint.yPosition
         multivalued: false
         range: string
-        required: false
+        required: true
       z_position:
         description: (if applicable) Z axis position.
         slot_uri: cim:PositionPoint.zPosition
         multivalued: false
         range: string
         required: false
-      location:
-        description: Location described by this position point.
-        slot_uri: cim:PositionPoint.Location
-        multivalued: false
-        range: Location
-        required: true
     class_uri: cim:PositionPoint
   OperationalLimit:
     description: "A value and normal value associated with a specific kind of limit.\
@@ -1264,7 +1243,7 @@ classes:
         slot_uri: cim:OperationalLimit.OperationalLimitType
         multivalued: false
         range: OperationalLimitType
-        required: false
+        required: true
         inlined_as_list: true
     class_uri: cim:OperationalLimit
   OperationalLimitType:
@@ -1282,7 +1261,7 @@ classes:
         slot_uri: cim:EquipmentContainer.Equipments
         multivalued: true
         range: Equipment
-        required: false
+        required: true
     class_uri: cim:EquipmentContainer
   UsagePoint:
     description: Logical or physical point in the network to which readings or events
@@ -1303,7 +1282,7 @@ classes:
         slot_uri: nl:IdentifiedObject.europeanArticleNumberEAN
         multivalued: false
         range: string
-        required: false
+        required: true
     class_uri: cim:UsagePoint
   Substation:
     description: "A collection of equipment for purposes other than generation or\
@@ -1323,13 +1302,13 @@ classes:
         slot_uri: cim:SubGeographicalRegion.Lines
         multivalued: true
         range: Line
-        required: false
+        required: true
       substations:
         description: The substations in this sub-geographical region.
         slot_uri: cim:SubGeographicalRegion.Substations
         multivalued: true
         range: Substation
-        required: false
+        required: true
     class_uri: cim:SubGeographicalRegion
   Line:
     description: 'Contains equipment beyond a substation belonging to a power transmission
@@ -1347,7 +1326,7 @@ classes:
         slot_uri: cim:GeographicalRegion.Regions
         multivalued: true
         range: SubGeographicalRegion
-        required: false
+        required: true
     class_uri: cim:GeographicalRegion
   PowerTransformer:
     description: "An electrical device consisting of  two or more coupled windings,\
@@ -1368,7 +1347,7 @@ classes:
         slot_uri: cim:PowerTransformer.PowerTransformerEnd
         multivalued: true
         range: PowerTransformerEnd
-        required: false
+        required: true
         inlined_as_list: true
     class_uri: cim:PowerTransformer
   PowerTransformerEnd:
@@ -1436,7 +1415,7 @@ classes:
         slot_uri: cim:Analog.AnalogValues
         multivalued: true
         range: AnalogValue
-        required: false
+        required: true
         inlined_as_list: true
     class_uri: cim:Analog
   AnalogValue:
@@ -1449,7 +1428,7 @@ classes:
         slot_uri: cim:AnalogValue.value
         multivalued: false
         range: float
-        required: false
+        required: true
     class_uri: cim:AnalogValue
   ActivePowerLimit:
     description: Limit on active power flow.
@@ -1462,7 +1441,7 @@ classes:
         slot_uri: cim:ActivePowerLimit.value
         multivalued: false
         range: ActivePower
-        required: false
+        required: true
         inlined_as_list: true
     class_uri: cim:ActivePowerLimit
   RegisteredLoad:
@@ -1489,7 +1468,7 @@ classes:
         slot_uri: cim:RegisteredResource.MarketParticipant
         multivalued: false
         range: MarketParticipant
-        required: false
+        required: true
     class_uri: cim:RegisteredResource
   MktConnectivityNode:
     description: Subclass of IEC61970:Topology:ConnectivityNode.
@@ -1500,7 +1479,7 @@ classes:
         slot_uri: cim:MktConnectivityNode.RegisteredResource
         multivalued: true
         range: RegisteredResource
-        required: false
+        required: true
     class_uri: cim:MktConnectivityNode
   MarketParticipant:
     description: An identification of a party acting in a electricity market business
@@ -1513,7 +1492,7 @@ classes:
         slot_uri: cim:MarketParticipant.MarketRole
         multivalued: true
         range: MarketRole
-        required: false
+        required: true
     class_uri: cim:MarketParticipant
   MarketRole:
     description: The external intended behavior played by a party within the electricity
@@ -1528,7 +1507,7 @@ classes:
         slot_uri: cim:MarketRole.type
         multivalued: false
         range: string
-        required: false
+        required: true
     class_uri: cim:MarketRole
   Organisation:
     description: Organisation that might have roles as utility, contractor, supplier,
@@ -1563,7 +1542,7 @@ classes:
         slot_uri: cim:MeasurementValue.timeStamp
         multivalued: false
         range: datetime
-        required: false
+        required: true
     class_uri: cim:MeasurementValue
   IOPoint:
     description: The class describe a measurement or control value. The purpose is
