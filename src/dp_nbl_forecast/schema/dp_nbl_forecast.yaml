@@ -1278,7 +1278,7 @@ classes:
           [Codebesluit toekenning EAN-codes
           elektriciteit](https://www.acm.nl/nl/publicaties/codebesluit-toekenning-ean-codes-elektriciteit).
         exact_mappings:
-        - nbnl:EAN
+          - nbnl:EAN
         slot_uri: nl:IdentifiedObject.europeanArticleNumberEAN
         multivalued: false
         range: string
@@ -1290,6 +1290,8 @@ classes:
       \ of switching or modifying its characteristics. \r\n"
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61970.Base.Core
     is_a: EquipmentContainer
+    exact_mappings:
+      - nbnl:station
     class_uri: cim:Substation
   SubGeographicalRegion:
     description: "A subset of a geographical region of a power system network model.\r\
