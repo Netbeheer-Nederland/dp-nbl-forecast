@@ -1489,6 +1489,8 @@ classes:
       market management and/or market operations.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC62325.MarketCommon
     is_a: Organisation
+    exact_mappings:
+      - nbnl:aangeslotene
     attributes:
       market_role:
         slot_uri: cim:MarketParticipant.MarketRole
