@@ -15,9 +15,12 @@ prefixes:
   cim: https://cim.ucaiug.io/ns#
   dct: http://purl.org/dc/terms/
   github: https://github.com/
+  dcat: http://www.w3.org/ns/dcat#
+  owl: http://www.w3.org/2002/07/owl#
   nbnl: https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/
   nl: http://iec.ch/TC57/CIM100-Netherlands#
   this: http://data.netbeheernederland.nl/dp-nbl-forecast/def#
+  skos: http://www.w3.org/2004/02/skos/core#
 default_curi_maps:
 - semweb_context
 default_prefix: cim
