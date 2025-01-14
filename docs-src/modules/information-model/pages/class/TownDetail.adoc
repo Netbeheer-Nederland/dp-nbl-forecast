@@ -1,0 +1,107 @@
+= `TownDetail`
+:toclevels: 4
+
+
++++Town details, in the context of address.+++
+
+
+[cols="h,3",width=65%]
+|===
+| Type
+| Class
+
+| URI^xref:ROOT::uri_explanation.adoc[?]^
+| `cim:TownDetail`
+
+
+| CIM standard (perspective)
+| IEC61968 (Enterprise)
+
+
+
+|===
+
+== Class hierarchy
+* *`TownDetail`*
+
+
+== Slots
+
+
+
+
+[cols="3,1,3,6",width=100%]
+|===
+| Name | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"] | Type | Description
+
+| <<state_or_province,`state_or_province`>>
+| 1
+| https://w3id.org/linkml/String[`string`]
+| +++Name of the state or province.+++
+
+| <<name,`name`>>
+| 0..1
+| https://w3id.org/linkml/String[`string`]
+| +++Town name.+++
+
+| <<section,`section`>>
+| 0..1
+| https://w3id.org/linkml/String[`string`]
+| +++Town section. For example, it is common for there to be 36 sections per township.+++
+|===
+
+'''
+
+
+//[discrete]
+[#name]
+=== `name`
++++Town name.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:TownDetail.name`
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 0..1
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+
+|===
+
+//[discrete]
+[#section]
+=== `section`
++++Town section. For example, it is common for there to be 36 sections per township.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:TownDetail.section`
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 0..1
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+
+|===
+
+//[discrete]
+[#state_or_province]
+=== `state_or_province`
++++Name of the state or province.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `cim:TownDetail.stateOrProvince`
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 1
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+
+|===
+
+

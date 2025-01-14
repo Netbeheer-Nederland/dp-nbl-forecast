@@ -1,0 +1,792 @@
+= `ForecastDataSet`
+:toclevels: 4
+
+
++++A single instance of a published dataset.+++
+
+
+[cols="h,3",width=65%]
+|===
+| Type
+| Class
+
+| URI^xref:ROOT::uri_explanation.adoc[?]^
+| `this:ForecastDataSet`
+
+
+
+
+|===
+
+== Class hierarchy
+* *`ForecastDataSet`*
+
+
+== Slots
+
+
+
+.Associated classes
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    pad: 20
+  }
+}
+ForecastDataSet {
+  style {
+    fill: "#cccccc"
+    shadow: true
+  }
+}
+
+
+
+GeographicalRegion {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+SubGeographicalRegion {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+Line {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+Substation {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+PowerTransformer {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+ACLineSegment {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+Terminal {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+Analog {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+OperationalLimitSet {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+ActivePowerLimit {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+TopologicalNode {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+EnergyConsumer {
+  style {
+    fill: "#eccfcb"
+    shadow: true
+  }
+}
+
+
+
+UsagePoint {
+  style {
+    fill: "#d1e7c2"
+    shadow: true
+  }
+}
+
+
+
+MktConnectivityNode {
+  style {
+    fill: "#fffbef"
+    shadow: true
+  }
+}
+
+
+
+RegisteredLoad {
+  style {
+    fill: "#fffbef"
+    shadow: true
+  }
+}
+
+
+
+MarketParticipant {
+  style {
+    fill: "#fffbef"
+    shadow: true
+  }
+}
+
+
+
+MarketRole {
+  style {
+    fill: "#fffbef"
+    shadow: true
+  }
+}
+
+
+
+
+ForecastDataSet -> GeographicalRegion: geographical_regions
+
+
+ForecastDataSet -> SubGeographicalRegion: subgeographical_regions
+
+
+ForecastDataSet -> Line: lines
+
+
+ForecastDataSet -> Substation: substations
+
+
+ForecastDataSet -> PowerTransformer: power_transformers
+
+
+ForecastDataSet -> ACLineSegment: ac_line_segments
+
+
+ForecastDataSet -> Terminal: terminals
+
+
+ForecastDataSet -> Analog: analog_measurements
+
+
+ForecastDataSet -> OperationalLimitSet: operational_limit_sets
+
+
+ForecastDataSet -> ActivePowerLimit: active_power_limits
+
+
+ForecastDataSet -> TopologicalNode: topological_nodes
+
+
+ForecastDataSet -> EnergyConsumer: energy_consumers
+
+
+ForecastDataSet -> UsagePoint: usage_points
+
+
+ForecastDataSet -> MktConnectivityNode: mkt_connectivity_nodes
+
+
+ForecastDataSet -> RegisteredLoad: registered_loads
+
+
+ForecastDataSet -> MarketParticipant: market_participants
+
+
+ForecastDataSet -> MarketRole: market_roles
+
+
+legend: "" {
+  style: {
+    fill: transparent
+    stroke: transparent
+  }
+  grid-rows: 3
+  grid-columns: 2
+  grid-gap: 10
+  near: bottom-right
+  iec61968_color: "" {
+    style: {
+      fill: "#d1e7c2"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec61968_text: "IEC61968 (Enterprise)" {
+    shape: text
+  }
+  iec61970_color: "" {
+    style: {
+      fill: "#eccfcb"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec61970_text: "IEC61970 (Grid)" {
+    shape: text
+  }
+  iec62325_color: "" {
+    style: {
+      fill: "#fffbef"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec62325_text: "IEC62325 (Market)" {
+    shape: text
+  }
+}
+----
+
+
+[cols="3,1,3,6",width=100%]
+|===
+| Name | Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"] | Type | Description
+
+| <<conforms_to,`conforms_to`>>
+| 1
+| n/a
+| n/a
+
+| <<contact_point,`contact_point`>>
+| 1
+| n/a
+| n/a
+
+| <<identifier,`identifier`>>
+| 1
+| n/a
+| n/a
+
+| <<release_date,`release_date`>>
+| 1
+| https://w3id.org/linkml/Date[`date`]
+| n/a
+
+| <<version,`version`>>
+| 1
+| n/a
+| n/a
+
+| <<ac_line_segments,`ac_line_segments`>>
+| 1..*
+| xref::class/ACLineSegment.adoc[`ACLineSegment`]
+| +++The ACLineSegment-s in this data set.+++
+
+| <<active_power_limits,`active_power_limits`>>
+| 1..*
+| xref::class/ActivePowerLimit.adoc[`ActivePowerLimit`]
+| +++ActivePowerLimit-s for this data set.+++
+
+| <<analog_measurements,`analog_measurements`>>
+| 1..*
+| xref::class/Analog.adoc[`Analog`]
+| +++Measurement-s for this data set.+++
+
+| <<energy_consumers,`energy_consumers`>>
+| 1..*
+| xref::class/EnergyConsumer.adoc[`EnergyConsumer`]
+| +++EnergyConsumer-s for this data set.+++
+
+| <<geographical_regions,`geographical_regions`>>
+| 1..*
+| xref::class/GeographicalRegion.adoc[`GeographicalRegion`]
+| +++GeographicalRegion-s included in this data set.+++
+
+| <<lines,`lines`>>
+| 1..*
+| xref::class/Line.adoc[`Line`]
+| +++The Line-s within this data set.+++
+
+| <<market_participants,`market_participants`>>
+| 1..*
+| xref::class/MarketParticipant.adoc[`MarketParticipant`]
+| +++MarketParticipant-s for this data set.+++
+
+| <<market_roles,`market_roles`>>
+| 1..*
+| xref::class/MarketRole.adoc[`MarketRole`]
+| +++MarketRole-s for this data set.+++
+
+| <<mkt_connectivity_nodes,`mkt_connectivity_nodes`>>
+| 1..*
+| xref::class/MktConnectivityNode.adoc[`MktConnectivityNode`]
+| +++MktConnectivityNode-s for this data set.+++
+
+| <<operational_limit_sets,`operational_limit_sets`>>
+| 1..*
+| xref::class/OperationalLimitSet.adoc[`OperationalLimitSet`]
+| +++OperationalLimitSet-s for this data set.+++
+
+| <<power_transformers,`power_transformers`>>
+| 1..*
+| xref::class/PowerTransformer.adoc[`PowerTransformer`]
+| +++The PowerTransformer-s in this data set.+++
+
+| <<registered_loads,`registered_loads`>>
+| 1..*
+| xref::class/RegisteredLoad.adoc[`RegisteredLoad`]
+| +++RegisteredLoad-s for this data set.+++
+
+| <<subgeographical_regions,`subgeographical_regions`>>
+| 1..*
+| xref::class/SubGeographicalRegion.adoc[`SubGeographicalRegion`]
+| +++All SubGeographicalRegion-s within this data set.+++
+
+| <<substations,`substations`>>
+| 1..*
+| xref::class/Substation.adoc[`Substation`]
+| +++The Substation-s in this data set.+++
+
+| <<terminals,`terminals`>>
+| 1..*
+| xref::class/Terminal.adoc[`Terminal`]
+| +++The Terminal-s for this data set.+++
+
+| <<topological_nodes,`topological_nodes`>>
+| 1..*
+| xref::class/TopologicalNode.adoc[`TopologicalNode`]
+| +++TopologicalNode-s for this data set.+++
+
+| <<usage_points,`usage_points`>>
+| 1..*
+| xref::class/UsagePoint.adoc[`UsagePoint`]
+| +++UsagePoint-s for this data set.+++
+|===
+
+'''
+
+
+//[discrete]
+[#ac_line_segments]
+=== `ac_line_segments`
++++The ACLineSegment-s in this data set.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.ACLineSegments`
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 1..*
+| Type
+| xref::class/ACLineSegment.adoc[`ACLineSegment`]
+
+
+|===
+
+//[discrete]
+[#active_power_limits]
+=== `active_power_limits`
++++ActivePowerLimit-s for this data set.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.ActivePowerLimits`
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 1..*
+| Type
+| xref::class/ActivePowerLimit.adoc[`ActivePowerLimit`]
+
+
+|===
+
+//[discrete]
+[#analog_measurements]
+=== `analog_measurements`
++++Measurement-s for this data set.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.AnalogMeasurements`
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 1..*
+| Type
+| xref::class/Analog.adoc[`Analog`]
+
+
+|===
+
+//[discrete]
+[#conforms_to]
+=== `conforms_to`
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/conformsTo[`dct:conformsTo`]
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 1
+| Type
+| n/a
+
+
+|===
+
+//[discrete]
+[#contact_point]
+=== `contact_point`
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://www.w3.org/ns/dcat#contactPoint[`dcat:contactPoint`]
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 1
+| Type
+| n/a
+
+
+|===
+
+//[discrete]
+[#energy_consumers]
+=== `energy_consumers`
++++EnergyConsumer-s for this data set.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.EnergyConsumers`
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 1..*
+| Type
+| xref::class/EnergyConsumer.adoc[`EnergyConsumer`]
+
+
+|===
+
+//[discrete]
+[#geographical_regions]
+=== `geographical_regions`
++++GeographicalRegion-s included in this data set.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.GeographicalRegions`
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 1..*
+| Type
+| xref::class/GeographicalRegion.adoc[`GeographicalRegion`]
+
+
+|===
+
+//[discrete]
+[#identifier]
+=== `identifier`
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/identifier[`dct:identifier`]
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 1
+| Type
+| n/a
+
+
+|===
+
+//[discrete]
+[#lines]
+=== `lines`
++++The Line-s within this data set.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.Lines`
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 1..*
+| Type
+| xref::class/Line.adoc[`Line`]
+
+
+|===
+
+//[discrete]
+[#market_participants]
+=== `market_participants`
++++MarketParticipant-s for this data set.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.MarketParticipants`
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 1..*
+| Type
+| xref::class/MarketParticipant.adoc[`MarketParticipant`]
+
+
+|===
+
+//[discrete]
+[#market_roles]
+=== `market_roles`
++++MarketRole-s for this data set.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.MarketRoles`
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 1..*
+| Type
+| xref::class/MarketRole.adoc[`MarketRole`]
+
+
+|===
+
+//[discrete]
+[#mkt_connectivity_nodes]
+=== `mkt_connectivity_nodes`
++++MktConnectivityNode-s for this data set.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.MktConnectivityNodes`
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 1..*
+| Type
+| xref::class/MktConnectivityNode.adoc[`MktConnectivityNode`]
+
+
+|===
+
+//[discrete]
+[#operational_limit_sets]
+=== `operational_limit_sets`
++++OperationalLimitSet-s for this data set.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.OperationalLimitSets`
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 1..*
+| Type
+| xref::class/OperationalLimitSet.adoc[`OperationalLimitSet`]
+
+
+|===
+
+//[discrete]
+[#power_transformers]
+=== `power_transformers`
++++The PowerTransformer-s in this data set.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.PowerTransformers`
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 1..*
+| Type
+| xref::class/PowerTransformer.adoc[`PowerTransformer`]
+
+
+|===
+
+//[discrete]
+[#registered_loads]
+=== `registered_loads`
++++RegisteredLoad-s for this data set.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.RegisteredLoads`
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 1..*
+| Type
+| xref::class/RegisteredLoad.adoc[`RegisteredLoad`]
+
+
+|===
+
+//[discrete]
+[#release_date]
+=== `release_date`
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/issued[`dct:issued`]
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 1
+| Type
+| https://w3id.org/linkml/Date[`date`]
+
+
+|===
+
+//[discrete]
+[#subgeographical_regions]
+=== `subgeographical_regions`
++++All SubGeographicalRegion-s within this data set.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.SubGeographicalRegions`
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 1..*
+| Type
+| xref::class/SubGeographicalRegion.adoc[`SubGeographicalRegion`]
+
+
+|===
+
+//[discrete]
+[#substations]
+=== `substations`
++++The Substation-s in this data set.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.Substations`
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 1..*
+| Type
+| xref::class/Substation.adoc[`Substation`]
+
+
+|===
+
+//[discrete]
+[#terminals]
+=== `terminals`
++++The Terminal-s for this data set.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.Terminals`
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 1..*
+| Type
+| xref::class/Terminal.adoc[`Terminal`]
+
+
+|===
+
+//[discrete]
+[#topological_nodes]
+=== `topological_nodes`
++++TopologicalNode-s for this data set.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.TopologicalNodes`
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 1..*
+| Type
+| xref::class/TopologicalNode.adoc[`TopologicalNode`]
+
+
+|===
+
+//[discrete]
+[#usage_points]
+=== `usage_points`
++++UsagePoint-s for this data set.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:ForecastDataSet.UsagePoints`
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 1..*
+| Type
+| xref::class/UsagePoint.adoc[`UsagePoint`]
+
+
+|===
+
+//[discrete]
+[#version]
+=== `version`
+
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://www.w3.org/2002/07/owl#versionInfo[`owl:versionInfo`]
+| Cardinalityxref:ROOT::cardinalities_explained.adoc[^?^,title="Explains stuff"]
+| 1
+| Type
+| n/a
+
+
+|===
+
+

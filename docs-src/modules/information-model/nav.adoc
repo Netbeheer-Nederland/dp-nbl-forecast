@@ -1,0 +1,209 @@
+[.truncate]
+* Information model
+** xref::index.adoc[Index]
+** Classes
+*** xref::class/ForecastDataSet.adoc[`ForecastDataSet` (root)]
+
+*** xref::class/ACDCTerminal.adoc[`ACDCTerminal`]
+
+
+
+*** xref::class/ACLineSegment.adoc[`ACLineSegment`]
+
+
+
+*** xref::class/ActivePowerLimit.adoc[`ActivePowerLimit`]
+
+
+
+*** xref::class/Analog.adoc[`Analog`]
+
+
+
+*** xref::class/AnalogValue.adoc[`AnalogValue`]
+
+
+
+*** xref::class/ConductingEquipment.adoc[`ConductingEquipment`]
+
+
+
+*** xref::class/Conductor.adoc[`Conductor`]
+
+
+
+*** xref::class/ConnectivityNode.adoc[`ConnectivityNode`]
+
+
+
+*** xref::class/ConnectivityNodeContainer.adoc[`ConnectivityNodeContainer`]
+
+
+
+*** xref::class/CoordinateSystem.adoc[`CoordinateSystem`]
+
+
+
+*** xref::class/EnergyConnection.adoc[`EnergyConnection`]
+
+
+
+*** xref::class/EnergyConsumer.adoc[`EnergyConsumer`]
+
+
+
+*** xref::class/Equipment.adoc[`Equipment`]
+
+
+
+*** xref::class/EquipmentContainer.adoc[`EquipmentContainer`]
+
+
+
+
+*** xref::class/GeographicalRegion.adoc[`GeographicalRegion`]
+
+
+
+*** xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+
+
+
+*** xref::class/IOPoint.adoc[`IOPoint`]
+
+
+
+*** xref::class/Line.adoc[`Line`]
+
+
+
+*** xref::class/Location.adoc[`Location`]
+
+
+
+*** xref::class/MarketParticipant.adoc[`MarketParticipant`]
+
+
+
+*** xref::class/MarketRole.adoc[`MarketRole`]
+
+
+
+*** xref::class/Measurement.adoc[`Measurement`]
+
+
+
+*** xref::class/MeasurementValue.adoc[`MeasurementValue`]
+
+
+
+*** xref::class/MktConnectivityNode.adoc[`MktConnectivityNode`]
+
+
+
+*** xref::class/Name.adoc[`Name`]
+
+
+
+*** xref::class/NameType.adoc[`NameType`]
+
+
+
+*** xref::class/NameTypeAuthority.adoc[`NameTypeAuthority`]
+
+
+
+*** xref::class/OperationalLimit.adoc[`OperationalLimit`]
+
+
+
+*** xref::class/OperationalLimitSet.adoc[`OperationalLimitSet`]
+
+
+
+*** xref::class/OperationalLimitType.adoc[`OperationalLimitType`]
+
+
+
+*** xref::class/Organisation.adoc[`Organisation`]
+
+
+
+*** xref::class/OrganisationRole.adoc[`OrganisationRole`]
+
+
+
+*** xref::class/PositionPoint.adoc[`PositionPoint`]
+
+
+
+*** xref::class/PowerSystemResource.adoc[`PowerSystemResource`]
+
+
+
+*** xref::class/PowerTransformer.adoc[`PowerTransformer`]
+
+
+
+*** xref::class/PowerTransformerEnd.adoc[`PowerTransformerEnd`]
+
+
+
+*** xref::class/RegisteredLoad.adoc[`RegisteredLoad`]
+
+
+
+*** xref::class/RegisteredResource.adoc[`RegisteredResource`]
+
+
+
+*** xref::class/StreetAddress.adoc[`StreetAddress`]
+
+
+
+*** xref::class/StreetDetail.adoc[`StreetDetail`]
+
+
+
+*** xref::class/SubGeographicalRegion.adoc[`SubGeographicalRegion`]
+
+
+
+*** xref::class/Substation.adoc[`Substation`]
+
+
+
+*** xref::class/Terminal.adoc[`Terminal`]
+
+
+
+*** xref::class/TopologicalNode.adoc[`TopologicalNode`]
+
+
+
+*** xref::class/TownDetail.adoc[`TownDetail`]
+
+
+
+*** xref::class/TransformerEnd.adoc[`TransformerEnd`]
+
+
+
+*** xref::class/UsagePoint.adoc[`UsagePoint`]
+
+
+
+** CIM data types
+*** xref::class/ActivePower.adoc[`ActivePower`]
+
+** Enumerations
+*** xref::enumeration/AmiBillingReadyKind.adoc[`AmiBillingReadyKind`]
+*** xref::enumeration/OperationalLimitDirectionKind.adoc[`OperationalLimitDirectionKind`]
+*** xref::enumeration/PhaseCode.adoc[`PhaseCode`]
+*** xref::enumeration/PhaseShuntConnectionKind.adoc[`PhaseShuntConnectionKind`]
+*** xref::enumeration/ResourceRegistrationStatus.adoc[`ResourceRegistrationStatus`]
+*** xref::enumeration/UnitMultiplier.adoc[`UnitMultiplier`]
+*** xref::enumeration/UnitSymbol.adoc[`UnitSymbol`]
+*** xref::enumeration/UsagePointConnectedKind.adoc[`UsagePointConnectedKind`]
+*** xref::enumeration/WindingConnection.adoc[`WindingConnection`]
+*** xref::enumeration/YesNo.adoc[`YesNo`]

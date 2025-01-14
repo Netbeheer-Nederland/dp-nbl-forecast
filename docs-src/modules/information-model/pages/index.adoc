@@ -1,0 +1,245 @@
+= Index
+
+== Classes
+
+[cols="1,2"]
+|===
+| Name | Description
+
+
+| xref::class/ForecastDataSet.adoc[`ForecastDataSet`]
+| +++A single instance of a published dataset.+++
+
+| xref::class/Name.adoc[`Name`]
+| +++The Name class provides the means to define any number of human readable  names for an object. A name is <b>not</b> to be used for defining inter-object relationships. For inter-object relationships instead use the object identification 'mRID'.+++
+
+| xref::class/NameType.adoc[`NameType`]
+| +++Type of name. Possible values for attribute 'name' are implementation dependent but standard profiles may specify types. An enterprise may have multiple IT systems each having its own local name for the same object, e.g. a planning system may have different names from an EMS. An object may also have different names within the same IT system, e.g. localName as defined in CIM version 14. The definition from CIM14 is:
+The localName is a human readable name of the object. It is a free text name local to a node in a naming hierarchy similar to a file directory structure. A power system related naming hierarchy may be: Substation, VoltageLevel, Equipment etc. Children of the same parent in such a hierarchy have names that typically are unique among them.+++
+
+| xref::class/NameTypeAuthority.adoc[`NameTypeAuthority`]
+| +++Authority responsible for creation and management of names of a given type; typically an organization or an enterprise system.+++
+
+| xref::class/IdentifiedObject.adoc[`IdentifiedObject`]
+| +++This is a root class to provide common identification for all classes needing identification and naming attributes.+++
+
+| xref::class/EnergyConnection.adoc[`EnergyConnection`]
+| +++A connection of energy generation or consumption on the power system model.+++
+
+| xref::class/ConductingEquipment.adoc[`ConductingEquipment`]
+| +++The parts of the AC power system that are designed to carry current or that are conductively connected through terminals.+++
+
+| xref::class/Terminal.adoc[`Terminal`]
+| +++An AC electrical connection point to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes.+++
+
+| xref::class/TopologicalNode.adoc[`TopologicalNode`]
+| +++For a detailed substation model a topological node is a set of connectivity nodes that, in the current network state, are connected together through any type of closed switches, including  jumpers. Topological nodes change as the current network state changes (i.e., switches, breakers, etc. change state).
+For a planning model, switch statuses are not used to form topological nodes. Instead they are manually created or deleted in a model builder tool. Topological nodes maintained this way are also called "busses".+++
+
+| xref::class/ConnectivityNodeContainer.adoc[`ConnectivityNodeContainer`]
+| +++A base class for all objects that may contain connectivity nodes or topological nodes.+++
+
+| xref::class/ConnectivityNode.adoc[`ConnectivityNode`]
+| +++Connectivity nodes are points where terminals of AC conducting equipment are connected together with zero impedance.+++
+
+| xref::class/TransformerEnd.adoc[`TransformerEnd`]
+| +++A conducting connection point of a power transformer. It corresponds to a physical transformer winding terminal.  In earlier CIM versions, the TransformerWinding class served a similar purpose, but this class is more flexible because it associates to terminal but is not a specialization of ConductingEquipment.+++
+
+| xref::class/Equipment.adoc[`Equipment`]
+| +++The parts of a power system that are physical devices, electronic or mechanical.+++
+
+| xref::class/OperationalLimitSet.adoc[`OperationalLimitSet`]
+| +++A set of limits associated with equipment.  Sets of limits might apply to a specific temperature, or season for example. A set of limits may contain different severities of limit levels that would apply to the same equipment. The set may contain limits of different types such as apparent power and current limits or high and low voltage limits  that are logically applied together as a set.+++
+
+| xref::class/ACDCTerminal.adoc[`ACDCTerminal`]
+| +++An electrical connection point (AC or DC) to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes.+++
+
+| xref::class/Measurement.adoc[`Measurement`]
+| +++A Measurement represents any measured, calculated or non-measured non-calculated quantity. Any piece of equipment may contain Measurements, e.g. a substation may have temperature measurements and door open indications, a transformer may have oil temperature and tank pressure measurements, a bay may contain a number of power flow measurements and a Breaker may contain a switch status measurement. 
+The PSR - Measurement association is intended to capture this use of Measurement and is included in the naming hierarchy based on EquipmentContainer. The naming hierarchy typically has Measurements as leaves, e.g. Substation-VoltageLevel-Bay-Switch-Measurement.
+Some Measurements represent quantities related to a particular sensor location in the network, e.g. a voltage transformer (VT) or potential transformer (PT) at a busbar or a current transformer (CT) at the bar between a breaker and an isolator. The sensing position is not captured in the PSR - Measurement association. Instead it is captured by the Measurement - Terminal association that is used to define the sensing location in the network topology. The location is defined by the connection of the Terminal to ConductingEquipment. 
+If both a Terminal and PSR are associated, and the PSR is of type ConductingEquipment, the associated Terminal should belong to that ConductingEquipment instance.
+When the sensor location is needed both Measurement-PSR and Measurement-Terminal are used.+++
+
+| xref::class/PowerSystemResource.adoc[`PowerSystemResource`]
+| +++A power system resource (PSR) can be an item of equipment such as a switch, an equipment container containing many individual items of equipment such as a substation, or an organisational entity such as sub-control area. Power system resources can have measurements associated.+++
+
+| xref::class/Location.adoc[`Location`]
+| +++The place, scene, or point of something where someone or something has been, is, and/or will be at a given moment in time. It can be defined with one or more position points (coordinates) in a given coordinate system.+++
+
+| xref::class/StreetAddress.adoc[`StreetAddress`]
+| +++General purpose street and postal address information.+++
+
+| xref::class/StreetDetail.adoc[`StreetDetail`]
+| +++Street details, in the context of address.+++
+
+| xref::class/TownDetail.adoc[`TownDetail`]
+| +++Town details, in the context of address.+++
+
+| xref::class/CoordinateSystem.adoc[`CoordinateSystem`]
+| +++Coordinate reference system.+++
+
+| xref::class/PositionPoint.adoc[`PositionPoint`]
+| +++Set of spatial coordinates that determine a point, defined in the coordinate system specified in 'Location.CoordinateSystem'. Use a single position point instance to describe a point-oriented location. Use a sequence of position points to describe a line-oriented object (physical location of non-point oriented objects like cables or lines), or area of an object (like a substation or a geographical zone - in this case, have first and last position point with the same values).+++
+
+| xref::class/OperationalLimit.adoc[`OperationalLimit`]
+| +++A value and normal value associated with a specific kind of limit. 
+The sub class value and normalValue attributes vary inversely to the associated OperationalLimitType.acceptableDuration (acceptableDuration for short).  
+If a particular piece of equipment has multiple operational limits of the same kind (apparent power, current, etc.), the limit with the greatest acceptableDuration shall have the smallest limit value and the limit with the smallest acceptableDuration shall have the largest limit value.  Note: A large current can only be allowed to flow through a piece of equipment for a short duration without causing damage, but a lesser current can be allowed to flow for a longer duration.+++
+
+| xref::class/OperationalLimitType.adoc[`OperationalLimitType`]
+| +++The operational meaning of a category of limits.+++
+
+| xref::class/EquipmentContainer.adoc[`EquipmentContainer`]
+| +++A modelling construct to provide a root class for containing equipment.+++
+
+| xref::class/UsagePoint.adoc[`UsagePoint`]
+| +++Logical or physical point in the network to which readings or events may be attributed. Used at the place where a physical or virtual meter may be located; however, it is not required that a meter be present.+++
+
+| xref::class/Substation.adoc[`Substation`]
+| +++A collection of equipment for purposes other than generation or utilization, through which electric energy in bulk is passed for the purposes of switching or modifying its characteristics.+++
+
+| xref::class/SubGeographicalRegion.adoc[`SubGeographicalRegion`]
+| +++A subset of a geographical region of a power system network model.+++
+
+| xref::class/Line.adoc[`Line`]
+| +++Contains equipment beyond a substation belonging to a power transmission line.+++
+
+| xref::class/GeographicalRegion.adoc[`GeographicalRegion`]
+| +++A geographical region of a power system network model.+++
+
+| xref::class/PowerTransformer.adoc[`PowerTransformer`]
+| +++An electrical device consisting of  two or more coupled windings, with or without a magnetic core, for introducing mutual coupling between electric circuits. Transformers can be used to control voltage and phase shift (active power flow).
+A power transformer may be composed of separate transformer tanks that need not be identical.
+A power transformer can be modelled with or without tanks and is intended for use in both balanced and unbalanced representations.   A power transformer typically has two terminals, but may have one (grounding), three or more terminals.
+The inherited association ConductingEquipment.BaseVoltage should not be used.  The association from TransformerEnd to BaseVoltage should be used instead.+++
+
+| xref::class/PowerTransformerEnd.adoc[`PowerTransformerEnd`]
+| +++A PowerTransformerEnd is associated with each Terminal of a PowerTransformer.
+The impedance values r, r0, x, and x0 of a PowerTransformerEnd represents a star equivalent as follows.
+1) for a two Terminal PowerTransformer the high voltage (TransformerEnd.endNumber=1) PowerTransformerEnd has non zero values on r, r0, x, and x0 while the low voltage (TransformerEnd.endNumber=2) PowerTransformerEnd has zero values for r, r0, x, and x0.  Parameters are always provided, even if the PowerTransformerEnds have the same rated voltage.  In this case, the parameters are provided at the PowerTransformerEnd which has TransformerEnd.endNumber equal to 1.
+2) for a three Terminal PowerTransformer the three PowerTransformerEnds represent a star equivalent with each leg in the star represented by r, r0, x, and x0 values.
+3) For a three Terminal transformer each PowerTransformerEnd shall have g, g0, b and b0 values corresponding to the no load losses distributed on the three PowerTransformerEnds. The total no load loss shunt impedances may also be placed at one of the PowerTransformerEnds, preferably the end numbered 1, having the shunt values on end 1.  This is the preferred way.
+4) for a PowerTransformer with more than three Terminals the PowerTransformerEnd impedance values cannot be used. Instead use the TransformerMeshImpedance or split the transformer into multiple PowerTransformers.
+Each PowerTransformerEnd must be contained by a PowerTransformer. Because a PowerTransformerEnd (or any other object) can not be contained by more than one parent, a PowerTransformerEnd can not have an association to an EquipmentContainer (Substation, VoltageLevel, etc).+++
+
+| xref::class/ACLineSegment.adoc[`ACLineSegment`]
+| +++A wire or combination of wires, with consistent electrical characteristics, building a single electrical system, used to carry alternating current between points in the power system.
+For symmetrical, transposed three phase lines, it is sufficient to use attributes of the line segment, which describe impedances and admittances for the entire length of the segment.  Additionally impedances can be computed by using length and associated per length impedances.
+The BaseVoltage at the two ends of ACLineSegments in a Line shall have the same BaseVoltage.nominalVoltage. However, boundary lines may have slightly different BaseVoltage.nominalVoltages and variation is allowed. Larger voltage difference in general requires use of an equivalent branch.+++
+
+| xref::class/Conductor.adoc[`Conductor`]
+| +++Combination of conducting material with consistent electrical characteristics, building a single electrical system, used to carry current between points in the power system.+++
+
+| xref::class/Analog.adoc[`Analog`]
+| +++Analog represents an analog Measurement.+++
+
+| xref::class/AnalogValue.adoc[`AnalogValue`]
+| +++AnalogValue represents an analog MeasurementValue.+++
+
+| xref::class/ActivePowerLimit.adoc[`ActivePowerLimit`]
+| +++Limit on active power flow.+++
+
+| xref::class/RegisteredLoad.adoc[`RegisteredLoad`]
+| +++Model of a load that is registered to participate in the market.
+
+RegisteredLoad is used to model any load that is served by the wholesale market directly. RegisteredLoads may be dispatchable or non-dispatchable and may or may not have bid curves. Examples of RegisteredLoads would include: distribution company load, energy retailer load, large bulk power system connected facility load.
+
+Loads that are served indirectly, for example - through an energy retailer or a vertical utility, should be modeled as RegisteredDistributedResources. Examples of RegisteredDistributedResources would include: distribution level storage, distribution level generation and distribution level demand response.+++
+
+| xref::class/RegisteredResource.adoc[`RegisteredResource`]
+| +++A resource that is registered through the market participant registration system. Examples include generating unit, load, and non-physical generator or load.+++
+
+| xref::class/MktConnectivityNode.adoc[`MktConnectivityNode`]
+| +++Subclass of IEC61970:Topology:ConnectivityNode.+++
+
+| xref::class/MarketParticipant.adoc[`MarketParticipant`]
+| +++An identification of a party acting in a electricity market business process. This class is used to identify organizations that can participate in market management and/or market operations.+++
+
+| xref::class/MarketRole.adoc[`MarketRole`]
+| +++The external intended behavior played by a party within the electricity market.+++
+
+| xref::class/Organisation.adoc[`Organisation`]
+| +++Organisation that might have roles as utility, contractor, supplier, manufacturer, customer, etc.+++
+
+| xref::class/OrganisationRole.adoc[`OrganisationRole`]
+| +++Identifies a way in which an organisation may participate in the utility enterprise (e.g., customer, manufacturer, etc).+++
+
+| xref::class/EnergyConsumer.adoc[`EnergyConsumer`]
+| +++Generic user of energy - a  point of consumption on the power system model.
+EnergyConsumer.pfixed, .qfixed, .pfixedPct and .qfixedPct have meaning only if there is no LoadResponseCharacteristic associated with EnergyConsumer or if LoadResponseCharacteristic.exponentModel is set to False.+++
+
+| xref::class/MeasurementValue.adoc[`MeasurementValue`]
+| +++The current state for a measurement. A state value is an instance of a measurement from a specific source. Measurements can be associated with many state values, each representing a different source for the measurement.+++
+
+| xref::class/IOPoint.adoc[`IOPoint`]
+| +++The class describe a measurement or control value. The purpose is to enable having attributes and associations common for measurement and control.+++
+
+|===
+
+== Types
+
+=== CIM data types
+
+[cols="1,2"]
+|===
+| Name | Description
+
+
+| xref::class/ActivePower.adoc[`ActivePower`]
+| +++Product of RMS value of the voltage and the RMS value of the in-phase component of the current.+++
+
+|===
+
+== Enumerations
+
+[cols="1,2"]
+|===
+| Name | Description
+
+| xref::enumeration/UnitMultiplier.adoc[`UnitMultiplier`]
+| +++The unit multipliers defined for the CIM.  When applied to unit symbols, the unit symbol is treated as a derived unit. Regardless of the contents of the unit symbol text, the unit symbol shall be treated as if it were a single-character unit symbol. Unit symbols should not contain multipliers, and it should be left to the multiplier to define the multiple for an entire data type. 
+
+For example, if a unit symbol is "m2Pers" and the multiplier is "k", then the value is k(m**2/s), and the multiplier applies to the entire final value, not to any individual part of the value. This can be conceptualized by substituting a derived unit symbol for the unit type. If one imagines that the symbol "Þ" represents the derived unit "m2Pers", then applying the multiplier "k" can be conceptualized simply as "kÞ".
+
+For example, the SI unit for mass is "kg" and not "g".  If the unit symbol is defined as "kg", then the multiplier is applied to "kg" as a whole and does not replace the "k" in front of the "g". In this case, the multiplier of "m" would be used with the unit symbol of "kg" to represent one gram.  As a text string, this violates the instructions in IEC 80000-1. However, because the unit symbol in CIM is treated as a derived unit instead of as an SI unit, it makes more sense to conceptualize the "kg" as if it were replaced by one of the proposed replacements for the SI mass symbol. If one imagines that the "kg" were replaced by a symbol "Þ", then it is easier to conceptualize the multiplier "m" as creating the proper unit "mÞ", and not the forbidden unit "mkg".+++
+
+| xref::enumeration/UnitSymbol.adoc[`UnitSymbol`]
+| +++The derived units defined for usage in the CIM. In some cases, the derived unit is equal to an SI unit. Whenever possible, the standard derived symbol is used instead of the formula for the derived unit. For example, the unit symbol Farad is defined as "F" instead of "CPerV". In cases where a standard symbol does not exist for a derived unit, the formula for the unit is used as the unit symbol. For example, density does not have a standard symbol and so it is represented as "kgPerm3". With the exception of the "kg", which is an SI unit, the unit symbols do not contain multipliers and therefore represent the base derived unit to which a multiplier can be applied as a whole. 
+Every unit symbol is treated as an unparseable text as if it were a single-letter symbol. The meaning of each unit symbol is defined by the accompanying descriptive text and not by the text contents of the unit symbol.
+To allow the widest possible range of serializations without requiring special character handling, several substitutions are made which deviate from the format described in IEC 80000-1. The division symbol "/" is replaced by the letters "Per". Exponents are written in plain text after the unit as "m3" instead of being formatted as "m" with a superscript of 3  or introducing a symbol as in "m^3". The degree symbol "°" is replaced with the letters "deg". Any clarification of the meaning for a substitution is included in the description for the unit symbol.
+Non-SI units are included in list of unit symbols to allow sources of data to be correctly labelled with their non-SI units (for example, a GPS sensor that is reporting numbers that represent feet instead of meters). This allows software to use the unit symbol information correctly convert and scale the raw data of those sources into SI-based units. 
+The integer values are used for harmonization with IEC 61850.+++
+
+| xref::enumeration/PhaseCode.adoc[`PhaseCode`]
+| +++An unordered enumeration of phase identifiers.  Allows designation of phases for both transmission and distribution equipment, circuits and loads.   The enumeration, by itself, does not describe how the phases are connected together or connected to ground.  Ground is not explicitly denoted as a phase.
+Residential and small commercial loads are often served from single-phase, or split-phase, secondary circuits. For the example of s12N, phases 1 and 2 refer to hot wires that are 180 degrees out of phase, while N refers to the neutral wire. Through single-phase transformer connections, these secondary circuits may be served from one or two of the primary phases A, B, and C. For three-phase loads, use the A, B, C phase codes instead of s12N.
+The integer values are from IEC 61968-9 to support revenue metering applications.+++
+
+| xref::enumeration/OperationalLimitDirectionKind.adoc[`OperationalLimitDirectionKind`]
+| +++The direction attribute describes the side of  a limit that is a violation.+++
+
+| xref::enumeration/AmiBillingReadyKind.adoc[`AmiBillingReadyKind`]
+| +++Lifecycle states of the metering installation at a usage point with respect to readiness for billing via advanced metering infrastructure reads.+++
+
+| xref::enumeration/UsagePointConnectedKind.adoc[`UsagePointConnectedKind`]
+| +++State of the usage point with respect to connection to the network.+++
+
+| xref::enumeration/WindingConnection.adoc[`WindingConnection`]
+| +++Winding connection type.+++
+
+| xref::enumeration/YesNo.adoc[`YesNo`]
+| +++Used as a flag set to Yes or No.+++
+
+| xref::enumeration/ResourceRegistrationStatus.adoc[`ResourceRegistrationStatus`]
+| +++Types of resource registration status, for example:
+
+Active
+Mothballed
+Planned
+Decommissioned+++
+
+| xref::enumeration/PhaseShuntConnectionKind.adoc[`PhaseShuntConnectionKind`]
+| +++The configuration of phase connections for a single terminal device such as a load or capacitor.+++
+
+|===
