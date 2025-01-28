@@ -783,21 +783,21 @@
             "description": "A single instance of a published dataset.",
             "properties": {
                 "ac_line_segments": {
-                    "description": "The ACLineSegment-s in this data set.",
+                    "description": "All instances of ACLineSegment-s",
                     "items": {
                         "$ref": "#/$defs/ACLineSegment"
                     },
                     "type": "array"
                 },
                 "active_power_limits": {
-                    "description": "ActivePowerLimit-s for this data set.",
+                    "description": "All instances of ActivePowerLimit-s",
                     "items": {
                         "$ref": "#/$defs/ActivePowerLimit"
                     },
                     "type": "array"
                 },
-                "analog_measurements": {
-                    "description": "Measurement-s for this data set.",
+                "analogs": {
+                    "description": "All instances of Analog-s",
                     "items": {
                         "$ref": "#/$defs/Analog"
                     },
@@ -809,15 +809,22 @@
                 "contact_point": {
                     "type": "string"
                 },
+                "coordinate_systems": {
+                    "description": "All instances of CoordinateSystem-s",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateSystem"
+                    },
+                    "type": "array"
+                },
                 "energy_consumers": {
-                    "description": "EnergyConsumer-s for this data set.",
+                    "description": "All instances of EnergyConsumer-s",
                     "items": {
                         "$ref": "#/$defs/EnergyConsumer"
                     },
                     "type": "array"
                 },
                 "geographical_regions": {
-                    "description": "GeographicalRegion-s included in this data set.",
+                    "description": "All instances of GeographicalRegion-s",
                     "items": {
                         "$ref": "#/$defs/GeographicalRegion"
                     },
@@ -827,88 +834,87 @@
                     "type": "string"
                 },
                 "lines": {
-                    "description": "The Line-s within this data set.",
+                    "description": "All instances of Line-s",
                     "items": {
                         "$ref": "#/$defs/Line"
                     },
                     "type": "array"
                 },
                 "market_participants": {
-                    "description": "MarketParticipant-s for this data set.",
+                    "description": "All instances of MarketParticipant-s",
                     "items": {
                         "$ref": "#/$defs/MarketParticipant"
                     },
                     "type": "array"
                 },
                 "market_roles": {
-                    "description": "MarketRole-s for this data set.",
+                    "description": "All instances of MarketRole-s",
                     "items": {
                         "$ref": "#/$defs/MarketRole"
                     },
                     "type": "array"
                 },
                 "mkt_connectivity_nodes": {
-                    "description": "MktConnectivityNode-s for this data set.",
+                    "description": "All instances of MktConnectivityNode-s",
                     "items": {
                         "$ref": "#/$defs/MktConnectivityNode"
                     },
                     "type": "array"
                 },
                 "operational_limit_sets": {
-                    "description": "OperationalLimitSet-s for this data set.",
+                    "description": "All instances of OperationalLimitSet-s",
                     "items": {
                         "$ref": "#/$defs/OperationalLimitSet"
                     },
                     "type": "array"
                 },
                 "power_transformers": {
-                    "description": "The PowerTransformer-s in this data set.",
+                    "description": "All instances of PowerTransformer-s",
                     "items": {
                         "$ref": "#/$defs/PowerTransformer"
                     },
                     "type": "array"
                 },
                 "registered_loads": {
-                    "description": "RegisteredLoad-s for this data set.",
+                    "description": "All instances of RegisteredLoad-s",
                     "items": {
                         "$ref": "#/$defs/RegisteredLoad"
                     },
                     "type": "array"
                 },
                 "release_date": {
-                    "format": "date",
                     "type": "string"
                 },
-                "subgeographical_regions": {
-                    "description": "All SubGeographicalRegion-s within this data set.",
+                "sub_geographical_regions": {
+                    "description": "All instances of SubGeographicalRegion-s",
                     "items": {
                         "$ref": "#/$defs/SubGeographicalRegion"
                     },
                     "type": "array"
                 },
                 "substations": {
-                    "description": "The Substation-s in this data set.",
+                    "description": "All instances of Substation-s",
                     "items": {
                         "$ref": "#/$defs/Substation"
                     },
                     "type": "array"
                 },
                 "terminals": {
-                    "description": "The Terminal-s for this data set.",
+                    "description": "All instances of Terminal-s",
                     "items": {
                         "$ref": "#/$defs/Terminal"
                     },
                     "type": "array"
                 },
                 "topological_nodes": {
-                    "description": "TopologicalNode-s for this data set.",
+                    "description": "All instances of TopologicalNode-s",
                     "items": {
                         "$ref": "#/$defs/TopologicalNode"
                     },
                     "type": "array"
                 },
                 "usage_points": {
-                    "description": "UsagePoint-s for this data set.",
+                    "description": "All instances of UsagePoint-s",
                     "items": {
                         "$ref": "#/$defs/UsagePoint"
                     },
@@ -920,27 +926,28 @@
             },
             "required": [
                 "identifier",
-                "contact_point",
                 "conforms_to",
+                "contact_point",
                 "release_date",
                 "version",
-                "geographical_regions",
-                "subgeographical_regions",
-                "lines",
+                "terminals",
+                "topological_nodes",
+                "operational_limit_sets",
+                "coordinate_systems",
+                "usage_points",
                 "substations",
+                "sub_geographical_regions",
+                "lines",
+                "geographical_regions",
                 "power_transformers",
                 "ac_line_segments",
-                "terminals",
-                "analog_measurements",
-                "operational_limit_sets",
+                "analogs",
                 "active_power_limits",
-                "topological_nodes",
-                "energy_consumers",
-                "usage_points",
-                "mkt_connectivity_nodes",
                 "registered_loads",
+                "mkt_connectivity_nodes",
                 "market_participants",
-                "market_roles"
+                "market_roles",
+                "energy_consumers"
             ],
             "title": "ForecastDataSet",
             "type": "object"
@@ -2540,21 +2547,21 @@
     "metamodel_version": "1.7.0",
     "properties": {
         "ac_line_segments": {
-            "description": "The ACLineSegment-s in this data set.",
+            "description": "All instances of ACLineSegment-s",
             "items": {
                 "$ref": "#/$defs/ACLineSegment"
             },
             "type": "array"
         },
         "active_power_limits": {
-            "description": "ActivePowerLimit-s for this data set.",
+            "description": "All instances of ActivePowerLimit-s",
             "items": {
                 "$ref": "#/$defs/ActivePowerLimit"
             },
             "type": "array"
         },
-        "analog_measurements": {
-            "description": "Measurement-s for this data set.",
+        "analogs": {
+            "description": "All instances of Analog-s",
             "items": {
                 "$ref": "#/$defs/Analog"
             },
@@ -2566,15 +2573,22 @@
         "contact_point": {
             "type": "string"
         },
+        "coordinate_systems": {
+            "description": "All instances of CoordinateSystem-s",
+            "items": {
+                "$ref": "#/$defs/CoordinateSystem"
+            },
+            "type": "array"
+        },
         "energy_consumers": {
-            "description": "EnergyConsumer-s for this data set.",
+            "description": "All instances of EnergyConsumer-s",
             "items": {
                 "$ref": "#/$defs/EnergyConsumer"
             },
             "type": "array"
         },
         "geographical_regions": {
-            "description": "GeographicalRegion-s included in this data set.",
+            "description": "All instances of GeographicalRegion-s",
             "items": {
                 "$ref": "#/$defs/GeographicalRegion"
             },
@@ -2584,88 +2598,87 @@
             "type": "string"
         },
         "lines": {
-            "description": "The Line-s within this data set.",
+            "description": "All instances of Line-s",
             "items": {
                 "$ref": "#/$defs/Line"
             },
             "type": "array"
         },
         "market_participants": {
-            "description": "MarketParticipant-s for this data set.",
+            "description": "All instances of MarketParticipant-s",
             "items": {
                 "$ref": "#/$defs/MarketParticipant"
             },
             "type": "array"
         },
         "market_roles": {
-            "description": "MarketRole-s for this data set.",
+            "description": "All instances of MarketRole-s",
             "items": {
                 "$ref": "#/$defs/MarketRole"
             },
             "type": "array"
         },
         "mkt_connectivity_nodes": {
-            "description": "MktConnectivityNode-s for this data set.",
+            "description": "All instances of MktConnectivityNode-s",
             "items": {
                 "$ref": "#/$defs/MktConnectivityNode"
             },
             "type": "array"
         },
         "operational_limit_sets": {
-            "description": "OperationalLimitSet-s for this data set.",
+            "description": "All instances of OperationalLimitSet-s",
             "items": {
                 "$ref": "#/$defs/OperationalLimitSet"
             },
             "type": "array"
         },
         "power_transformers": {
-            "description": "The PowerTransformer-s in this data set.",
+            "description": "All instances of PowerTransformer-s",
             "items": {
                 "$ref": "#/$defs/PowerTransformer"
             },
             "type": "array"
         },
         "registered_loads": {
-            "description": "RegisteredLoad-s for this data set.",
+            "description": "All instances of RegisteredLoad-s",
             "items": {
                 "$ref": "#/$defs/RegisteredLoad"
             },
             "type": "array"
         },
         "release_date": {
-            "format": "date",
             "type": "string"
         },
-        "subgeographical_regions": {
-            "description": "All SubGeographicalRegion-s within this data set.",
+        "sub_geographical_regions": {
+            "description": "All instances of SubGeographicalRegion-s",
             "items": {
                 "$ref": "#/$defs/SubGeographicalRegion"
             },
             "type": "array"
         },
         "substations": {
-            "description": "The Substation-s in this data set.",
+            "description": "All instances of Substation-s",
             "items": {
                 "$ref": "#/$defs/Substation"
             },
             "type": "array"
         },
         "terminals": {
-            "description": "The Terminal-s for this data set.",
+            "description": "All instances of Terminal-s",
             "items": {
                 "$ref": "#/$defs/Terminal"
             },
             "type": "array"
         },
         "topological_nodes": {
-            "description": "TopologicalNode-s for this data set.",
+            "description": "All instances of TopologicalNode-s",
             "items": {
                 "$ref": "#/$defs/TopologicalNode"
             },
             "type": "array"
         },
         "usage_points": {
-            "description": "UsagePoint-s for this data set.",
+            "description": "All instances of UsagePoint-s",
             "items": {
                 "$ref": "#/$defs/UsagePoint"
             },
@@ -2677,27 +2690,28 @@
     },
     "required": [
         "identifier",
-        "contact_point",
         "conforms_to",
+        "contact_point",
         "release_date",
         "version",
-        "geographical_regions",
-        "subgeographical_regions",
-        "lines",
+        "terminals",
+        "topological_nodes",
+        "operational_limit_sets",
+        "coordinate_systems",
+        "usage_points",
         "substations",
+        "sub_geographical_regions",
+        "lines",
+        "geographical_regions",
         "power_transformers",
         "ac_line_segments",
-        "terminals",
-        "analog_measurements",
-        "operational_limit_sets",
+        "analogs",
         "active_power_limits",
-        "topological_nodes",
-        "energy_consumers",
-        "usage_points",
-        "mkt_connectivity_nodes",
         "registered_loads",
+        "mkt_connectivity_nodes",
         "market_participants",
-        "market_roles"
+        "market_roles",
+        "energy_consumers"
     ],
     "title": "NBLForecastDataproduct",
     "type": "object",

@@ -581,140 +581,146 @@ classes:
         slot_uri: dct:identifier
         multivalued: false
         required: true
-      contact_point:
-        slot_uri: dcat:contactPoint
-        multivalued: false
-        required: true
       conforms_to:
         slot_uri: dct:conformsTo
+        multivalued: false
+        required: true
+      contact_point:
+        slot_uri: dct:contactPoint
         multivalued: false
         required: true
       release_date:
         slot_uri: dct:issued
         multivalued: false
-        range: date
         required: true
       version:
         slot_uri: owl:versionInfo
         multivalued: false
         required: true
-      geographical_regions:
-        description: GeographicalRegion-s included in this data set.
-        slot_uri: this:ForecastDataSet.GeographicalRegions
+      terminals:
+        description: All instances of Terminal-s
+        slot_uri: this:ForecastDataSet.terminals
         multivalued: true
-        range: GeographicalRegion
+        range: Terminal
         required: true
         inlined_as_list: true
-      subgeographical_regions:
-        description: All SubGeographicalRegion-s within this data set.
-        slot_uri: this:ForecastDataSet.SubGeographicalRegions
+      topological_nodes:
+        description: All instances of TopologicalNode-s
+        slot_uri: this:ForecastDataSet.topologicalNodes
+        multivalued: true
+        range: TopologicalNode
+        required: true
+        inlined_as_list: true
+      operational_limit_sets:
+        description: All instances of OperationalLimitSet-s
+        slot_uri: this:ForecastDataSet.operationalLimitSets
+        multivalued: true
+        range: OperationalLimitSet
+        required: true
+        inlined_as_list: true
+      coordinate_systems:
+        description: All instances of CoordinateSystem-s
+        slot_uri: this:ForecastDataSet.coordinateSystems
+        multivalued: true
+        range: CoordinateSystem
+        required: true
+        inlined_as_list: true
+      usage_points:
+        description: All instances of UsagePoint-s
+        slot_uri: this:ForecastDataSet.usagePoints
+        multivalued: true
+        range: UsagePoint
+        required: true
+        inlined_as_list: true
+      substations:
+        description: All instances of Substation-s
+        slot_uri: this:ForecastDataSet.substations
+        multivalued: true
+        range: Substation
+        required: true
+        inlined_as_list: true
+      sub_geographical_regions:
+        description: All instances of SubGeographicalRegion-s
+        slot_uri: this:ForecastDataSet.subGeographicalRegions
         multivalued: true
         range: SubGeographicalRegion
         required: true
         inlined_as_list: true
       lines:
-        description: The Line-s within this data set.
-        slot_uri: this:ForecastDataSet.Lines
+        description: All instances of Line-s
+        slot_uri: this:ForecastDataSet.lines
         multivalued: true
         range: Line
         required: true
         inlined_as_list: true
-      substations:
-        description: The Substation-s in this data set.
-        slot_uri: this:ForecastDataSet.Substations
+      geographical_regions:
+        description: All instances of GeographicalRegion-s
+        slot_uri: this:ForecastDataSet.geographicalRegions
         multivalued: true
-        range: Substation
+        range: GeographicalRegion
         required: true
         inlined_as_list: true
       power_transformers:
-        description: The PowerTransformer-s in this data set.
-        slot_uri: this:ForecastDataSet.PowerTransformers
+        description: All instances of PowerTransformer-s
+        slot_uri: this:ForecastDataSet.powerTransformers
         multivalued: true
         range: PowerTransformer
         required: true
         inlined_as_list: true
       ac_line_segments:
-        description: The ACLineSegment-s in this data set.
-        slot_uri: this:ForecastDataSet.ACLineSegments
+        description: All instances of ACLineSegment-s
+        slot_uri: this:ForecastDataSet.aCLineSegments
         multivalued: true
         range: ACLineSegment
         required: true
         inlined_as_list: true
-      terminals:
-        description: The Terminal-s for this data set.
-        slot_uri: this:ForecastDataSet.Terminals
-        multivalued: true
-        range: Terminal
-        required: true
-        inlined_as_list: true
-      analog_measurements:
-        description: Measurement-s for this data set.
-        slot_uri: this:ForecastDataSet.AnalogMeasurements
+      analogs:
+        description: All instances of Analog-s
+        slot_uri: this:ForecastDataSet.analogs
         multivalued: true
         range: Analog
         required: true
         inlined_as_list: true
-      operational_limit_sets:
-        description: OperationalLimitSet-s for this data set.
-        slot_uri: this:ForecastDataSet.OperationalLimitSets
-        multivalued: true
-        range: OperationalLimitSet
-        required: true
-        inlined_as_list: true
       active_power_limits:
-        description: ActivePowerLimit-s for this data set.
-        slot_uri: this:ForecastDataSet.ActivePowerLimits
+        description: All instances of ActivePowerLimit-s
+        slot_uri: this:ForecastDataSet.activePowerLimits
         multivalued: true
         range: ActivePowerLimit
         required: true
         inlined_as_list: true
-      topological_nodes:
-        description: TopologicalNode-s for this data set.
-        slot_uri: this:ForecastDataSet.TopologicalNodes
-        multivalued: true
-        range: TopologicalNode
-        required: true
-        inlined_as_list: true
-      energy_consumers:
-        description: EnergyConsumer-s for this data set.
-        slot_uri: this:ForecastDataSet.EnergyConsumers
-        multivalued: true
-        range: EnergyConsumer
-        required: true
-        inlined_as_list: true
-      usage_points:
-        description: UsagePoint-s for this data set.
-        slot_uri: this:ForecastDataSet.UsagePoints
-        multivalued: true
-        range: UsagePoint
-        required: true
-        inlined_as_list: true
-      mkt_connectivity_nodes:
-        description: MktConnectivityNode-s for this data set.
-        slot_uri: this:ForecastDataSet.MktConnectivityNodes
-        multivalued: true
-        range: MktConnectivityNode
-        required: true
-        inlined_as_list: true
       registered_loads:
-        description: RegisteredLoad-s for this data set.
-        slot_uri: this:ForecastDataSet.RegisteredLoads
+        description: All instances of RegisteredLoad-s
+        slot_uri: this:ForecastDataSet.registeredLoads
         multivalued: true
         range: RegisteredLoad
         required: true
         inlined_as_list: true
+      mkt_connectivity_nodes:
+        description: All instances of MktConnectivityNode-s
+        slot_uri: this:ForecastDataSet.mktConnectivityNodes
+        multivalued: true
+        range: MktConnectivityNode
+        required: true
+        inlined_as_list: true
       market_participants:
-        description: MarketParticipant-s for this data set.
-        slot_uri: this:ForecastDataSet.MarketParticipants
+        description: All instances of MarketParticipant-s
+        slot_uri: this:ForecastDataSet.marketParticipants
         multivalued: true
         range: MarketParticipant
         required: true
         inlined_as_list: true
       market_roles:
-        description: MarketRole-s for this data set.
-        slot_uri: this:ForecastDataSet.MarketRoles
+        description: All instances of MarketRole-s
+        slot_uri: this:ForecastDataSet.marketRoles
         multivalued: true
         range: MarketRole
+        required: true
+        inlined_as_list: true
+      energy_consumers:
+        description: All instances of EnergyConsumer-s
+        slot_uri: this:ForecastDataSet.energyConsumers
+        multivalued: true
+        range: EnergyConsumer
         required: true
         inlined_as_list: true
     class_uri: this:ForecastDataSet
