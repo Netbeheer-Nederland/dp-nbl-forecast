@@ -611,13 +611,6 @@ classes:
         range: TopologicalNode
         required: true
         inlined_as_list: true
-      operational_limit_sets:
-        description: All instances of OperationalLimitSet-s
-        slot_uri: this:ForecastDataSet.operationalLimitSets
-        multivalued: true
-        range: OperationalLimitSet
-        required: true
-        inlined_as_list: true
       coordinate_systems:
         description: All instances of CoordinateSystem-s
         slot_uri: this:ForecastDataSet.coordinateSystems
@@ -679,13 +672,6 @@ classes:
         slot_uri: this:ForecastDataSet.analogs
         multivalued: true
         range: Analog
-        required: true
-        inlined_as_list: true
-      active_power_limits:
-        description: All instances of ActivePowerLimit-s
-        slot_uri: this:ForecastDataSet.activePowerLimits
-        multivalued: true
-        range: ActivePowerLimit
         required: true
         inlined_as_list: true
       registered_loads:
@@ -802,12 +788,12 @@ classes:
         range: string
         required: true
         identifier: true
-      names:
-        description: All names of this identified object.
-        slot_uri: cim:IdentifiedObject.Names
-        multivalued: true
-        range: Name
-        required: false
+      #names:
+      #  description: All names of this identified object.
+      #  slot_uri: cim:IdentifiedObject.Names
+      #  multivalued: true
+      #  range: Name
+      #  required: false
     class_uri: cim:IdentifiedObject
   ActivePower:
     annotations:
@@ -958,6 +944,7 @@ classes:
         multivalued: true
         range: OperationalLimitSet
         required: false
+        inlined_as_list: true
       usage_points:
         description: All usage points connected to the electrical grid through this
           equipment.
